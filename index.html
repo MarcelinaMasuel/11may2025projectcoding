@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ms">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>FIRST PAGE</title>
   <style>
     body {
@@ -11,24 +11,11 @@
       background: #fce4ec;
     }
 
-    .title-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .title-container img {
-      width: 100px;
-      height: auto;
-    }
-
     .wave-text span {
       display: inline-block;
       animation: waveMotion 1.5s ease-in-out infinite;
     }
 
-    /* Set delay for wave text */
     .wave-text span:nth-child(1) { animation-delay: 0s; }
     .wave-text span:nth-child(2) { animation-delay: 0.1s; }
     .wave-text span:nth-child(3) { animation-delay: 0.2s; }
@@ -43,11 +30,11 @@
       100% { transform: translateY(0px); }
     }
 
-    .button-container {
-      margin-top: 30px;
+    h1 {
+      font-size: 28px;
     }
 
-    .wave-button {
+    button {
       font-size: 20px;
       padding: 15px 30px;
       margin: 10px;
@@ -56,29 +43,31 @@
       cursor: pointer;
       background-color: #f06292;
       color: white;
-      animation: waveMotion 2s ease-in-out infinite;
+      animation: waveMotion 1.5s ease-in-out infinite;
     }
 
-    .wave-button:hover {
+    button:hover {
       background-color: #ec407a;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
     }
   </style>
 </head>
 <body>
 
-  <div class="title-container">
-    <div class="wave-text">
-      <h1>
-        <span>HELLO</span>
-        <span>SAHABAT</span>
-        <span>YANG</span>
-        <span>SAYA</span>
-        <span>SAYANGI</span>
-        <span>💗</span>
-        <span>!!</span>
-      </h1>
-    </div>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Cat_pink_icon.png/240px-Cat_pink_icon.png" alt="Cute Cat" style="background: transparent;">
+  <div class="wave-text">
+    <h1>
+      <span>HELLO</span>
+      <span>SAHABAT</span>
+      <span>YANG</span>
+      <span>SAYA</span>
+      <span>SAYANGI</span>
+      <span>❤️</span>
+      <span>!!</span>
+    </h1>
   </div>
 
   <div class="wave-text" style="margin-top: 20px;">
@@ -90,11 +79,9 @@
     </p>
   </div>
 
-  <div class="button-container">
-    <button class="wave-button" onclick="checkPassword('PIPI')">JANELVY</button>
-    <button class="wave-button" onclick="checkPassword('b')">B</button>
-    <button class="wave-button" onclick="checkPassword('c')">C</button>
-  </div>
+  <button onclick="checkPassword('PIPI')">JANELVY</button>
+  <button onclick="checkPassword('b')">B</button>
+  <button onclick="checkPassword('c')">C</button>
 
   <script>
     function checkPassword(option) {
@@ -106,7 +93,7 @@
 
       const input = prompt("APA PASSWORD KAU HUH, " + option.toUpperCase());
       if (input === passwords[option]) {
-        window.location.href = option + ".html";
+        window.location.href = option.toUpperCase() + ".html";
       } else {
         alert("MACAM MANA KAU BOLEH SALAH PASSWORD NI " + option.toUpperCase());
       }
