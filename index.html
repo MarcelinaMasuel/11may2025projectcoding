@@ -25,9 +25,10 @@
 
     .wave-text span {
       display: inline-block;
+      animation: waveMotion 1.5s ease-in-out infinite;
     }
 
-    /* Set delay for each word to create wave effect */
+    /* Delay untuk efek gelombang */
     .wave-text span:nth-child(1) { animation-delay: 0s; }
     .wave-text span:nth-child(2) { animation-delay: 0.1s; }
     .wave-text span:nth-child(3) { animation-delay: 0.2s; }
@@ -37,9 +38,9 @@
     .wave-text span:nth-child(7) { animation-delay: 0.6s; }
 
     @keyframes waveMotion {
-      0%   { transform: translateY(0px); }
+      0%   { transform: translateY(0); }
       50%  { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
+      100% { transform: translateY(0); }
     }
 
     button {
@@ -72,6 +73,7 @@
         <span>!!</span>
       </h1>
     </div>
+  </div>
 
   <div class="wave-text" style="margin-top: 20px;">
     <p>
@@ -94,9 +96,15 @@
         c: 'cherry'
       };
 
+      const filenames = {
+        PIPI: 'PIPI.html',
+        b: 'b.html',
+        c: 'c.html'
+      };
+
       const input = prompt("APA PASSWORD KAU HUH, " + option.toUpperCase());
       if (input === passwords[option]) {
-        window.location.href = option + ".html";
+        window.location.href = "pages/" + filenames[option];
       } else {
         alert("MACAM MANA KAU BOLEH SALAH PASSWORD NI " + option.toUpperCase());
       }
