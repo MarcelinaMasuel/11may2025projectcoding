@@ -18,17 +18,12 @@
       gap: 20px;
     }
 
-    .title-container img {
-      width: 100px;
-      height: auto;
-    }
-
     .wave-text span {
       display: inline-block;
       animation: waveMotion 1.5s ease-in-out infinite;
     }
 
-    /* Delay untuk efek gelombang */
+    /* Set delay for each word to create wave effect */
     .wave-text span:nth-child(1) { animation-delay: 0s; }
     .wave-text span:nth-child(2) { animation-delay: 0.1s; }
     .wave-text span:nth-child(3) { animation-delay: 0.2s; }
@@ -38,9 +33,9 @@
     .wave-text span:nth-child(7) { animation-delay: 0.6s; }
 
     @keyframes waveMotion {
-      0%   { transform: translateY(0); }
+      0%   { transform: translateY(0px); }
       50%  { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
+      100% { transform: translateY(0px); }
     }
 
     button {
@@ -73,6 +68,7 @@
         <span>!!</span>
       </h1>
     </div>
+  
   </div>
 
   <div class="wave-text" style="margin-top: 20px;">
@@ -96,15 +92,9 @@
         c: 'cherry'
       };
 
-      const filenames = {
-        PIPI: 'PIPI.html',
-        b: 'b.html',
-        c: 'c.html'
-      };
-
       const input = prompt("APA PASSWORD KAU HUH, " + option.toUpperCase());
       if (input === passwords[option]) {
-        window.location.href = "pages/" + filenames[option];
+        window.location.href = "pages/" + option.toUpperCase() + ".html";
       } else {
         alert("MACAM MANA KAU BOLEH SALAH PASSWORD NI " + option.toUpperCase());
       }
