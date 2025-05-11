@@ -100,7 +100,9 @@
 
       const input = prompt("APA PASSWORD KAU HUH, " + option.toUpperCase());
       if (input === passwords[option]) {
-      <a href="pages/optionUppcerCase.html">Pergi ke Halaman 2</a>
+  // Redirect ke halaman ikut pilihan
+  window.location.href = `pages/${option.toLowerCase()}.html`;
+   }
 
       } else {
         alert("MACAM MANA KAU BOLEH SALAH PASSWORD NI " + option.toUpperCase());
