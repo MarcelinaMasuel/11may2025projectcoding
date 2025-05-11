@@ -74,7 +74,6 @@
         <span>!!</span>
       </h1>
     </div>
- 
   </div>
 
   <div class="wave-text" style="margin-top: 20px;">
@@ -100,10 +99,8 @@
 
       const input = prompt("APA PASSWORD KAU HUH, " + option.toUpperCase());
       if (input === passwords[option]) {
-  // Redirect ke halaman ikut pilihan
-  window.location.href = `pages/${option.toLowerCase()}.html`;
-   }
-
+        // Redirect to the appropriate page
+        window.location.href = "pages/" + option.toUpperCase() + ".html";
       } else {
         alert("MACAM MANA KAU BOLEH SALAH PASSWORD NI " + option.toUpperCase());
       }
