@@ -8,7 +8,8 @@
       font-family: Arial, sans-serif;
       text-align: center;
       padding-top: 100px;
-      background: #fce4ec;
+      animation: backgroundCycle 14s linear infinite;
+      transition: background-color 3.5s ease-in-out;
     }
 
     .wave-text span {
@@ -25,9 +26,17 @@
     .wave-text span:nth-child(7) { animation-delay: 0.6s; }
 
     @keyframes waveMotion {
-      0%   { transform: translateY(0px); }
-      50%  { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-2px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes backgroundCycle {
+      0%   { background-color: #FFA6C9; }
+      25%  { background-color: #87CEEB; }
+      50%  { background-color: #C8A2C8; }
+      75%  { background-color: #98FF98; }
+      100% { background-color: #FFA6C9; }
     }
 
     h1 {
@@ -41,18 +50,63 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      background-color: #f06292;
+      background-color: #FFA6C9;
       color: white;
       animation: waveMotion 1.5s ease-in-out infinite;
+      transition: transform 0.3s ease;
     }
 
-    button:hover {
-      background-color: #ec407a;
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .clicked {
+      animation: clickEffect 0.3s;
+    }
+
+    @keyframes clickEffect {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.1) rotate(1deg); }
+      100% { transform: scale(1); }
+    }
+
+    .password-form {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .password-form.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    input[type="password"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+
+    #submitPassword {
+      background-color: #87CEEB;
+      margin-left: 10px;
     }
 
     p {
       font-size: 18px;
       margin-bottom: 20px;
+    }
+
+    #errorMessage {
+      color: red;
+      margin-top: 10px;
+      display: none;
     }
   </style>
 </head>
@@ -79,23 +133,53 @@
     </p>
   </div>
 
-  <button onclick="checkPassword('PIPI')">JANELVY</button>
-  <button onclick="checkPassword('b')">B</button>
-  <button onclick="checkPassword('c')">C</button>
+  <button onclick="buttonClicked(this, 'PIPI')">JANELVY</button>
+  <button onclick="buttonClicked(this, 'b')">B</button>
+  <button onclick="buttonClicked(this, 'c')">C</button>
+
+  <div class="password-form" id="passwordForm">
+    <p>MASUKKAN PASSSWORD KAU DULU, <span id="optionLabel"></span>:</p>
+    <input type="password" id="passwordInput" placeholder="Masukkan password..." />
+    <button id="submitPassword" onclick="submitPassword()">ENTER</button>
+    <div id="errorMessage">SORRY WAK, PASSWORD SALAH! </div>
+  </div>
+
+  <audio id="clickSound" src="click.mp3"></audio>
 
   <script>
-    function checkPassword(option) {
+    let currentOption = "";
+
+    function buttonClicked(button, option) {
+      const clickSound = document.getElementById("clickSound");
+      clickSound.currentTime = 0;
+      clickSound.play();
+
+      button.classList.add("clicked");
+      setTimeout(() => {
+        button.classList.remove("clicked");
+        currentOption = option;
+        document.getElementById("optionLabel").innerText = option.toUpperCase();
+        document.getElementById("passwordForm").classList.add("active");
+        document.getElementById("passwordInput").value = "";
+        document.getElementById("errorMessage").style.display = "none";
+        document.getElementById("passwordInput").focus();
+      }, 300);
+    }
+
+    function submitPassword() {
       const passwords = {
         PIPI: '0401lepastutakde',
         b: 'banana',
         c: 'cherry'
       };
 
-      const input = prompt("APA PASSWORD KAU HUH, " + option.toUpperCase());
-      if (input === passwords[option]) {
-        window.location.href = option + ".html";
+      const input = document.getElementById("passwordInput").value;
+      const errorMsg = document.getElementById("errorMessage");
+
+      if (input === passwords[currentOption]) {
+        window.location.href = currentOption + ".html";
       } else {
-        alert("MACAM MANA KAU BOLEH SALAH PASSWORD NI " + option.toUpperCase());
+        errorMsg.style.display = "block";
       }
     }
   </script>
