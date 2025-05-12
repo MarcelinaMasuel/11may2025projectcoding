@@ -12,20 +12,37 @@
       padding: 40px;
       display: none;
     }
+
     h1 {
       text-align: center;
       color: #cc3366;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
     }
+
     .content {
       max-width: 800px;
       margin: auto;
       line-height: 1.8;
       white-space: pre-wrap;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      opacity: 0;
+      animation: fadeIn 3s forwards;
     }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
     .navigation {
       text-align: center;
       margin-top: 40px;
     }
+
     .navigation a {
       display: inline-block;
       margin: 10px;
@@ -35,11 +52,14 @@
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
-      transition: background-color 0.3s;
+      opacity: 0;
+      animation: fadeIn 0.7s forwards;
     }
-    .navigation a:hover {
-      background-color: #ff66a3;
-    }
+
+    .navigation a:nth-of-type(1) { animation-delay: 0.5s; }
+    .navigation a:nth-of-type(2) { animation-delay: 0.7s; }
+    .navigation a:nth-of-type(3) { animation-delay: 0.9s; }
+    .navigation a:nth-of-type(4) { animation-delay: 1.1s; }
   </style>
   <script>
     const allowedReferrers = [
