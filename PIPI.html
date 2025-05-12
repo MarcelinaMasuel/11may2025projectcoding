@@ -10,7 +10,7 @@
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 40px;
-      display: none; /* disembunyikan dulu sehingga password betul */
+      display: none; /* Sembunyi kandungan awal-awal */
     }
     h1 {
       color: #d63384;
@@ -38,6 +38,19 @@
       text-decoration: underline;
     }
   </style>
+  <script>
+    // Prompt password sebelum paparkan kandungan
+    const correctPassword = "pipipassword"; // Ganti dengan password pilihan awak
+    const userPassword = prompt("Masukkan kata laluan untuk masuk:");
+
+    if (userPassword === correctPassword) {
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.display = "block";
+      });
+    } else {
+      document.write("<h2 style='color: red; text-align: center;'>Kata laluan salah. Awak tak boleh masuk.</h2>");
+    }
+  </script>
 </head>
 <body>
   <h1> 𝓙𝓐𝓝𝓔𝓛𝓥𝓨 / 𝓟𝓘𝓟𝓘 </h1>
@@ -62,19 +75,6 @@
     <a href="form2-bahagian14.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 14</a>
     <a href="form2-bahagian15.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 15</a>
   </div>
-
-  <script>
-    // Tukar password di sini
-    const correctPassword = "0401lepastutakde";
-
-    const userPassword = prompt("Please re-enter the password");
-    if (userPassword === correctPassword) {
-      document.body.style.display = "block";
-    } else {
-      alert("𝑃𝐴𝑆𝑆𝑊𝑂𝑅𝐷 𝑆𝐴𝐿𝐴𝐻 𝐿𝐸𝑅𝑅 𝑊𝐴𝐾𝐾");
-      document.body.innerHTML = ""; // kosongkan paparan
-    }
-  </script>
 </body>
 </html>
 
