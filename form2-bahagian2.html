@@ -10,6 +10,7 @@
       font-family: Arial, sans-serif;
       color: #660033;
       padding: 40px;
+      display: none;
     }
     h1 {
       text-align: center;
@@ -40,18 +41,42 @@
       background-color: #ff66a3;
     }
   </style>
+  <script>
+    const allowedReferrers = [
+      "https://marcelinamasuel.github.io/11may2025projectcoding/",
+      "https://marcelinamasuel.github.io/11may2025projectcoding/PIPI.html"
+    ];
+
+    const fromAllowedPage = allowedReferrers.some(url => document.referrer.startsWith(url));
+
+    if (fromAllowedPage) {
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.display = "block";
+      });
+    } else {
+      const password = prompt("Masukkan kata laluan:");
+      if (password === "akusorangjeadapassword") {
+        document.addEventListener("DOMContentLoaded", () => {
+          document.body.style.display = "block";
+        });
+      } else {
+        document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
+      }
+    }
+  </script>
 </head>
 <body>
-  <h1>FORM 2 - 𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 2</h1>
+  <h1>FORM 2 - 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 2</h1>
   <div class="content">
     <!-- Gantikan teks di bawah ini dengan isi surat bahagian 2 -->
     Aku tau aku pernah kasih tau kau aku lesb. But, don't ever think I have a crush on you. Aku takkan suka kau lebih dari kawan and aku tak nak anggap kau lebih dari kawan. Kau sorang je yang tau aku lesb. Aku tak kasih tau orang lain sbb aku takut kalau aku kasih tau diorang, friendship kitorang will never be the same again. Time aku kasih tau kau aku lesb, otak aku mcam 'lantak lah kalau pipi dah tknk jadi kawan aku, kesah'. Then yah, aku kasih tau kau aku lesb. But, our friendship still remained the same, which is not what I expected to happen. I'm so grateful that our friendship didn't change.
   </div>
 
-  <div class="navigation">
-    <a href="PIPI.html">← 𝒦ℯ𝓂𝒷𝒶𝓁𝒾 𝓀ℯ 𝓈ℯ𝓃𝒶𝓇𝒶𝒾 𝒷𝒶𝒽𝒶𝑔𝒾𝒶𝓃</a>
-    <a href="form2-bahagian1.html">← ℬ𝒶𝒽𝒶𝑔𝒾𝒶𝓃 𝒮ℯ𝒷ℯ𝓁𝓊𝓂𝓃𝓎𝒶</a>
-    <a href="form2-bahagian3.html">ℬ𝒶𝒽𝒶𝑔𝒾𝒶𝓃 𝒮ℯ𝓉ℯ𝓇𝓊𝓈𝓃𝓎𝒶 →</a>
+   <div class="navigation">
+    <a href="PIPI.html">← 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝑆𝐸𝑁𝐴𝑅𝐴𝐼 𝑃𝐼𝐿𝐼𝐻𝐴𝑁 </a>
+    <a href="form2-bahagian1.html">← 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝛣𝐸𝐿𝑈𝑀𝑁𝑌𝐴</a>
+    <a href="form2-bahagian3.html">𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝑇𝐸𝑅𝑈𝑆𝑁𝑌𝐴 →</a>
+    <a href="index.html"> 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝐻𝐴𝐿𝐴𝑀𝐴𝑁 𝑈𝑇𝐴𝑀𝐴 </a>
   </div>
 </body>
 </html>
