@@ -12,20 +12,37 @@
       padding: 40px;
       display: none;
     }
+
     h1 {
       text-align: center;
       color: #cc3366;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
     }
+
     .content {
       max-width: 800px;
       margin: auto;
       line-height: 1.8;
       white-space: pre-wrap;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      opacity: 0;
+      animation: fadeIn 3s forwards;
     }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
     .navigation {
       text-align: center;
       margin-top: 40px;
     }
+
     .navigation a {
       display: inline-block;
       margin: 10px;
@@ -35,11 +52,14 @@
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
-      transition: background-color 0.3s;
+      opacity: 0;
+      animation: fadeIn 0.7s forwards;
     }
-    .navigation a:hover {
-      background-color: #ff66a3;
-    }
+
+    .navigation a:nth-of-type(1) { animation-delay: 0.5s; }
+    .navigation a:nth-of-type(2) { animation-delay: 0.7s; }
+    .navigation a:nth-of-type(3) { animation-delay: 0.9s; }
+    .navigation a:nth-of-type(4) { animation-delay: 1.1s; }
   </style>
   <script>
     const allowedReferrers = [
@@ -68,14 +88,15 @@
 <body>
   <h1>FORM 2 - 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 1</h1>
   <div class="content">
-    TBH, I consider you as my bestfriend. You're one of my favourite person, one of my favourite friend in the whole universe. I don't want to lose you, I don't want to lose another bongsu bestfriend. Kalau kau nak tau, kau bongsu bestfriend aku yang ketiga yang aku pernah ada. Yang pertama, kitorang kawan time kindergarden, dia independent, berani, pengawas (darjah 2) dan dia yang menginspirasikan aku untuk jadi pengawas. But now, kitorang dah lost contact sbb aku pindah. Second, kiotorang kenal time darjah 3 and rapat masa darjah 5/6, dia feminim and selalu tolong aku bila aku minta tolong. But, same thing happened, we lost contact sbb dia pergi sekolah lain. BTW mereka berdua tu chinese. And you're the third one! I hope I don't lose another bongsu bestfriend. And, don't ever think I'll leave you, I'm also scared to lose you. Im sorry kalau ada perkataan yang keluar dari mulut aku sakitkan hati kau, aku tak sengaja and aku tak bermaksud.
+    TBH, I consider you as my bestfriend. You're one of my favourite person, one of my favourite friend in the whole universe. I don't want to lose you, I don't want to lose another bongsu bestfriend. Kalau kau nak tau, kau bongsu bestfriend aku yang ketiga yang aku pernah ada. Yang pertama, kitorang kawan time kindergarden, dia independent, berani, pengawas (darjah 2) dan dia yang menginspirasikan aku untuk jadi pengawas. But now, kitorang dah lost contact sbb aku pindah. Second, kitorang kenal time darjah 3 and rapat masa darjah 5/6, dia feminim and selalu tolong aku bila aku minta tolong. But, same thing happened, we lost contact sbb dia pergi sekolah lain. BTW mereka berdua tu chinese. And you're the third one! I hope I don't lose another bongsu bestfriend. And, don't ever think I'll leave you, I'm also scared to lose you. Im sorry kalau ada perkataan yang keluar dari mulut aku sakitkan hati kau, aku tak sengaja and aku tak bermaksud.
   </div>
 
-   <div class="navigation">
-    <a href="PIPI.html">← 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝑆𝐸𝑁𝐴𝑅𝐴𝐼 𝑃𝐼𝐿𝐼𝐻𝐴𝑁 </a>
+  <div class="navigation">
+    <a href="PIPI.html">← 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝑆𝐸𝑁𝐴𝑅𝐴𝐼 𝑃𝐼𝐿𝐼𝐻𝐴𝑁</a>
     <a href="PIPI.html">← 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝛣𝐸𝐿𝑈𝑀𝑁𝑌𝐴</a>
     <a href="form2-bahagian2.html">𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝑇𝐸𝑅𝑈𝑆𝑁𝑌𝐴 →</a>
-    <a href="index.html"> 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝐻𝐴𝐿𝐴𝑀𝐴𝑁 𝑈𝑇𝐴𝑀𝐴 </a>
+    <a href="index.html">𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝐻𝐴𝐿𝐴𝑀𝐴𝑁 𝑈𝑇𝐴𝑀𝐴</a>
   </div>
 </body>
 </html>
+
