@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FORM 2 - Bahagian 12</title>
-  <style>
+   <style>
     body {
       background-color: #fff0f5;
       font-family: Arial, sans-serif;
       color: #660033;
       padding: 40px;
+      display: none;
     }
     h1 {
       text-align: center;
@@ -40,18 +41,41 @@
       background-color: #ff66a3;
     }
   </style>
+  <script>
+    const allowedReferrers = [
+      "https://marcelinamasuel.github.io/11may2025projectcoding/",
+      "https://marcelinamasuel.github.io/11may2025projectcoding/PIPI.html"
+    ];
+
+    const fromAllowedPage = allowedReferrers.some(url => document.referrer.startsWith(url));
+
+    if (fromAllowedPage) {
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.display = "block";
+      });
+    } else {
+      const password = prompt("Masukkan kata laluan:");
+      if (password === "akusorangjeadapassword") {
+        document.addEventListener("DOMContentLoaded", () => {
+          document.body.style.display = "block";
+        });
+      } else {
+        document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
+      }
+    }
+  </script>
 </head>
 <body>
-  <h1>FORM 2 - 𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 12</h1>
+  <h1>FORM 2 - 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 12</h1>
   <div class="content">
-    <!-- Gantikan teks di bawah ini dengan isi surat bahagian 2 -->
    Aku ada lah sikit trust issue dengan kau, walaupun kau masih simpan rahsiah terbesar aku. Aku overthinking, y'know? I always 'Betul ke pipi nak kawan dengan aku? Macam nak tak nak je dia ni.' 'Takut dia terasa lah' 'Dia sengaja ke apa ni'. I hate the way I overthinking. I hate that I have trust issue on you. I always try to tell myself to trust you. Always try to tell myself you love me as your friend. Always try to tell myself you want to be my friend. But it always fails. Fails because the trauma my ex bsf gave me. I still can't move on from that friendship. She fixed my trust issue but she made them come back to me. The moments when she congrats me, made sure I weren't being left out... Oh, how much I missed it...
   </div>
 
   <div class="navigation">
-    <a href="PIPI.html">← 𝒦ℯ𝓂𝒷𝒶𝓁𝒾 𝓀ℯ 𝓈ℯ𝓃𝒶𝓇𝒶𝒾 𝒷𝒶𝒽𝒶𝑔𝒾𝒶𝓃</a>
-    <a href="form2-bahagian11.html">← ℬ𝒶𝒽𝒶𝑔𝒾𝒶𝓃 𝒮ℯ𝒷ℯ𝓁𝓊𝓂𝓃𝓎𝒶</a>
-    <a href="form2-bahagian13.html">ℬ𝒶𝒽𝒶𝑔𝒾𝒶𝓃 𝒮ℯ𝓉ℯ𝓇𝓊𝓈𝓃𝓎𝒶 →</a>
+    <a href="PIPI.html">← 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝑆𝐸𝑁𝐴𝑅𝐴𝐼 𝑃𝐼𝐿𝐼𝐻𝐴𝑁 </a>
+    <a href="form2-bahagian11.html">← 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝛣𝐸𝐿𝑈𝑀𝑁𝑌𝐴</a>
+    <a href="form2-bahagian13.html">𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝑇𝐸𝑅𝑈𝑆𝑁𝑌𝐴 →</a>
+    <a href="index.html"> 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝐻𝐴𝐿𝐴𝑀𝐴𝑁 𝑈𝑇𝐴𝑀𝐴 </a>
   </div>
 </body>
 </html>
