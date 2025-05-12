@@ -10,7 +10,7 @@
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 40px;
-      display: none; /* Sembunyi kandungan awal-awal */
+      display: none;
     }
     h1 {
       color: #d63384;
@@ -39,16 +39,26 @@
     }
   </style>
   <script>
-    // Prompt password sebelum paparkan kandungan
-    const correctPassword = "pipipassword"; // Ganti dengan password pilihan awak
-    const userPassword = prompt("Masukkan kata laluan untuk masuk:");
+    // Laman asal yang dibenarkan (homepage)
+    const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
 
-    if (userPassword === correctPassword) {
+    const fromHomePage = document.referrer.startsWith(allowedReferrer);
+
+    if (fromHomePage) {
+      // Kalau datang dari laman utama, terus benarkan masuk
       document.addEventListener("DOMContentLoaded", () => {
         document.body.style.display = "block";
       });
     } else {
-      document.write("<h2 style='color: red; text-align: center;'>Kata laluan salah. Awak tak boleh masuk.</h2>");
+      // Kalau tidak, minta password
+      const password = prompt("LU PIKIR SENANG-SENANG SAJA KA MAU MASUK INI WEBSITE. KASIH MASUK PASSWORD DULU.");
+      if (password === "akusorangjeadapassword") {
+        document.addEventListener("DOMContentLoaded", () => {
+          document.body.style.display = "block";
+        });
+      } else {
+        document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
+      }
     }
   </script>
 </head>
@@ -77,4 +87,3 @@
   </div>
 </body>
 </html>
-
