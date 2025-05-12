@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FORM 2 - Bahagian 10</title>
+  <title>FORM 2 - Bahagian 1</title>
   <style>
     body {
       background-color: #fff0f5;
       font-family: Arial, sans-serif;
       color: #660033;
       padding: 40px;
+      display: none;
     }
     h1 {
       text-align: center;
@@ -40,9 +41,32 @@
       background-color: #ff66a3;
     }
   </style>
+  <script>
+    const allowedReferrers = [
+      "https://marcelinamasuel.github.io/11may2025projectcoding/",
+      "https://marcelinamasuel.github.io/11may2025projectcoding/PIPI.html"
+    ];
+
+    const fromAllowedPage = allowedReferrers.some(url => document.referrer.startsWith(url));
+
+    if (fromAllowedPage) {
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.display = "block";
+      });
+    } else {
+      const password = prompt("Masukkan kata laluan:");
+      if (password === "awakpipi") {
+        document.addEventListener("DOMContentLoaded", () => {
+          document.body.style.display = "block";
+        });
+      } else {
+        document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
+      }
+    }
+  </script>
 </head>
 <body>
-  <h1>FORM 2 - 𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 10</h1>
+  <h1>FORM 2 - 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 10</h1>
   <div class="content">
     And, kalau kau tanya, kenapa aku tak nak kasih tarikh spesifik aku pindah, sebab aku tak nak kasih spoiler. I want to leave silently. Aku tak nak last day of school aku kat SMK Sibujaya sedih, aku nak datang macam biasa, belajar macam biasa, rehat macam biasa and balik macam biasa walaupun otak aku mungkin akan kucar-kacir. Aku tak nak orang layan aku lain hanya sebab aku nak pindah. Aku tak nak orang tiba² spend time dengan aku sebab aku nak pindah. Tapi ada lah orang yang tau bila aku pindah, tau tahun and bulan je lah. Kalau orang tanya 'bila kau pindah' aku selalunya jawab 'sebelum kita graduate sama²'. Kalau suatu hari nanti aku dah tak ada dekat sekolah... ingat yang aku pernah sayang kau dari jauh, diam-diam, dan sepenuh hati
 
