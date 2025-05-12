@@ -10,6 +10,45 @@
       padding-top: 100px;
       animation: backgroundCycle 14s linear infinite;
       transition: background-color 3.5s ease-in-out;
+      overflow-x: hidden;
+    }
+
+    /* Intro screen */
+    #intro {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOutIntro 2s ease 3s forwards;
+    }
+
+    #intro img {
+      width: 150px;
+      height: auto;
+      animation: waveBear 2s infinite;
+    }
+
+    #intro p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+
+    @keyframes waveBear {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(10deg); }
+    }
+
+    @keyframes fadeOutIntro {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
 
     .wave-text span {
@@ -53,7 +92,12 @@
       background-color: #FFA6C9;
       color: white;
       animation: waveMotion 1.5s ease-in-out infinite;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 10px #FFA6C9;
+    }
+
+    button:hover {
+      box-shadow: 0 0 20px #ff69b4, 0 0 30px #ff1493;
     }
 
     button:active {
@@ -112,6 +156,13 @@
 </head>
 <body>
 
+  <!-- INTRO ANIMATION -->
+  <div id="intro">
+    <img src="taptap.gif" alt="">
+    <p>HAII! TUNGGU KEJAP YA WAK!</p>
+  </div>
+
+  <!-- MAIN CONTENT -->
   <div class="wave-text">
     <h1>
       <span>HELLO</span>
@@ -147,6 +198,11 @@
   <audio id="clickSound" src="click.mp3"></audio>
 
   <script>
+    // Hide intro after 4 seconds
+    setTimeout(() => {
+      document.getElementById("intro").style.display = "none";
+    }, 4000);
+
     let currentOption = "";
 
     function buttonClicked(button, option) {
