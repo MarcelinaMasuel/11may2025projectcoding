@@ -10,6 +10,7 @@
       font-family: Arial, sans-serif;
       color: #660033;
       padding: 40px;
+      display: none;
     }
     h1 {
       text-align: center;
@@ -40,19 +41,43 @@
       background-color: #ff66a3;
     }
   </style>
+  <script>
+    const allowedReferrers = [
+      "https://marcelinamasuel.github.io/11may2025projectcoding/",
+      "https://marcelinamasuel.github.io/11may2025projectcoding/PIPI.html"
+    ];
+
+    const fromAllowedPage = allowedReferrers.some(url => document.referrer.startsWith(url));
+
+    if (fromAllowedPage) {
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.display = "block";
+      });
+    } else {
+      const password = prompt("Masukkan kata laluan:");
+      if (password === "akusorangjeadapassword") {
+        document.addEventListener("DOMContentLoaded", () => {
+          document.body.style.display = "block";
+        });
+      } else {
+        document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
+      }
+    }
+  </script>
 </head>
 <body>
-  <h1>FORM 2 - 𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 13</h1>
+  <h1>FORM 2 - 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 13</h1>
   <div class="content">
     <!-- Gantikan teks di bawah ini dengan isi surat bahagian 2 -->
  Kalau kau nak tau, aku banyak kali mention nama kau in my prayers. Every morning and every night. I still remember how I pray for you while I'm crying... I asked God to make your life easier. I asked God to tell you how much I love and care about you. And, it's the first time I asked God to make someone's life easier and tell them how much I love and care about them. Even tho I'm scared to mention a friend's name that I love, sebab setiap kali aku mention nama sorang kawan, dia selalu tinggalkan aku. But, I'll take the risk, for you.
 
   </div>
 
-  <div class="navigation">
-    <a href="PIPI.html">← 𝒦ℯ𝓂𝒷𝒶𝓁𝒾 𝓀ℯ 𝓈ℯ𝓃𝒶𝓇𝒶𝒾 𝒷𝒶𝒽𝒶𝑔𝒾𝒶𝓃</a>
-    <a href="form2-bahagian12.html">← ℬ𝒶𝒽𝒶𝑔𝒾𝒶𝓃 𝒮ℯ𝒷ℯ𝓁𝓊𝓂𝓃𝓎𝒶</a>
-    <a href="form2-bahagian14.html">ℬ𝒶𝒽𝒶𝑔𝒾𝒶𝓃 𝒮ℯ𝓉ℯ𝓇𝓊𝓈𝓃𝓎𝒶 →</a>
+   <div class="navigation">
+    <a href="PIPI.html">← 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝑆𝐸𝑁𝐴𝑅𝐴𝐼 𝑃𝐼𝐿𝐼𝐻𝐴𝑁 </a>
+    <a href="form2-bahagian12.html">← 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝛣𝐸𝐿𝑈𝑀𝑁𝑌𝐴</a>
+    <a href="form2-bahagian14.html">𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝑇𝐸𝑅𝑈𝑆𝑁𝑌𝐴 →</a>
+    <a href="index.html"> 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝐻𝐴𝐿𝐴𝑀𝐴𝑁 𝑈𝑇𝐴𝑀𝐴 </a>
   </div>
 </body>
 </html>
