@@ -10,6 +10,7 @@
       font-family: Arial, sans-serif;
       color: #660033;
       padding: 40px;
+      display: none;
     }
     h1 {
       text-align: center;
@@ -40,18 +41,43 @@
       background-color: #ff66a3;
     }
   </style>
+  <script>
+    const allowedReferrers = [
+      "https://marcelinamasuel.github.io/11may2025projectcoding/",
+      "https://marcelinamasuel.github.io/11may2025projectcoding/PIPI.html"
+    ];
+
+    const fromAllowedPage = allowedReferrers.some(url => document.referrer.startsWith(url));
+
+    if (fromAllowedPage) {
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.display = "block";
+      });
+    } else {
+      const password = prompt("Masukkan kata laluan:");
+      if (password === "akusorangjeadapassword") {
+        document.addEventListener("DOMContentLoaded", () => {
+          document.body.style.display = "block";
+        });
+      } else {
+        document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
+      }
+    }
+  </script>
 </head>
 <body>
-  <h1>FORM 2 - 𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 9</h1>
+  <h1>FORM 2 - 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 9</h1>
   <div class="content">
     <!-- Gantikan teks di bawah ini dengan isi surat bahagian 2 -->
     Aku fikir² lah jugak 'nak sent ke tak eh bende panjang ni time aku nak pindah, haritu aku sent bapak panjang message kat G***** tapi kena dry, 3 kali plak tu.' Tapi tulah, tersent kan, nak buat camne. But, after I read your respond, haishh, aku tak tau lah macam mana nak cakap, it felt like I have a friend who's truly love me and it's the first time I felt that way. And don't worry, aku tak terasa pun masa ko mintak aku tukar tempat dengan Farisha, ada lah terasa sikit but its ok, normal sh*ts. I mean, aku kalau time belajar memang diam pun, walaupun otak aku tak focus kat cikgu and barely past my exams 😌. Lagipun aku tknk kau bosan sooo yeahhhh. Lagipun Farisha kan pengawas, korang boleh bersama time intervensi and PJ je, kalau aku? Masa datang boleh, rehat boleh, balik boleh. So, after cilak ciluk otak aku, I finally decided to say 'ok'. Aku tau lah korang boleh lepak luar sekolah, video call ape semua, tapi aku nak korang buat memori di sekolah juga.
   </div>
 
   <div class="navigation">
-    <a href="PIPI.html">← 𝒦ℯ𝓂𝒷𝒶𝓁𝒾 𝓀ℯ 𝓈ℯ𝓃𝒶𝓇𝒶𝒾 𝒷𝒶𝒽𝒶𝑔𝒾𝒶𝓃</a>
-    <a href="form2-bahagian8.html">← ℬ𝒶𝒽𝒶𝑔𝒾𝒶𝓃 𝒮ℯ𝒷ℯ𝓁𝓊𝓂𝓃𝓎𝒶</a>
-    <a href="form2-bahagian10.html">ℬ𝒶𝒽𝒶𝑔𝒾𝒶𝓃 𝒮ℯ𝓉ℯ𝓇𝓊𝓈𝓃𝓎𝒶 →</a>
+    <a href="PIPI.html">← 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝑆𝐸𝑁𝐴𝑅𝐴𝐼 𝑃𝐼𝐿𝐼𝐻𝐴𝑁 </a>
+    <a href="form2-bahagian8.html">← 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝛣𝐸𝐿𝑈𝑀𝑁𝑌𝐴</a>
+    <a href="form2-bahagian10.html">𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝑇𝐸𝑅𝑈𝑆𝑁𝑌𝐴 →</a>
+    <a href="index.html"> 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝐻𝐴𝐿𝐴𝑀𝐴𝑁 𝑈𝑇𝐴𝑀𝐴 </a>
+  </div>
   </div>
 </body>
 </html>
