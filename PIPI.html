@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JANELVY</title>
+  <title>𝓙𝓐𝓝𝓔𝓛𝓥𝓨 / 𝓟𝓘𝓟𝓘</title>
   <style>
     body {
       background-color: #ffe6f0;
@@ -15,10 +15,21 @@
     h1 {
       color: #d63384;
       font-size: 3em;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 0.2s;
     }
     h2 {
       color: #cc6699;
       font-size: 1.5em;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+    h2:nth-of-type(1) {
+      animation-delay: 0.4s;
+    }
+    h2:nth-of-type(2) {
+      animation-delay: 0.6s;
     }
     .form-section {
       margin-top: 40px;
@@ -26,6 +37,9 @@
     .form-section h3 {
       margin-bottom: 20px;
       color: #bf4080;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+      animation-delay: 0.8s;
     }
     .form-section a {
       display: block;
@@ -33,24 +47,80 @@
       color: #99004d;
       text-decoration: none;
       font-weight: bold;
+      opacity: 0;
+      animation-duration: 0.6s;
+      animation-fill-mode: forwards;
     }
-    .form-section a:hover {
-      text-decoration: underline;
+
+    /* Fade in */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
+
+    /* Slide from left */
+    @keyframes slideFromLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Slide from right */
+    @keyframes slideFromRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Selang seli */
+    .form-section a:nth-of-type(odd) {
+      animation-name: slideFromLeft;
+    }
+
+    .form-section a:nth-of-type(even) {
+      animation-name: slideFromRight;
+    }
+
+    /* Delay setiap link */
+    .form-section a:nth-of-type(1)  { animation-delay: 1s; }
+    .form-section a:nth-of-type(2)  { animation-delay: 1.2s; }
+    .form-section a:nth-of-type(3)  { animation-delay: 1.4s; }
+    .form-section a:nth-of-type(4)  { animation-delay: 1.6s; }
+    .form-section a:nth-of-type(5)  { animation-delay: 1.8s; }
+    .form-section a:nth-of-type(6)  { animation-delay: 2.0s; }
+    .form-section a:nth-of-type(7)  { animation-delay: 2.2s; }
+    .form-section a:nth-of-type(8)  { animation-delay: 2.4s; }
+    .form-section a:nth-of-type(9)  { animation-delay: 2.6s; }
+    .form-section a:nth-of-type(10) { animation-delay: 2.8s; }
+    .form-section a:nth-of-type(11) { animation-delay: 3.0s; }
+    .form-section a:nth-of-type(12) { animation-delay: 3.2s; }
+    .form-section a:nth-of-type(13) { animation-delay: 3.4s; }
+    .form-section a:nth-of-type(14) { animation-delay: 3.6s; }
+    .form-section a:nth-of-type(15) { animation-delay: 3.8s; }
   </style>
   <script>
-    // Laman asal yang dibenarkan (homepage)
     const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
-
     const fromHomePage = document.referrer.startsWith(allowedReferrer);
 
     if (fromHomePage) {
-      // Kalau datang dari laman utama, terus benarkan masuk
       document.addEventListener("DOMContentLoaded", () => {
         document.body.style.display = "block";
       });
     } else {
-      // Kalau tidak, minta password
       const password = prompt("LU PIKIR SENANG-SENANG SAJA KA MAU MASUK INI WEBSITE. KASIH MASUK PASSWORD DULU.");
       if (password === "akusorangjeadapassword") {
         document.addEventListener("DOMContentLoaded", () => {
@@ -63,27 +133,27 @@
   </script>
 </head>
 <body>
-  <h1> 𝓙𝓐𝓝𝓔𝓛𝓥𝓨 / 𝓟𝓘𝓟𝓘 </h1>
+  <h1> 𝚥𝐴𝑁𝐸𝐿𝑉𝑌 / 𝑃𝐼𝑃𝐼 </h1>
   <h2> -𝑷𝑰𝑳𝑰𝑯 𝑩𝑨𝑯𝑨𝑮𝑰𝑨𝑵 𝒀𝑨𝑵𝑮 𝑨𝑾𝑨𝑲 𝑵𝑨𝑲 𝑩𝑨𝑪𝑨- </h2>
   <h2>--𝘣𝘢𝘩𝘢𝘨𝘪𝘢𝘯 1-7 𝘬𝘢𝘶 𝘥𝘢𝘩 𝘣𝘢𝘤𝘢 𝘴𝘦𝘣𝘢𝘣 𝘵𝘪𝘮𝘦 𝘵𝘶 𝘢𝘬𝘶 𝘵𝘦𝘳𝘴𝘦𝘯𝘵, 𝘴𝘰 𝘬𝘢𝘶 𝘣𝘰𝘭𝘦𝘩 𝘴𝘬𝘪𝘱 𝘬𝘢𝘭𝘢𝘶 𝘯𝘢𝘬--</h2>
 
   <div class="form-section">
     <h3>FORM 2</h3>
-    <a href="form2-bahagian1.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 1</a>
-    <a href="form2-bahagian2.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 2</a>
-    <a href="form2-bahagian3.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 3</a>
-    <a href="form2-bahagian4.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 4</a>
-    <a href="form2-bahagian5.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 5</a>
-    <a href="form2-bahagian6.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 6</a>
-    <a href="form2-bahagian7.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 7</a>
-    <a href="form2-bahagian8.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 8</a>
-    <a href="form2-bahagian9.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 9</a>
-    <a href="form2-bahagian10.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 10</a>
-    <a href="form2-bahagian11.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 11</a>
-    <a href="form2-bahagian12.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 12</a>
-    <a href="form2-bahagian13.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 13</a>
-    <a href="form2-bahagian14.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 14</a>
-    <a href="form2-bahagian15.html">𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷 15</a>
+    <a href="form2-bahagian1.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 1</a>
+    <a href="form2-bahagian2.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 2</a>
+    <a href="form2-bahagian3.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 3</a>
+    <a href="form2-bahagian4.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 4</a>
+    <a href="form2-bahagian5.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 5</a>
+    <a href="form2-bahagian6.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 6</a>
+    <a href="form2-bahagian7.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 7</a>
+    <a href="form2-bahagian8.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 8</a>
+    <a href="form2-bahagian9.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 9</a>
+    <a href="form2-bahagian10.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 10</a>
+    <a href="form2-bahagian11.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 11</a>
+    <a href="form2-bahagian12.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 12</a>
+    <a href="form2-bahagian13.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 13</a>
+    <a href="form2-bahagian14.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 14</a>
+    <a href="form2-bahagian15.html">𝛣𝑎𝒉𝑎𝑔𝑖𝑎𝑛 15</a>
   </div>
 </body>
 </html>
