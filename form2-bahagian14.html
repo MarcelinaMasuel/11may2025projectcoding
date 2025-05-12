@@ -10,6 +10,7 @@
       font-family: Arial, sans-serif;
       color: #660033;
       padding: 40px;
+      display: none;
     }
     h1 {
       text-align: center;
@@ -40,18 +41,42 @@
       background-color: #ff66a3;
     }
   </style>
+  <script>
+    const allowedReferrers = [
+      "https://marcelinamasuel.github.io/11may2025projectcoding/",
+      "https://marcelinamasuel.github.io/11may2025projectcoding/PIPI.html"
+    ];
+
+    const fromAllowedPage = allowedReferrers.some(url => document.referrer.startsWith(url));
+
+    if (fromAllowedPage) {
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.display = "block";
+      });
+    } else {
+      const password = prompt("Masukkan kata laluan:");
+      if (password === "akusorangjeadapassword") {
+        document.addEventListener("DOMContentLoaded", () => {
+          document.body.style.display = "block";
+        });
+      } else {
+        document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
+      }
+    }
+  </script>
 </head>
 <body>
-  <h1>FORM 2 - 𝓑𝓪𝓱𝓪𝓰𝓲𝓪𝓷  14</h1>
+  <h1>FORM 2 - 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 14</h1>
   <div class="content">
     <!-- Gantikan teks di bawah ini dengan isi surat bahagian 2 -->
  Sebenarnya aku suka jer buat long text untuk orang yang aku sayang tapi yah, sekali aku long text, text dia boleh sampai sejuta patah perkataan. AND the feeling after I sent the long text, ARRGGHHH I HATE IT SO MUCHH!!!!. MACAM GADOH BERTAHUN-TAHUN THEN TETIBER NAK MINTAK MAAF ANJIRRR 💔. Macam pantek jer. Kalau aku sent long text kat orang memang aku terus tutup app tu then tantrum. Serius, masa aku tersent message kat kau tu pun aku tantrum, aku pejamkan mata bayangkan muka Walid. But yeah, takpe lah. I love your respond anyway so, aku takdelah menyesal tersent message tu.
   </div>
 
-  <div class="navigation">
-    <a href="PIPI.html">← 𝒦ℯ𝓂𝒷𝒶𝓁𝒾 𝓀ℯ 𝓈ℯ𝓃𝒶𝓇𝒶𝒾 𝒷𝒶𝒽𝒶𝑔𝒾𝒶𝓃</a>
-    <a href="form2-bahagian13.html">← ℬ𝒶𝒽𝒶𝑔𝒾𝒶𝓃 𝒮ℯ𝒷ℯ𝓁𝓊𝓂𝓃𝓎𝒶</a>
-    <a href="form2-bahagian15.html">ℬ𝒶𝒽𝒶𝑔𝒾𝒶𝓃 𝒮ℯ𝓉ℯ𝓇𝓊𝓈𝓃𝓎𝒶 →</a>
+   <div class="navigation">
+    <a href="PIPI.html">← 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝑆𝐸𝑁𝐴𝑅𝐴𝐼 𝑃𝐼𝐿𝐼𝐻𝐴𝑁 </a>
+    <a href="form2-bahagian13.html">← 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝛣𝐸𝐿𝑈𝑀𝑁𝑌𝐴</a>
+    <a href="form2-bahagian15.html">𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝑇𝐸𝑅𝑈𝑆𝑁𝑌𝐴 →</a>
+    <a href="index.html"> 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝐻𝐴𝐿𝐴𝑀𝐴𝑁 𝑈𝑇𝐴𝑀𝐴 </a>
   </div>
 </body>
 </html>
