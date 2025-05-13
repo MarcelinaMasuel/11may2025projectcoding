@@ -10,56 +10,75 @@
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 40px;
-      display: none;
+      display: block;
+      overflow: hidden;
     }
+
     h1 {
       color: #d63384;
       font-size: 3em;
       opacity: 0;
       animation: fadeIn 1s forwards;
       animation-delay: 0.2s;
+      animation-play-state: paused;
     }
+
     h2 {
       color: #cc6699;
       font-size: 1.5em;
       opacity: 0;
       animation: fadeIn 1s forwards;
+      animation-play-state: paused;
     }
+
     h2:nth-of-type(1) {
       animation-delay: 0.4s;
     }
+
     h2:nth-of-type(2) {
       animation-delay: 0.6s;
     }
+
     .form-section {
       margin-top: 40px;
     }
+
     .form-section h3 {
       margin-bottom: 20px;
       color: #bf4080;
       opacity: 0;
       animation: fadeIn 1s forwards;
       animation-delay: 0.8s;
+      animation-play-state: paused;
     }
+
     .form-section a {
       display: block;
-      margin: 5px;
+      margin: 5px auto;
       color: #99004d;
       text-decoration: none;
       font-weight: bold;
       opacity: 0;
       animation-duration: 0.6s;
       animation-fill-mode: forwards;
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      width: fit-content;
+      box-shadow: 0 0 0 rgba(255, 102, 178, 0);
+      animation-play-state: paused;
+      border: 2px solid #ff66b2;
+    }
+
+    .form-section a:hover {
+      color: #ff66b2;
+      box-shadow: 0 0 10px rgba(255, 102, 178, 0.7), 0 0 20px rgba(255, 102, 178, 0.5);
     }
 
     /* Fade in */
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     /* Slide from left */
@@ -111,20 +130,98 @@
     .form-section a:nth-of-type(13) { animation-delay: 3.4s; }
     .form-section a:nth-of-type(14) { animation-delay: 3.6s; }
     .form-section a:nth-of-type(15) { animation-delay: 3.8s; }
+
+    /* Intro Screen */
+    #intro-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ffe6f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 9999;
+      animation: fadeInIntro 1.5s ease forwards;
+    }
+
+    #intro-screen h1,
+    #intro-screen p,
+    #intro-screen button {
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    #intro-screen h1 {
+      color: #d63384;
+      font-size: 2.5em;
+      animation-delay: 0.3s;
+    }
+
+    #intro-screen p:nth-of-type(1) {
+      font-size: 1.2em;
+      color: #99004d;
+      animation-delay: 0.6s;
+    }
+
+    #intro-screen p:nth-of-type(2) {
+      font-size: 1.1em;
+      color: #cc6699;
+      animation-delay: 0.9s;
+    }
+
+    #intro-screen button {
+      margin-top: 40px;
+      padding: 10px 20px;
+      font-size: 1em;
+      background: #d63384;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      animation-delay: 1.2s;
+      box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
+      transition: all 0.3s ease-in-out;
+    }
+
+    #intro-screen button:hover {
+      box-shadow: 0 0 20px rgba(255, 102, 178, 1), 0 0 30px rgba(255, 102, 178, 0.8);
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInIntro {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
+
   <script>
     const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
     const fromHomePage = document.referrer.startsWith(allowedReferrer);
 
+    function showMainContent() {
+      document.getElementById("intro-screen").style.display = "none";
+      document.body.style.overflow = "auto";
+      document.querySelector("h1").style.animationPlayState = "running";
+      document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
+      document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
+    }
+
     if (fromHomePage) {
       document.addEventListener("DOMContentLoaded", () => {
-        document.body.style.display = "block";
+        setTimeout(() => {
+          document.getElementById('intro-screen').style.display = 'flex';
+        }, 0);
       });
     } else {
-      const password = prompt("LU PIKIR SENANG-SENANG SAJA KA MAU MASUK INI WEBSITE. KASIH MASUK PASSWORD DULU.");
+      const password = prompt("Masukkan kata laluan untuk akses: ");
       if (password === "akusorangjeadapassword") {
         document.addEventListener("DOMContentLoaded", () => {
-          document.body.style.display = "block";
+          setTimeout(() => {
+            document.getElementById('intro-screen').style.display = 'flex';
+          }, 0);
         });
       } else {
         document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
@@ -133,6 +230,14 @@
   </script>
 </head>
 <body>
+  <!-- Intro Screen -->
+  <div id="intro-screen">
+    <h1>𝓗𝓮𝓲 𝓟𝓲𝓟𝓲 💌</h1>
+    <p>Sebelum awak baca semua ni, saya nak awak tahu...</p>
+    <p>Ini semua dari hati saya, satu demi satu bahagian untuk awak baca perlahan-lahan 💞</p>
+    <button onclick="showMainContent()">Masuk</button>
+  </div>
+
   <h1> 𝚥𝐴𝑁𝐸𝐿𝑉𝑌 / 𝑃𝐼𝑃𝐼 </h1>
   <h2> -𝑷𝑰𝑳𝑰𝑯 𝑩𝑨𝑯𝑨𝑮𝑰𝑨𝑵 𝒀𝑨𝑵𝑮 𝑨𝑾𝑨𝑲 𝑵𝑨𝑲 𝑩𝑨𝑪𝑨- </h2>
   <h2>--𝘣𝘢𝘩𝘢𝘨𝘪𝘢𝘯 1-7 𝘬𝘢𝘶 𝘥𝘢𝘩 𝘣𝘢𝘤𝘢 𝘴𝘦𝘣𝘢𝘣 𝘵𝘪𝘮𝘦 𝘵𝘶 𝘢𝘬𝘶 𝘵𝘦𝘳𝘴𝘦𝘯𝘵, 𝘴𝘰 𝘬𝘢𝘶 𝘣𝘰𝘭𝘦𝘩 𝘴𝘬𝘪𝘱 𝘬𝘢𝘭𝘢𝘶 𝘯𝘢𝘬--</h2>
