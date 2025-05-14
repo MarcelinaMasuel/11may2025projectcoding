@@ -63,7 +63,7 @@
       animation-fill-mode: forwards;
       padding: 10px 20px;
       border-radius: 8px;
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       width: fit-content;
       box-shadow: 0 0 0 rgba(255, 102, 178, 0);
       animation-play-state: paused;
@@ -73,6 +73,7 @@
     .form-section a:hover {
       color: #ff66b2;
       box-shadow: 0 0 10px rgba(255, 102, 178, 0.7), 0 0 20px rgba(255, 102, 178, 0.5);
+      transform: scale(1.05);
     }
 
     @keyframes fadeIn {
@@ -189,6 +190,26 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #ff66b2;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(255, 102, 178, 0.6);
+      z-index: 10000;
+    }
+
+    .back-button:hover {
+      background-color: #e0559a;
+      box-shadow: 0 0 15px rgba(255, 102, 178, 1);
+    }
   </style>
 
   <script>
@@ -221,17 +242,31 @@
         document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
       }
     }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".form-section a").forEach(link => {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          link.style.transform = "scale(1.3)";
+          setTimeout(() => {
+            window.location.href = link.href;
+          }, 300);
+        });
+      });
+    });
   </script>
 </head>
+
 <body>
   <div id="intro-screen">
-  <img src="bubuwaving.gif" alt="GIF" style="width: 120px; height: auto; margin-bottom: 20px; animation: fadeIn 1s forwards; animation-delay: 0.1s;">
-  <h1>𝓗𝓮𝓲 𝓟𝓲𝓟𝓲 💌</h1>
-  <p>Sebelum awak baca semua ni, saya nak awak tahu...</p>
-  <p>Ini semua dari hati saya, satu demi satu bahagian untuk awak baca perlahan-lahan 💞</p>
-  <button onclick="showMainContent()">Masuk</button>
-</div>
+    <img src="bubuwaving.gif" alt="GIF" style="width: 120px; height: auto; margin-bottom: 20px; animation: fadeIn 1s forwards; animation-delay: 0.1s;">
+    <h1>𝓗𝓮𝓲 𝓟𝓲𝓟𝓲 💌</h1>
+    <p>Sebelum awak baca semua ni, saya nak awak tahu...</p>
+    <p>Ini semua dari hati saya, satu demi satu bahagian untuk awak baca perlahan-lahan 💞</p>
+    <button onclick="showMainContent()">Masuk</button>
   </div>
+
+  <a class="back-button" href="index.html">← KEMBALI KE HALAMAN UTAMA</a>
 
   <h1> 𝚥𝐴𝑁𝐸𝐿𝑉𝑌 / 𝑃𝐼𝑃𝐼 </h1>
   <h2> -𝑷𝑰𝑳𝑰𝑯 𝑩𝑨𝑯𝑨𝑮𝑰𝑨𝑵 𝒀𝑨𝑵𝑮 𝑨𝑾𝑨𝑲 𝑵𝑨𝑲 𝑩𝑨𝑪𝑨- </h2>
