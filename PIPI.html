@@ -134,7 +134,7 @@
       width: 100%;
       height: 100%;
       background: #ffe6f0;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       flex-direction: column;
@@ -213,37 +213,30 @@
   </style>
 
   <script>
-    const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
-    const fromHomePage = document.referrer.startsWith(allowedReferrer);
-
-    function showMainContent() {
-      document.getElementById("intro-screen").style.display = "none";
-      document.body.style.overflow = "auto";
-      document.querySelectorAll("h1").forEach(el => el.style.animationPlayState = "running");
-      document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
-      document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
-    }
-
-    if (fromHomePage) {
-      document.addEventListener("DOMContentLoaded", () => {
-        setTimeout(() => {
-          document.getElementById('intro-screen').style.display = 'flex';
-        }, 0);
-      });
-    } else {
-      const password = prompt("Masukkan kata laluan untuk akses: ");
-      if (password === "akusorangjeadapassword") {
-        document.addEventListener("DOMContentLoaded", () => {
-          setTimeout(() => {
-            document.getElementById('intro-screen').style.display = 'flex';
-          }, 0);
-        });
-      } else {
-        document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
-      }
-    }
-
     document.addEventListener("DOMContentLoaded", () => {
+      const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
+      const fromHomePage = document.referrer.startsWith(allowedReferrer);
+
+      function showMainContent() {
+        document.getElementById("intro-screen").style.display = "none";
+        document.body.style.overflow = "auto";
+        document.querySelectorAll("h1").forEach(el => el.style.animationPlayState = "running");
+        document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
+        document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
+      }
+
+      if (fromHomePage) {
+        document.getElementById('intro-screen').style.display = 'flex';
+      } else {
+        const password = prompt("Masukkan kata laluan untuk akses:");
+        if (password === "akusorangjeadapassword") {
+          document.getElementById('intro-screen').style.display = 'flex';
+        } else {
+          document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
+          return;
+        }
+      }
+
       document.querySelectorAll(".form-section a").forEach(link => {
         link.addEventListener("click", e => {
           e.preventDefault();
@@ -253,6 +246,8 @@
           }, 300);
         });
       });
+
+      document.querySelector("#intro-screen button").addEventListener("click", showMainContent);
     });
   </script>
 </head>
@@ -263,7 +258,7 @@
     <h1>𝓗𝓮𝓲 𝓟𝓲𝓟𝓲 💌</h1>
     <p>Sebelum awak baca semua ni, saya nak awak tahu...</p>
     <p>Ini semua dari hati saya, satu demi satu bahagian untuk awak baca perlahan-lahan 💞</p>
-    <button onclick="showMainContent()">Masuk</button>
+    <button>Masuk</button>
   </div>
 
   <a class="back-button" href="index.html">← KEMBALI KE HALAMAN UTAMA</a>
@@ -292,3 +287,4 @@
   </div>
 </body>
 </html>
+
