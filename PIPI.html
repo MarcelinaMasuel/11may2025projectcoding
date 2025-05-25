@@ -224,46 +224,58 @@
   </style>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
-      const fromHomePage = document.referrer.startsWith(allowedReferrer);
+  document.addEventListener("DOMContentLoaded", () => {
+    const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
+    const fromHomePage = document.referrer.startsWith(allowedReferrer);
 
-      function showMainContent() {
+    function showMainContent(showIntro = false) {
+      if (showIntro) {
+        document.getElementById("intro-screen").style.display = "flex";
+        document.body.style.overflow = "hidden";
+      } else {
         document.getElementById("intro-screen").style.display = "none";
         document.body.style.overflow = "auto";
         document.querySelectorAll("h1").forEach(el => el.style.animationPlayState = "running");
         document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
         document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
       }
+    }
 
-      if (fromHomePage) {
-        document.getElementById("intro-screen").style.display = "flex";
+    if (fromHomePage) {
+      showMainContent(true);
+    } else {
+
+      const password = prompt("Masukkan kata laluan untuk akses:");
+      if (password === "akusorangjeadapassword") {
+        showMainContent(false);
       } else {
-        const password = prompt("Masukkan kata laluan untuk akses:");
-        if (password === "akusorangjeadapassword") {
-          showMainContent();
-        } else {
-          document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
-          return;
-        }
+        document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
+        return;
       }
+    }
 
-      document.querySelectorAll(".form-section a").forEach(link => {
-        link.addEventListener("click", e => {
-          e.preventDefault();
-          link.style.transform = "scale(1.3)";
-          setTimeout(() => {
-            window.location.href = link.href;
-          }, 300);
-        });
+    const masukBtn = document.querySelector("#intro-screen button");
+    if (masukBtn) {
+      masukBtn.addEventListener("click", () => {
+        document.getElementById("intro-screen").style.display = "none";
+        document.body.style.overflow = "auto";
+        document.querySelectorAll("h1").forEach(el => el.style.animationPlayState = "running");
+        document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
+        document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
       });
-
-      const masukBtn = document.querySelector("#intro-screen button");
-      if (masukBtn) {
-        masukBtn.addEventListener("click", showMainContent);
-      }
+    }
+    
+    document.querySelectorAll(".form-section a").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        link.style.transform = "scale(1.3)";
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 300);
+      });
     });
-  </script>
+  });
+</script>
 </head>
 
 <body>
