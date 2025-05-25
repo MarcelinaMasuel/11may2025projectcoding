@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FORM 2 - Bahagian 16 Part 2</title>
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: Arial, sans-serif;
+      color: #660033;
+      padding: 40px;
+      display: none;
+    }
+
+    h1 {
+      text-align: center;
+      color: #cc3366;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      opacity: 0;
+      animation: fadeIn 3s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .navigation {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .navigation a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #ff99cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      opacity: 0;
+      animation: fadeIn 0.7s forwards;
+    }
+
+    .navigation a:nth-of-type(1) { animation-delay: 0.5s; }
+    .navigation a:nth-of-type(2) { animation-delay: 0.7s; }
+    .navigation a:nth-of-type(3) { animation-delay: 0.9s; }
+    .navigation a:nth-of-type(4) { animation-delay: 1.1s; }
+  </style>
+  <script>
+    const allowedReferrers = [
+      "https://marcelinamasuel.github.io/11may2025projectcoding/",
+      "https://marcelinamasuel.github.io/11may2025projectcoding/PIPI.html"
+    ];
+
+    const fromAllowedPage = allowedReferrers.some(url => document.referrer.startsWith(url));
+
+    if (fromAllowedPage) {
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.display = "block";
+      });
+    } else {
+      const password = prompt("Masukkan kata laluan:");
+      if (password === "akusorangjeadapassword") {
+        document.addEventListener("DOMContentLoaded", () => {
+          document.body.style.display = "block";
+        });
+      } else {
+        document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>FORM 2 - 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 16 (𝑃𝐴𝑅𝑇 2)</h1>
+  <div class="content">
+  "Aku tak cukup berusaha lagi ke masa aku training? I forced myself sampai vision mata aku berubah, pandangan aku makin gelap, pendengaran aku tiba-tiba macam ada benda block, I ALMOST FCKING FAINT IN TRAINING. But all I get is disappointments,"* I said to myself. Punya pedih hati aku time tu. Then korang PBSM keluar, you called out my name and my head turned to you but then quickly turned away, expecting you didn't see my eyes. But then in the corner of my eyes, I saw you walking toward me. You're the third person who ever comfort me after my mom and Grecia. But no one ever comfort me like you did. Time kau cakap "Aw, it's ok," ARGGHH, AIR MATA AKU MAKIN DERAASSS! Like seriously, you're the first person who let me lay on your shoulder when I'm crying. And actually, I want you to be by my side longer that time, but aku tak nak kau balik lambat so I forced myself to stand up.
+
+  <div class="navigation">
+    <a href="PIPI.html">← 𝐾𝐸𝑀𝛣𝐴𝐿𝐼 𝐾𝐸 𝑆𝐸𝑁𝐴𝑅𝐴𝐼 𝑃𝐼𝐿𝐼𝐻𝐴𝑁 </a>
+    <a href="form2-bahagian16part1.html">← 𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝛣𝐸𝐿𝑈𝑀𝑁𝑌𝐴</a>
+    <a href="form2-bahagian16part3.html">𝛣𝐴𝐻𝐴𝐺𝐼𝐴𝑁 𝑆𝐸𝑇𝐸𝑅𝑈𝑆𝑁𝑌𝐴 →</a>
+
+  </div>
+</body>
+</html>
