@@ -226,7 +226,8 @@
   <script>
   document.addEventListener("DOMContentLoaded", () => {
     const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
-    const fromHomePage = document.referrer.startsWith(allowedReferrer);
+    const ref = document.referrer;
+    const fromHomePage = ref && ref.startsWith(allowedReferrer);
 
     function showMainContent(showIntro = false) {
       if (showIntro) {
@@ -244,7 +245,6 @@
     if (fromHomePage) {
       showMainContent(true);
     } else {
-
       const password = prompt("Masukkan kata laluan untuk akses:");
       if (password === "akusorangjeadapassword") {
         showMainContent(false);
@@ -257,14 +257,10 @@
     const masukBtn = document.querySelector("#intro-screen button");
     if (masukBtn) {
       masukBtn.addEventListener("click", () => {
-        document.getElementById("intro-screen").style.display = "none";
-        document.body.style.overflow = "auto";
-        document.querySelectorAll("h1").forEach(el => el.style.animationPlayState = "running");
-        document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
-        document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
+        showMainContent(false);
       });
     }
-    
+
     document.querySelectorAll(".form-section a").forEach(link => {
       link.addEventListener("click", e => {
         e.preventDefault();
