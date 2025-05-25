@@ -188,19 +188,25 @@
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
-  const ref = document.referrer;
-  const fromHomePage = ref && ref.startsWith(allowedReferrer);
+  document.addEventListener("DOMContentLoaded", () => {
+    const homepage = "https://marcelinamasuel.github.io/11may2025projectcoding/";
+    const homepageWithIndex = "https://marcelinamasuel.github.io/11may2025projectcoding/index.html";
+    const referrer = document.referrer;
 
-  // Prompt password (JANGAN UBAH)
-  const password = prompt("Masukkan kata laluan untuk akses:");
-  if (password !== "akusorangjeadapassword") {
-    document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
-    return;
-  }
+    if (referrer === homepage || referrer === homepageWithIndex) {
+      sessionStorage.setItem("fromHomepage", "true");
+    }
 
-  // Kalau dari homepage, tunjuk intro
+    if (!sessionStorage.getItem("fromHomepage")) {
+      const password = "sayaSayangAwak"; // Tukar ikut password yang awak mahu
+      const userInput = prompt("Sila masukkan kata laluan untuk akses:");
+
+      if (userInput !== password) {
+        alert("Kata laluan salah! Anda akan dibawa kembali ke halaman utama.");
+        window.location.href = homepage;
+      }
+    }
+
   if (fromHomePage) {
     document.getElementById("intro-screen").style.display = "flex";
     document.body.style.overflow = "hidden";
