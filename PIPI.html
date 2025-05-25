@@ -189,54 +189,55 @@
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const homepage = "https://marcelinamasuel.github.io/11may2025projectcoding/";
-      const homepageWithIndex = "https://marcelinamasuel.github.io/11may2025projectcoding/index.html";
-      const referrer = document.referrer;
+document.addEventListener("DOMContentLoaded", () => {
+  // PASSWORD PROMPT
+  const password = prompt("Masukkan kata laluan untuk akses:");
+  if (password !== "akusorangjeadapassword") {
+    document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
+    return;
+  }
 
-      function showMainContent(showIntro = false) {
-        if (showIntro) {
-          document.getElementById("intro-screen").style.display = "flex";
-          document.body.style.overflow = "hidden";
-        } else {
-          document.getElementById("intro-screen").style.display = "none";
-          document.body.style.overflow = "auto";
-          document.querySelectorAll("h1").forEach(el => el.style.animationPlayState = "running");
-          document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
-          document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
-        }
-      }
-     
+  const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
+  const ref = document.referrer;
+  const fromHomePage = ref && ref.startsWith(allowedReferrer);
 
-      const masukBtn = document.querySelector("#intro-screen button");
-      if (masukBtn) {
-        masukBtn.addEventListener("click", () => {
-          showMainContent(false);
-        });
-      }
-      if (fromHomePage) {
-        document.getElementById('intro-screen').style.display = 'flex';
-      } else {
-        const password = prompt("Masukkan kata laluan untuk akses:");
-        if (password === "akusorangjeadapassword") {
-          document.getElementById('intro-screen').style.display = 'flex';
-        } else {
-          document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
-          return;
-        }
-      }
+  function showMainContent(showIntro = false) {
+    if (showIntro) {
+      document.getElementById("intro-screen").style.display = "flex";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.getElementById("intro-screen").style.display = "none";
+      document.body.style.overflow = "auto";
+      document.querySelectorAll("h1").forEach(el => el.style.animationPlayState = "running");
+      document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
+      document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
+    }
+  }
 
-      document.querySelectorAll(".form-section a").forEach(link => {
-        link.addEventListener("click", e => {
-          e.preventDefault();
-          link.style.transform = "scale(1.3)";
-          setTimeout(() => {
-            window.location.href = link.href;
-          }, 300);
-        });
-      });
+  if (fromHomePage) {
+    showMainContent(true);
+  } else {
+    showMainContent(false);
+  }
+
+  const masukBtn = document.querySelector("#intro-screen button");
+  if (masukBtn) {
+    masukBtn.addEventListener("click", () => {
+      showMainContent(false);
     });
-  </script>
+  }
+
+  document.querySelectorAll(".form-section a").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      link.style.transform = "scale(1.3)";
+      setTimeout(() => {
+        window.location.href = link.href;
+      }, 300);
+    });
+  });
+});
+</script>
 </head>
 
 <body>
