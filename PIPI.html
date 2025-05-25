@@ -193,46 +193,39 @@ document.addEventListener("DOMContentLoaded", () => {
   const ref = document.referrer;
   const fromHomePage = ref && ref.startsWith(allowedReferrer);
 
-  const hasAccess = localStorage.getItem("hasAccess");
-
-  if (!hasAccess) {
-    // Kalau belum pernah bagi akses, prompt password
-    const password = prompt("Masukkan kata laluan untuk akses:");
-    if (password !== "akusorangjeadapassword") {
-      document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
-      return;
-    } else {
-
-      localStorage.setItem("hasAccess", "true");
-    }
+  // Prompt password (JANGAN UBAH)
+  const password = prompt("Masukkan kata laluan untuk akses:");
+  if (password !== "akusorangjeadapassword") {
+    document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
+    return;
   }
 
-  function showMainContent(showIntro = false) {
-    if (showIntro) {
-      document.getElementById("intro-screen").style.display = "flex";
-      document.body.style.overflow = "hidden";
-    } else {
+  // Kalau dari homepage, tunjuk intro
+  if (fromHomePage) {
+    document.getElementById("intro-screen").style.display = "flex";
+    document.body.style.overflow = "hidden";
+  } else {
+    // Kalau bukan dari homepage, skip intro
+    document.getElementById("intro-screen").style.display = "none";
+    document.body.style.overflow = "auto";
+    document.querySelectorAll("h1").forEach(el => el.style.animationPlayState = "running");
+    document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
+    document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
+  }
+
+  // Intro button
+  const masukBtn = document.querySelector("#intro-screen button");
+  if (masukBtn) {
+    masukBtn.addEventListener("click", () => {
       document.getElementById("intro-screen").style.display = "none";
       document.body.style.overflow = "auto";
       document.querySelectorAll("h1").forEach(el => el.style.animationPlayState = "running");
       document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
       document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
-    }
-  }
-
-  if (fromHomePage) {
-    showMainContent(true);
-  } else {
-    showMainContent(false);
-  }
-
-  const masukBtn = document.querySelector("#intro-screen button");
-  if (masukBtn) {
-    masukBtn.addEventListener("click", () => {
-      showMainContent(false);
     });
   }
 
+  // Animate links
   document.querySelectorAll(".form-section a").forEach(link => {
     link.addEventListener("click", e => {
       e.preventDefault();
