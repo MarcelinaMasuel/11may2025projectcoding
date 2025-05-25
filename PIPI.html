@@ -189,38 +189,49 @@
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const homepage = "https://marcelinamasuel.github.io/11may2025projectcoding/";
-  const fromHome = document.referrer === homepage || document.referrer === homepage + "index.html";
+    document.addEventListener("DOMContentLoaded", () => {
+      const homepage = "https://marcelinamasuel.github.io/11may2025projectcoding/";
+      const homepageWithIndex = "https://marcelinamasuel.github.io/11may2025projectcoding/index.html";
+      const referrer = document.referrer;
 
-  if (fromHome) {
-    document.getElementById("intro-screen").style.display = "flex";
-    document.body.style.overflow = "hidden";
-  } else {
-    animateMainContent();
-  }
+      function showMainContent(showIntro = false) {
+        if (showIntro) {
+          document.getElementById("intro-screen").style.display = "flex";
+          document.body.style.overflow = "hidden";
+        } else {
+          document.getElementById("intro-screen").style.display = "none";
+          document.body.style.overflow = "auto";
+          document.querySelectorAll("h1").forEach(el => el.style.animationPlayState = "running");
+          document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
+          document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
+        }
+      }
 
-  document.querySelector("#intro-screen button").addEventListener("click", () => {
-    document.getElementById("intro-screen").style.display = "none";
-    document.body.style.overflow = "auto";
-    animateMainContent();
-  });
+  
+      if (referrer === homepage || referrer === homepageWithIndex) {
+        showMainContent(true);
+      } else {
+        showMainContent(false);
+      }
 
-  document.querySelectorAll(".form-section a").forEach(link => {
-    link.addEventListener("click", e => {
-      e.preventDefault();
-      link.style.transform = "scale(1.3)";
-      setTimeout(() => window.location.href = link.href, 300);
+      const masukBtn = document.querySelector("#intro-screen button");
+      if (masukBtn) {
+        masukBtn.addEventListener("click", () => {
+          showMainContent(false);
+        });
+      }
+
+      document.querySelectorAll(".form-section a").forEach(link => {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          link.style.transform = "scale(1.3)";
+          setTimeout(() => {
+            window.location.href = link.href;
+          }, 300);
+        });
+      });
     });
-  });
-
-  function animateMainContent() {
-    document.querySelectorAll("h1, h2, .form-section h3, .form-section a").forEach(el => {
-      el.style.animationPlayState = "running";
-    });
-  }
-});
-</script>
+  </script>
 </head>
 
 <body>
