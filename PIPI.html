@@ -210,6 +210,29 @@
       box-shadow: 0 0 15px rgba(255, 102, 178, 1);
     }
   </style>
+<script>
+   document.addEventListener("DOMContentLoaded", () => {
+      const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
+      const fromHomePage = document.referrer.startsWith(allowedReferrer);
+
+      function showMainContent() {
+        document.getElementById("intro-screen").style.display = "none";
+        document.body.style.overflow = "auto";
+        document.querySelectorAll("h1").forEach(el => el.style.animationPlayState = "running");
+        document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
+        document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
+      }
+
+      if (fromHomePage) {
+        document.getElementById('intro-screen').style.display = 'flex';
+      } else {
+        const password = prompt("Masukkan kata laluan untuk akses:");
+        if (password === "akusorangjeadapassword") {
+          document.getElementById('intro-screen').style.display = 'flex';
+        } else {
+          document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
+          return;
+        } 
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
