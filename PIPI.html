@@ -89,25 +89,13 @@
     }
 
     @keyframes slideFromLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+      from { opacity: 0; transform: translateX(-50px); }
+      to   { opacity: 1; transform: translateX(0); }
     }
 
     @keyframes slideFromRight {
-      from {
-        opacity: 0;
-        transform: translateX(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+      from { opacity: 0; transform: translateX(50px); }
+      to   { opacity: 1; transform: translateX(0); }
     }
 
     .form-section a:nth-of-type(odd) {
@@ -225,7 +213,7 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
+      const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/index.html";
       const fromHomePage = document.referrer === allowedReferrer;
 
       function showMainContent() {
@@ -237,7 +225,6 @@
       }
 
       if (fromHomePage) {
-    
         document.getElementById('intro-screen').style.display = 'flex';
         document.body.style.overflow = "hidden";
       } else {
@@ -291,8 +278,8 @@
     <a href="form2-bahagian13.html">Bahagian 13</a>
     <a href="form2-bahagian14.html">Bahagian 14</a>
     <a href="form2-bahagian15.html">Bahagian 15</a>
-    <a href='form2-bahagian16part1.html'>Bahagian 16 (Part1) </a>
-    <a href='form2-bahagian16part2.html'>Bahagian 16 (Part2) </a>
+    <a href='form2-bahagian16part1.html'>Bahagian 16 (Part1)</a>
+    <a href='form2-bahagian16part2.html'>Bahagian 16 (Part2)</a>
     <a href='form2-bahagian16part3.html'>Bahagian 16 (Part3)</a>
     <a href='form2-penutup.html'>Penutup</a>
   </div>
