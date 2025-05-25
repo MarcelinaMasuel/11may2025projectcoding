@@ -1,4 +1,4 @@
-e<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -237,20 +237,15 @@ e<!DOCTYPE html>
       }
 
       if (fromHomePage) {
-        document.getElementById('intro-screen').style.display = 'flex';
+        document.getElementById("intro-screen").style.display = "flex";
       } else {
         const password = prompt("Masukkan kata laluan untuk akses:");
         if (password === "akusorangjeadapassword") {
-          document.getElementById('intro-screen').style.display = 'flex';
+          showMainContent();
         } else {
           document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
           return;
-
-      if (fromHomePage) {
-        document.getElementById('intro-screen').style.display = 'flex';
-        document.body.style.overflow = "hidden";
-      } else {
-        showMainContent();
+        }
       }
 
       document.querySelectorAll(".form-section a").forEach(link => {
@@ -263,7 +258,10 @@ e<!DOCTYPE html>
         });
       });
 
-      document.querySelector("#intro-screen button").addEventListener("click", showMainContent);
+      const masukBtn = document.querySelector("#intro-screen button");
+      if (masukBtn) {
+        masukBtn.addEventListener("click", showMainContent);
+      }
     });
   </script>
 </head>
@@ -300,10 +298,10 @@ e<!DOCTYPE html>
     <a href="form2-bahagian13.html">Bahagian 13</a>
     <a href="form2-bahagian14.html">Bahagian 14</a>
     <a href="form2-bahagian15.html">Bahagian 15</a>
-    <a href='form2-bahagian16part1.html'>Bahagian 16 (Part1) </a>
-    <a href='form2-bahagian16part2.html'>Bahagian 16 (Part2) </a>
-    <a href='form2-bahagian16part3.html'>Bahagian 16 (Part3)</a>
-    <a href='form2-penutup.html'>Penutup</a>
+    <a href="form2-bahagian16part1.html">Bahagian 16 (Part1)</a>
+    <a href="form2-bahagian16part2.html">Bahagian 16 (Part2)</a>
+    <a href="form2-bahagian16part3.html">Bahagian 16 (Part3)</a>
+    <a href="form2-penutup.html">Penutup</a>
   </div>
 </body>
 </html>
