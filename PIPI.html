@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
 
 <style>
-  /* style awak yang sedia ada */
   body {
     background-color: #ffe6f0;
     font-family: Arial, sans-serif;
@@ -190,16 +189,23 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // PASSWORD PROMPT
-  const password = prompt("Masukkan kata laluan untuk akses:");
-  if (password !== "akusorangjeadapassword") {
-    document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
-    return;
-  }
-
   const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
   const ref = document.referrer;
   const fromHomePage = ref && ref.startsWith(allowedReferrer);
+
+  const hasAccess = localStorage.getItem("hasAccess");
+
+  if (!hasAccess) {
+    // Kalau belum pernah bagi akses, prompt password
+    const password = prompt("Masukkan kata laluan untuk akses:");
+    if (password !== "akusorangjeadapassword") {
+      document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
+      return;
+    } else {
+
+      localStorage.setItem("hasAccess", "true");
+    }
+  }
 
   function showMainContent(showIntro = false) {
     if (showIntro) {
