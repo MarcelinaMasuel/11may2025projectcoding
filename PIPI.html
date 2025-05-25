@@ -89,13 +89,25 @@
     }
 
     @keyframes slideFromLeft {
-      from { opacity: 0; transform: translateX(-50px); }
-      to   { opacity: 1; transform: translateX(0); }
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     @keyframes slideFromRight {
-      from { opacity: 0; transform: translateX(50px); }
-      to   { opacity: 1; transform: translateX(0); }
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     .form-section a:nth-of-type(odd) {
@@ -210,29 +222,6 @@
       box-shadow: 0 0 15px rgba(255, 102, 178, 1);
     }
   </style>
-<script>
-   document.addEventListener("DOMContentLoaded", () => {
-      const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
-      const fromHomePage = document.referrer.startsWith(allowedReferrer);
-
-      function showMainContent() {
-        document.getElementById("intro-screen").style.display = "none";
-        document.body.style.overflow = "auto";
-        document.querySelectorAll("h1").forEach(el => el.style.animationPlayState = "running");
-        document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
-        document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
-      }
-
-      if (fromHomePage) {
-        document.getElementById('intro-screen').style.display = 'flex';
-      } else {
-        const password = prompt("Masukkan kata laluan untuk akses:");
-        if (password === "akusorangjeadapassword") {
-          document.getElementById('intro-screen').style.display = 'flex';
-        } else {
-          document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
-          return;
-        } 
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -247,10 +236,20 @@
         document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
       }
 
+      function requestPassword() {
+        const correctPassword = "akusorangjeadapassword";
+        let input = prompt("Masukkan kata laluan untuk akses:");
+        if (input !== correctPassword) {
+          alert("Kata laluan salah! Cuba lagi.");
+          window.location.href = "index.html";
+        }
+      }
+
       if (fromHomePage) {
         document.getElementById('intro-screen').style.display = 'flex';
         document.body.style.overflow = "hidden";
       } else {
+        requestPassword();
         showMainContent();
       }
 
@@ -301,8 +300,8 @@
     <a href="form2-bahagian13.html">Bahagian 13</a>
     <a href="form2-bahagian14.html">Bahagian 14</a>
     <a href="form2-bahagian15.html">Bahagian 15</a>
-    <a href='form2-bahagian16part1.html'>Bahagian 16 (Part1)</a>
-    <a href='form2-bahagian16part2.html'>Bahagian 16 (Part2)</a>
+    <a href='form2-bahagian16part1.html'>Bahagian 16 (Part1) </a>
+    <a href='form2-bahagian16part2.html'>Bahagian 16 (Part2) </a>
     <a href='form2-bahagian16part3.html'>Bahagian 16 (Part3)</a>
     <a href='form2-penutup.html'>Penutup</a>
   </div>
