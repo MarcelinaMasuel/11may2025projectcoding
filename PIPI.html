@@ -206,19 +206,24 @@
           document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
         }
       }
-
-  
-      if (referrer === homepage || referrer === homepageWithIndex) {
-        showMainContent(true);
-      } else {
-        showMainContent(false);
-      }
+     
 
       const masukBtn = document.querySelector("#intro-screen button");
       if (masukBtn) {
         masukBtn.addEventListener("click", () => {
           showMainContent(false);
         });
+      }
+      if (fromHomePage) {
+        document.getElementById('intro-screen').style.display = 'flex';
+      } else {
+        const password = prompt("Masukkan kata laluan untuk akses:");
+        if (password === "akusorangjeadapassword") {
+          document.getElementById('intro-screen').style.display = 'flex';
+        } else {
+          document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
+          return;
+        }
       }
 
       document.querySelectorAll(".form-section a").forEach(link => {
