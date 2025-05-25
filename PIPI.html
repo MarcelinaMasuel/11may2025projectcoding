@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+e<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -225,8 +225,8 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/index.html";
-      const fromHomePage = document.referrer === allowedReferrer;
+      const allowedReferrer = "https://marcelinamasuel.github.io/11may2025projectcoding/";
+      const fromHomePage = document.referrer.startsWith(allowedReferrer);
 
       function showMainContent() {
         document.getElementById("intro-screen").style.display = "none";
@@ -236,14 +236,15 @@
         document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
       }
 
-      function requestPassword() {
-        const correctPassword = "akusorangjeadapassword";
-        let input = prompt("Masukkan kata laluan untuk akses:");
-        if (input !== correctPassword) {
-          alert("Kata laluan salah! Cuba lagi.");
-          window.location.href = "index.html";
-        }
-      }
+      if (fromHomePage) {
+        document.getElementById('intro-screen').style.display = 'flex';
+      } else {
+        const password = prompt("Masukkan kata laluan untuk akses:");
+        if (password === "akusorangjeadapassword") {
+          document.getElementById('intro-screen').style.display = 'flex';
+        } else {
+          document.body.innerHTML = "<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>";
+          return;
 
       if (fromHomePage) {
         document.getElementById('intro-screen').style.display = 'flex';
