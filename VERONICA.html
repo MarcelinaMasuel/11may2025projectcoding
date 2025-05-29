@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>VERONICA SATI</title>
 
-
 <style>
   body {
     background-color: #b9fbc0; /* Mint green background */
@@ -21,7 +20,7 @@
   }
 
   h1 {
-    color: #d63384;
+    color: #8e44ad; /* Soft purple for title */
     font-size: 3em;
     opacity: 0;
     animation: fadeIn 1s forwards;
@@ -53,7 +52,7 @@
   .form-section a {
     display: block;
     margin: 5px auto;
-    color: #99004d;
+    color: #4b0082; /* Dark purple link text */
     text-decoration: none;
     font-weight: bold;
     opacity: 0;
@@ -65,11 +64,13 @@
     width: fit-content;
     box-shadow: 0 0 0 rgba(255, 102, 178, 0);
     animation-play-state: paused;
-    border: 2px solid #ff66b2;
+    border: 2px solid #d1b3ff; /* Soft purple border */
+    background-color: #d1b3ff; /* Soft purple background */
   }
 
   .form-section a:hover {
-    color: #ff66b2;
+    color: white;
+    background-color: #b280ff; /* Brighter purple on hover */
     box-shadow: 0 0 10px rgba(255, 102, 178, 0.7), 0 0 20px rgba(255, 102, 178, 0.5);
     transform: scale(1.05);
   }
@@ -121,7 +122,6 @@
     const homepageWithIndex = "https://marcelinamasuel.github.io/11may2025projectcoding/index.html";
     const referrer = document.referrer;
 
-    // Password prompt only if NOT entered from homepage before
     if (referrer === homepage || referrer === homepageWithIndex) {
       sessionStorage.setItem("fromHomepage", "true");
     }
@@ -133,18 +133,16 @@
       if (userInput !== password) {
         alert("Kata laluan salah! Anda akan dibawa kembali ke halaman utama.");
         window.location.href = homepage;
-        return; // Stop further execution
+        return;
       } else {
         sessionStorage.setItem("fromHomepage", "true");
       }
     }
 
-    // Aktifkan animasi bila page load
     document.querySelectorAll("h1, h2, .form-section h3, .form-section a").forEach(el => {
       el.style.animationPlayState = "running";
     });
 
-    // Animasi klik link
     document.querySelectorAll(".form-section a").forEach(link => {
       link.addEventListener("click", e => {
         e.preventDefault();
