@@ -16,6 +16,18 @@
       display: none;
     }
 
+    .diary-wrapper {
+      max-width: 800px;
+      margin: auto;
+      background-color: #ffe6f0;
+      border: 2px dashed #ffb6c1;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
     h1 {
       text-align: center;
       color: #cc3366;
@@ -26,8 +38,6 @@
     }
 
     .content {
-      max-width: 800px;
-      margin: auto;
       line-height: 1.8;
       white-space: pre-wrap;
       display: flex;
@@ -38,6 +48,12 @@
       font-family: 'Caveat', cursive;
       font-weight: 400;
       font-size: 1.45em;
+    }
+
+    .neon {
+      color: #ff66cc;
+      text-shadow: 0 0 5px #ff99cc, 0 0 10px #ff99cc, 0 0 20px #ff66cc, 0 0 40px #ff66cc;
+      font-weight: bold;
     }
 
     @keyframes fadeIn {
@@ -81,7 +97,6 @@
 
       .content {
         font-size: 1.2em;
-        max-width: 100%;
       }
 
       .navigation a {
@@ -116,17 +131,17 @@
   </script>
 </head>
 <body>
-  <h1>FORM 2 - BAHAGIAN 8</h1>
-  <div class="content">
-   Actually, sebelum aku kenal kau, aku memang benci and rasa jijik dengan colour pink. Like, kalau soft pink tu, okay lah sikit, tak terlalu mencolok mata. But after I know you, every single pink thing yang aku nampak keep reminding me of you. Warna yang dulu aku benci tu tiba-tiba jadi macam something special yang selalu buat aku teringat kau. Tapi jangan salah faham, aku still tak boleh kata aku suka pink, aku lebih kepada neutral je lah. Aku tak benci, tapi aku pun tak suka sangat. Aku cuma okay dengan soft pink jer, tapi kalau pink yang terang, bright and pekat tu, mehhhh.
-  </div>
+  <div class="diary-wrapper">
+    <h1>FORM 2 - BAHAGIAN 8</h1>
+    <div class="content">
+     Actually, sebelum aku kenal kau, aku memang benci and rasa jijik dengan colour pink. Like, kalau soft pink tu, okay lah sikit, tak terlalu mencolok mata. <span class="neon">But after I know you, every single pink thing yang aku nampak keep reminding me of you.</span> Warna yang dulu aku benci tu tiba-tiba jadi macam something special yang selalu buat aku teringat kau. Tapi jangan salah faham, aku still tak boleh kata aku suka pink, aku lebih kepada neutral je lah. Aku tak benci, tapi aku pun tak suka sangat. Aku cuma okay dengan soft pink jer, tapi kalau pink yang terang, bright and pekat tu, mehhhh.
+    </div>
 
-  <div class="navigation">
-    <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
-    <a href="form2-bahagian7.html">← BAHAGIAN SEBELUMNYA</a>
-    <a href="form2-bahagian9.html">BAHAGIAN SETERUSNYA →</a>
-  
-  </div>
+    <div class="navigation">
+      <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
+      <a href="form2-bahagian7.html">← BAHAGIAN SEBELUMNYA</a>
+      <a href="form2-bahagian9.html">BAHAGIAN SETERUSNYA →</a>
+    </div>
   </div>
 </body>
 </html>
