@@ -9,46 +9,64 @@
 
   <style>
     body {
-      background-color: #fff0f5;
+      background-color: #fff5fa;
       font-family: 'Caveat', cursive;
       color: #660033;
-      padding: 40px;
+      padding: 30px;
+      margin: 0;
       display: none;
+    }
+
+    .diary-wrapper {
+      max-width: 800px;
+      margin: auto;
+      background-color: #ffe6f0;
+      border: 2px dashed #ffb6c1;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
+      opacity: 0;
+      animation: fadeIn 2s forwards;
     }
 
     h1 {
       text-align: center;
+      font-size: 2.8em;
       color: #cc3366;
+      margin-bottom: 20px;
       opacity: 0;
       animation: fadeIn 2s forwards;
-      font-family: 'Caveat', cursive;
-      font-size: 3em;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
     }
 
     .content {
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.8;
+      font-size: 1.6em;
+      line-height: 1.9;
       white-space: pre-wrap;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
       opacity: 0;
       animation: fadeIn 3s forwards;
-      font-family: 'Caveat', cursive;
-      font-weight: 400;
-      font-size: 1.45em;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      transition: opacity 2s ease;
     }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+    .highlight {
+      background-color: #ffe0f7;
+      color: #880044;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 6px;
+      display: inline;
     }
 
     .navigation {
       text-align: center;
       margin-top: 40px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 0.8s;
+      animation-fill-mode: forwards;
     }
 
     .navigation a {
@@ -60,34 +78,36 @@
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
-      opacity: 0;
-      animation: fadeIn 0.7s forwards;
+      font-size: 1em;
       font-family: 'Caveat', cursive;
+      transition: background-color 0.3s;
     }
 
-    .navigation a:nth-of-type(1) { animation-delay: 0.5s; }
-    .navigation a:nth-of-type(2) { animation-delay: 0.7s; }
-    .navigation a:nth-of-type(3) { animation-delay: 0.9s; }
-    .navigation a:nth-of-type(4) { animation-delay: 1.1s; }
-    
-    @media (max-width: 480px) {
-      body {
+    .navigation a:hover {
+      background-color: #e06699;
+    }
+
+    @media (max-width: 600px) {
+      .diary-wrapper {
         padding: 20px;
       }
 
-      h1 {
-        font-size: 2.2em;
+      .content {
+        font-size: 1.3em;
       }
 
-      .content {
-        font-size: 1.2em;
-        max-width: 100%;
+      h1 {
+        font-size: 2em;
       }
 
       .navigation a {
+        font-size: 0.95em;
         padding: 8px 16px;
-        font-size: 1em;
       }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
   </style>
 
@@ -116,17 +136,17 @@
   </script>
 </head>
 <body>
-  <h1>FORM 2 - BAHAGIAN 4</h1>
-  <div class="content">
-  Don't ever think no one love you, kau ada banyak kawan yang sayang kau, pi. Jangan overthinking, ok? (""""""""""""") There will always be someone who loves you. Don't ever think no one is proud of you, bc there will always be someone who is always proud of you. Don't ever think no one cares about you or your feelings, bc there will always be someone who cares about you and your feelings. Akan selalu ada orang yang akan sentiasa di samping kau.
+  <div class="diary-wrapper">
+    <h1>FORM 2 - BAHAGIAN 4</h1>
+    <div class="content">
+      Don't ever think no one love you, kau ada banyak kawan yang sayang kau, pi. Jangan overthinking, ok? <span class="highlight">"There will always be someone who loves you."</span> Don't ever think no one is proud of you, bc there will always be someone who is always proud of you. Don't ever think no one cares about you or your feelings, bc there will always be someone who cares about you and your feelings. <span class="highlight">Akan selalu ada orang yang akan sentiasa di samping kau.</span>
+    </div>
 
-  </div>
-
-   <div class="navigation">
-    <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
-    <a href="form2-bahagian3.html">← BAHAGIAN SEBELUMNYA</a>
-    <a href="form2-bahagian5.html">BAHAGIAN SETERUSNYA →</a>
-   
+    <div class="navigation">
+      <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
+      <a href="form2-bahagian3.html">← BAHAGIAN SEBELUMNYA</a>
+      <a href="form2-bahagian5.html">BAHAGIAN SETERUSNYA →</a>
+    </div>
   </div>
 </body>
 </html>
