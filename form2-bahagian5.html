@@ -40,6 +40,19 @@
       font-size: 1.45em;
     }
 
+    /* Pen highlighter translucent style */
+    .highlight {
+      background-color: rgba(255, 182, 193, 0.5); /* translucent pink */
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-weight: bold;
+      color: #660033;
+      box-shadow:
+        0 0 5px rgba(255, 182, 193, 0.7),
+        inset 0 1px 5px rgba(255, 255, 255, 0.3);
+      transition: background-color 0.3s ease;
+    }
+
     @keyframes fadeIn {
       to {
         opacity: 1;
@@ -119,7 +132,7 @@
   <h1>FORM 2 - BAHAGIAN 5</h1>
   <div class="content">
 
-    I really hope that our friendship will last forever. But, if it doesn't, you're just another person who I put hope in. Ada satu bende aku tak pernah kasih tau kau lagi, first time aku tengok kau, my mind goes 'ew' 'kenapa orang nak kawan dengan dia?'. But now, after I get to know you better, my mind has turned 360 degrees. I guess they're right, every good friendship starts with 'When I first saw you, I don't like you'. BTW, aku tau nickname kau lebih awal dari aku tau nama sebenar kau.
+    I really hope that our friendship will last forever. But, if it doesn't, you're just another person who I put hope in. Ada satu bende aku tak pernah kasih tau kau lagi, first time aku tengok kau, my mind goes <span class="highlight">'ew' 'kenapa orang nak kawan dengan dia?'</span>. But now, after I get to know you better, my mind has turned 360 degrees. I guess they're right, every good friendship starts with <span class="highlight">'When I first saw you, I don't like you'.</span> BTW, aku tau nickname kau lebih awal dari aku tau nama sebenar kau.
   </div>
 
    <div class="navigation">
