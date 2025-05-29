@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>VERONICA SATI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+
+<style>
+  body {
+    background-color: #b9fbc0; /* Mint green background */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px;
+    display: block;
+    overflow: hidden;
+  }
+
+  h1, h2 {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  h1 {
+    color: #d63384;
+    font-size: 3em;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.2s;
+    animation-play-state: paused;
+  }
+
+  h2 {
+    color: #cc6699;
+    font-size: 1.5em;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-play-state: paused;
+  }
+
+  h2:nth-of-type(1) { animation-delay: 0.4s; }
+  h2:nth-of-type(2) { animation-delay: 0.6s; }
+
+  .form-section { margin-top: 40px; }
+  .form-section h3 {
+    margin-bottom: 20px;
+    color: #bf4080;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.8s;
+    animation-play-state: paused;
+  }
+
+  .form-section a {
+    display: block;
+    margin: 5px auto;
+    color: #99004d;
+    text-decoration: none;
+    font-weight: bold;
+    opacity: 0;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: fit-content;
+    box-shadow: 0 0 0 rgba(255, 102, 178, 0);
+    animation-play-state: paused;
+    border: 2px solid #ff66b2;
+  }
+
+  .form-section a:hover {
+    color: #ff66b2;
+    box-shadow: 0 0 10px rgba(255, 102, 178, 0.7), 0 0 20px rgba(255, 102, 178, 0.5);
+    transform: scale(1.05);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideFromLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slideFromRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .form-section a:nth-of-type(odd) { animation-name: slideFromLeft; }
+  .form-section a:nth-of-type(even) { animation-name: slideFromRight; }
+
+  .form-section a:nth-of-type(1) { animation-delay: 1s; }
+
+  .back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ff66b2;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 102, 178, 0.6);
+    z-index: 10000;
+  }
+
+  .back-button:hover {
+    background-color: #e0559a;
+    box-shadow: 0 0 15px rgba(255, 102, 178, 1);
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const homepage = "https://marcelinamasuel.github.io/11may2025projectcoding/";
+    const homepageWithIndex = "https://marcelinamasuel.github.io/11may2025projectcoding/index.html";
+    const referrer = document.referrer;
+
+    // Password prompt only if NOT entered from homepage before
+    if (referrer === homepage || referrer === homepageWithIndex) {
+      sessionStorage.setItem("fromHomepage", "true");
+    }
+
+    if (!sessionStorage.getItem("fromHomepage")) {
+      const password = "sayaSayangAwak"; // Tukar password ikut yang awak mahu
+      const userInput = prompt("Sila masukkan kata laluan untuk akses:");
+
+      if (userInput !== password) {
+        alert("Kata laluan salah! Anda akan dibawa kembali ke halaman utama.");
+        window.location.href = homepage;
+        return; // Stop further execution
+      } else {
+        sessionStorage.setItem("fromHomepage", "true");
+      }
+    }
+
+    // Aktifkan animasi bila page load
+    document.querySelectorAll("h1, h2, .form-section h3, .form-section a").forEach(el => {
+      el.style.animationPlayState = "running";
+    });
+
+    // Animasi klik link
+    document.querySelectorAll(".form-section a").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        link.style.transform = "scale(1.3)";
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 300);
+      });
+    });
+  });
+</script>
+</head>
+
+<body>
+  <a class="back-button" href="index.html">← KEMBALI KE HALAMAN UTAMA</a>
+
+  <h1> VERONICA SATI </h1>
+  <h2> -PILIH BAHAGIAN YANG INGIN DIBACA- </h2>
+
+  <div class="form-section">
+    <h3>FORM 2</h3>
+    <a href="form2.s-bahagian1.html">Bahagian 1</a>
+  </div>
+</body>
+</html>
