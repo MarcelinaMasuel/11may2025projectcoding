@@ -21,21 +21,24 @@
       color: #cc3366;
       opacity: 0;
       animation: fadeIn 2s forwards;
-      font-family: 'Caveat', cursive;
       font-size: 3em;
     }
 
-    .content {
+    .diary-wrapper {
       max-width: 800px;
       margin: auto;
+      background-color: #ffeaf2;
+      border: 2px dashed #ffa6c9;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 18px rgba(255, 153, 204, 0.3);
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .content {
       line-height: 1.8;
       white-space: pre-wrap;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      opacity: 0;
-      animation: fadeIn 3s forwards;
-      font-family: 'Caveat', cursive;
       font-weight: 400;
       font-size: 1.45em;
     }
@@ -44,6 +47,21 @@
       to {
         opacity: 1;
       }
+    }
+
+    /* Highlight style */
+    .highlight-pop {
+      background: #ffccdd;
+      color: #b30059;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 6px;
+      box-shadow: 1px 1px 6px rgba(255, 105, 180, 0.4);
+      transition: background 0.3s ease;
+    }
+
+    .highlight-pop:hover {
+      background: #ffc4e0;
     }
 
     .navigation {
@@ -62,14 +80,12 @@
       font-weight: bold;
       opacity: 0;
       animation: fadeIn 0.7s forwards;
-      font-family: 'Caveat', cursive;
     }
 
     .navigation a:nth-of-type(1) { animation-delay: 0.5s; }
     .navigation a:nth-of-type(2) { animation-delay: 0.7s; }
     .navigation a:nth-of-type(3) { animation-delay: 0.9s; }
-    .navigation a:nth-of-type(4) { animation-delay: 1.1s; }
-    
+
     @media (max-width: 480px) {
       body {
         padding: 20px;
@@ -81,7 +97,6 @@
 
       .content {
         font-size: 1.2em;
-        max-width: 100%;
       }
 
       .navigation a {
@@ -116,16 +131,20 @@
   </script>
 </head>
 <body>
-  <h1>FORM 2 - BAHAGIAN 14</h1>
-  <div class="content">
-    
- Sebenarnya aku suka jer buat long text untuk orang yang aku sayang tapi, the feeling after I sent the long text, ARRGGHHH I HATE IT SO MUCHH!!!!. MACAM GADOH BERTAHUN-TAHUN THEN TETIBER NAK MINTAK MAAF ANJIRRR 💔. Macam pantek jer. Kalau aku sent long text kat orang memang aku terus tutup app tu then tantrum. Serius, masa aku tersent message kat kau tu pun aku tantrum, aku hanya mampu pejamkan mata dan bayangkan muka Walid. But yeah, takpe lah. I love your respond anyway so, aku takdelah menyesal tersent message tu. But, setiap kali aku teringat pasal bende tu, aku rase malu GILER. SHIBALLL.
-  </div>
+  <div class="diary-wrapper">
+    <h1>FORM 2 - BAHAGIAN 14</h1>
+    <div class="content">
+      Sebenarnya aku suka jer buat long text untuk orang yang aku sayang tapi,
+    <span class="highlight-pop">the feeling after I sent the long text, ARRGGHHH I HATE IT SO MUCHH!!!!</span> <span class="highlight-pop">MACAM GADOH BERTAHUN-TAHUN THEN TETIBER NAK MINTAK MAAF ANJIRRR 💔.</span>
+    Macam pantek jer. 
+   Kalau aku sent long text kat orang memang aku terus tutup app tu then tantrum. Serius, masa aku tersent message kat kau tu pun aku tantrum, aku hanya mampu pejamkan mata dan bayangkan muka Walid. But yeah, takpe lah. I love your respond anyway so, aku takdelah menyesal tersent message tu. But, setiap kali aku teringat pasal bende tu, aku rase <span class="highlight-pop">malu GILER. SHIBALLL.</span>
+    </div>
 
-   <div class="navigation">
-    <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
-    <a href="form2-bahagian13.html">← BAHAGIAN SEBELUMNYA</a>
-    <a href="form2-bahagian15.html">BAHAGIAN SETERUSNYA →</a>
+    <div class="navigation">
+      <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
+      <a href="form2-bahagian13.html">← BAHAGIAN SEBELUMNYA</a>
+      <a href="form2-bahagian15.html">BAHAGIAN SETERUSNYA →</a>
+    </div>
   </div>
 </body>
 </html>
