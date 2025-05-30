@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FORM 2 - Bahagian 16 Part 1</title>
+  <title>FORM 2 - Bahagian 16</title>
     
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 
@@ -25,25 +25,55 @@
       font-size: 3em;
     }
 
-    .content {
+    .diary-wrapper {
       max-width: 800px;
       margin: auto;
+      background-color: #ffeaf2;
+      border: 2px dashed #ffa6c9;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 18px rgba(255, 153, 204, 0.3);
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .content {
       line-height: 1.8;
       white-space: pre-wrap;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      opacity: 0;
-      animation: fadeIn 3s forwards;
-      font-family: 'Caveat', cursive;
-      font-weight: 400;
       font-size: 1.45em;
+      font-family: 'Caveat', cursive;
+    }
+
+    /* Highlight style 1: soft pink bg, comfy padding, round edges */
+    .soft-highlight-pink {
+      background-color: #ffd9e8;  /* very soft pastel pink */
+      color: #9c1450;
+      padding: 0 6px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .soft-highlight-pink:hover {
+      background-color: #ffbad1;
+    }
+
+    /* Highlight style 2: italic + underline pink */
+    .speech-italic-pink {
+      font-style: italic;
+      text-decoration: underline;
+      text-decoration-color: #ff85a2;
+      color: #b33160;
+    }
+
+    /* Highlight style 3: subtle pink glow */
+    .glow-pink {
+      color: #b23064;
+      text-shadow: 0 0 6px #ff99bb88, 0 0 10px #ff669988;
+      font-weight: 700;
     }
 
     @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+      to { opacity: 1; }
     }
 
     .navigation {
@@ -116,16 +146,20 @@
   </script>
 </head>
 <body>
-  <h1>FORM 2 - BAHAGIAN 16 (PART 1)</h1>
-  <div class="content">
-  Do you still remember when I wasn’t chosen for basketball? I was so freaking sad at that time. I thought I did well enough, but no. I still remember the moment when the teacher said, "Sebenarnya saya mahu pilih si kecik (aku) tu." "Kamu boleh, bagus kamu bawa bola, cantik. Tapi, passing kamu tak bagus." "Kalau passing tak bagus, nanti dalam game, habis." I could feel my eyes getting watery. Then I burst into tears. Everyone noticed, and my friends came to comfort me and tried to persuade the teacher to let me join basketball, but the teacher gave no response. Then the teacher told everyone to go home except for the 13 people he had chosen. I walked out of school with tears running down my face. "Aku taknak balik dulu, taknak parents aku nampak aku nangis. Aku rehat lah kejap," I said to myself as I sat on one of the benches, thinking about the things my teacher said to me, over and over again.
-  </div>
+  <div class="diary-wrapper">
+  <h1>FORM 2 - BAHAGIAN 16</h1>
+    <div class="content">
+      Do you still remember when I wasn’t chosen for basketball? I was so freaking sad. Teacher said, "Sebenarnya saya mahu pilih si kecik (aku) tu." "Kamu boleh, bagus kamu bawa bola, cantik. Tapi, passing kamu tak bagus." "Kalau passing tak bagus, nanti dalam game, habis." I burst into tears. Friends comforted me and tried to persuade the teacher to let me join basketball, but the teacher gave no response. I walked out with tears running down my face. "Aku taknak balik dulu, taknak parents aku nampak aku nangis. Aku rehat lah kejap," I said. "Did I not try hard enough? I pushed myself sampai vision blurred, hearing blocked. I <span class="soft-highlight-pink">ALMOST F*CKING FAINTED IN TRAINING.</span> But all I got was disappointment."
+
+      Then korang PBSM keluar. You called my name, I turned but looked away. Assuming you didn't see my eyes. Then in the corner of my eyes I saw you walking toward me. You sat beside me and try to comfort me. You were the third person who ever try to comfort me after my mom and Grecia. When you said, "<span class="speech-italic-pink">Aw, it’s okay,</span>" <span class="glow-pink">ARGGHH, MY TEARS FLOWED HARDER!</span> You were the first to let me cry on your shoulder. I wanted you to stay longer but I forced myself to stand, taknak kau balik lambat sebab aku. Aku balik with tears still flowing, mind repeating cikgu’s words, but I remembered you wiping my tears. BTW you're the first person who ever wiped my tears. You also the second person who called Grecia when I cried. I’m so grateful for a friend like you. Dari semua kawan aku di Sarawak, you’re the best, my favourite. <span class="soft-highlight-pink">Maybe moving to Sarawak isn’t that bad <span class="speech-italic-pink">because I met you there.</span></span>
+
+    </div>
 
   <div class="navigation">
     <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
     <a href="form2-bahagian15.html">← BAHAGIAN SEBELUMNYA</a>
-    <a href="form2-bahagian16part2.html">BAHAGIAN SETERUSNYA →</a>
-
+    <a href="form2-penutup.html">BAHAGIAN SETERUSNYA →</a>
+  </div>
   </div>
 </body>
 </html>
