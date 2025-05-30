@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FORM 2 - Bahagian 10</title>
-  
+
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 
   <style>
@@ -12,43 +12,64 @@
       background-color: #fff0f5;
       font-family: 'Caveat', cursive;
       color: #660033;
-      padding: 40px;
+      padding: 30px;
+      margin: 0;
       display: none;
+    }
+
+    .diary-wrapper {
+      max-width: 800px;
+      margin: auto;
+      background-color: #ffe6f0;
+      border: 2px dashed #ffb6c1;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
+      opacity: 0;
+      animation: fadeIn 2s forwards;
     }
 
     h1 {
       text-align: center;
+      font-size: 2.8em;
       color: #cc3366;
+      margin-bottom: 20px;
       opacity: 0;
       animation: fadeIn 2s forwards;
-      font-family: 'Caveat', cursive;
-      font-size: 3em;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
     }
 
     .content {
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.8;
+      font-size: 1.6em;
+      line-height: 1.9;
       white-space: pre-wrap;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
       opacity: 0;
       animation: fadeIn 3s forwards;
-      font-family: 'Caveat', cursive;
-      font-weight: 400;
-      font-size: 1.45em;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      transition: opacity 2s ease;
     }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+    .highlight {
+  color: #ff4da6;
+  text-shadow:
+    0 0 3px #ff4da6,
+    0 0 5px #ff4da6,
+    0 0 7px #ff99cc,
+    0 0 0px #ff99cc;
+  font-weight: normal;
+}
+
     }
 
     .navigation {
       text-align: center;
       margin-top: 40px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 0.8s;
+      animation-fill-mode: forwards;
     }
 
     .navigation a {
@@ -60,34 +81,36 @@
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
-      opacity: 0;
-      animation: fadeIn 0.7s forwards;
+      font-size: 1em;
       font-family: 'Caveat', cursive;
+      transition: background-color 0.3s;
     }
 
-    .navigation a:nth-of-type(1) { animation-delay: 0.5s; }
-    .navigation a:nth-of-type(2) { animation-delay: 0.7s; }
-    .navigation a:nth-of-type(3) { animation-delay: 0.9s; }
-    .navigation a:nth-of-type(4) { animation-delay: 1.1s; }
-    
-    @media (max-width: 480px) {
-      body {
+    .navigation a:hover {
+      background-color: #e06699;
+    }
+
+    @media (max-width: 600px) {
+      .diary-wrapper {
         padding: 20px;
       }
 
-      h1 {
-        font-size: 2.2em;
+      .content {
+        font-size: 1.3em;
       }
 
-      .content {
-        font-size: 1.2em;
-        max-width: 100%;
+      h1 {
+        font-size: 2em;
       }
 
       .navigation a {
+        font-size: 0.95em;
         padding: 8px 16px;
-        font-size: 1em;
       }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
   </style>
 
@@ -116,17 +139,25 @@
   </script>
 </head>
 <body>
-  <h1>FORM 2 - BAHAGIAN 10</h1>
-  <div class="content">
-    Aku fikir² lah jugak 'nak sent ke tak eh bende panjang ni time aku nak pindah, haritu aku sent bapak panjang message kat G***** tapi kena dry, 3 kali plak tu.' Tapi tulah, tersent kan, nak buat camne. But, after I read your respond, haishh, aku tak tau lah macam mana nak cakap, it felt like I have a friend who's truly love me and it's the first time I felt that way. And don't worry, aku tak terasa pun masa ko mintak aku tukar tempat dengan Farisha, ada lah terasa sikit but its ok, normal sh*ts. I mean, aku kalau time belajar memang diam pun, walaupun otak aku tak focus kat cikgu and barely past my exams 😌. Lagipun aku tknk kau bosan sooo yeahhhh. And, Farisha kan pengawas, korang boleh bersama time intervensi and PJ je, kalau aku? Masa datang boleh, rehat boleh, balik boleh. So, after cilak ciluk otak aku, I finally decided to say 'ok'. Aku tau lah korang boleh lepak luar sekolah, video call ape semua, tapi aku nak korang buat memori di sekolah juga.
-  </div>
+  <div class="diary-wrapper">
+    <h1>FORM 2 - BAHAGIAN 10</h1>
+    <div class="content">
+      Aku fikir² lah jugak'nak sent ke tak eh bende panjang ni' 'haritu aku sent bapak panjang message kat ****** tapi kena dry, 3 kali plak tu. Tapi tulah, tersent kan, nak buat camne.
 
-  <div class="navigation">
-    <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
-    <a href="form2-bahagian9.html">← BAHAGIAN SEBELUMNYA</a>
-    <a href="form2-bahagian11.html">BAHAGIAN SETERUSNYA →</a>
- 
-  </div>
+      But, after I read your respond, haishh, aku tak tau lah macam mana nak cakap, <span class="highlight">it felt like I have a friend who's truly love me and it's the first time I felt that way. </span>
+
+      And don't worry, aku tak terasa pun masa ko mintak aku tukar tempat dengan Farisha, ada lah terasa sikit but its ok, normal sh*ts. I mean, aku kalau time belajar memang diam pun, walaupun otak aku tak focus kat cikgu and barely pass my exams 😌.
+
+      Lagipun aku tknk kau bosan sooo yeahhhh. And, Farisha kan pengawas, korang boleh bersama time intervensi and PJ je, kalau aku? Masa datang boleh, rehat boleh, balik boleh.
+
+      So, after cilak ciluk otak aku, I finally decided to say 'ok'. Aku tau lah korang boleh lepak luar sekolah, video call ape semua, tapi <span class="highlight">aku nak korang buat memori di sekolah juga</span>.
+    </div>
+
+    <div class="navigation">
+      <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
+      <a href="form2-bahagian9.html">← BAHAGIAN SEBELUMNYA</a>
+      <a href="form2-bahagian11.html">BAHAGIAN SETERUSNYA →</a>
+    </div>
   </div>
 </body>
 </html>
