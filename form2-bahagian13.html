@@ -21,23 +21,52 @@
       color: #cc3366;
       opacity: 0;
       animation: fadeIn 2s forwards;
-      font-family: 'Caveat', cursive;
       font-size: 3em;
     }
 
-    .content {
+    .diary-wrapper {
       max-width: 800px;
       margin: auto;
+      background-color: #ffe6f0;
+      border: 2px dashed #ffb6c1;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .content {
       line-height: 1.8;
       white-space: pre-wrap;
       display: flex;
       flex-direction: column;
       gap: 20px;
-      opacity: 0;
-      animation: fadeIn 3s forwards;
-      font-family: 'Caveat', cursive;
       font-weight: 400;
       font-size: 1.45em;
+    }
+
+    /* Glow highlight */
+    .glow-highlight {
+      background-color: #fff8f9;
+      color: #cc3366;
+      box-shadow: 0 0 8px 2px rgba(204, 51, 102, 0.3);
+      border-radius: 6px;
+      padding: 0 6px;
+      font-weight: 600;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .glow-highlight:hover {
+      box-shadow: 0 0 14px 4px rgba(204, 51, 102, 0.5);
+    }
+
+    .highlight-unique {
+      font-style: italic;
+      color: #b30059;
+      background-color: #ffe6f0;
+      padding: 0 4px;
+      border-left: 3px solid #ff99cc;
     }
 
     @keyframes fadeIn {
@@ -62,14 +91,12 @@
       font-weight: bold;
       opacity: 0;
       animation: fadeIn 0.7s forwards;
-      font-family: 'Caveat', cursive;
     }
 
     .navigation a:nth-of-type(1) { animation-delay: 0.5s; }
     .navigation a:nth-of-type(2) { animation-delay: 0.7s; }
     .navigation a:nth-of-type(3) { animation-delay: 0.9s; }
-    .navigation a:nth-of-type(4) { animation-delay: 1.1s; }
-    
+
     @media (max-width: 480px) {
       body {
         padding: 20px;
@@ -81,7 +108,6 @@
 
       .content {
         font-size: 1.2em;
-        max-width: 100%;
       }
 
       .navigation a {
@@ -116,17 +142,21 @@
   </script>
 </head>
 <body>
-  <h1>FORM 2 - BAHAGIAN 13</h1>
-  <div class="content">
- Kalau kau nak tau, aku banyak kali mention nama kau in my prayers. Every morning and every night. I still remember how I prayed for you while I'm crying... I asked God to make your life easier. I asked God to tell you how much I love and care about you. And, it's the first time I asked God to make someone's life easier and tell them how much I love and care about them. Even tho I'm scared to mention a friend's name that I love, sebab setiap kali aku mention nama sorang kawan, dia selalu tinggalkan aku. But, I'll take the risk, for you.
+  <div class="diary-wrapper">
+    <h1>FORM 2 - BAHAGIAN 13</h1>
+    <div class="content">
+      Kalau kau nak tau, aku banyak kali mention nama kau in my prayers. Every morning and every night. 
+      I still remember how I prayed for you while I'm crying... 
+      I asked God to make your life easier. I asked God to tell you how much I love and care about you. Kadang-kadang jelah, bukan in all my prayers.
+      And you’re the first person who has made me ask God to make someone’s life easier and to tell them how much I love and care about them.
+      Even tho I'm scared to mention a friend's name that I love, sebab setiap kali aku mention nama sorang kawan, dia selalu tinggalkan aku. <span class="highlight-unique">But, I'll take the risk, for you.</span>
+    </div>
 
-  </div>
-
-   <div class="navigation">
-    <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
-    <a href="form2-bahagian12.html">← BAHAGIAN SEBELUMNYA</a>
-    <a href="form2-bahagian14.html">BAHAGIAN SETERUSNYA →</a>
-     
+    <div class="navigation">
+      <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
+      <a href="form2-bahagian12.html">← BAHAGIAN SEBELUMNYA</a>
+      <a href="form2-bahagian14.html">BAHAGIAN SETERUSNYA →</a>
+    </div>
   </div>
 </body>
 </html>
