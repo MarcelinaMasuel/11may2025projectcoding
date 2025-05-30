@@ -2,59 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FORM 2 - Bahagian 9</title>
       
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 
   <style>
     body {
-      background-color: #fff0f5;
+      background-color: #fff5fa;
       font-family: 'Caveat', cursive;
       color: #660033;
-      padding: 40px;
+      padding: 30px;
+      margin: 0;
       display: none;
+    }
+
+    .diary-wrapper {
+      max-width: 800px;
+      margin: auto;
+      background-color: #ffe6f0;
+      border: 2px dashed #ffb6c1;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
+      opacity: 0;
+      animation: fadeIn 2s forwards;
     }
 
     h1 {
       text-align: center;
+      font-size: 2.8em;
       color: #cc3366;
+      margin-bottom: 20px;
       opacity: 0;
       animation: fadeIn 2s forwards;
-      font-family: 'Caveat', cursive;
-      font-size: 3em;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
     }
 
     .content {
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.8;
+      font-size: 1.6em;
+      line-height: 1.9;
       white-space: pre-wrap;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
       opacity: 0;
       animation: fadeIn 3s forwards;
-      font-family: 'Caveat', cursive;
-      font-weight: 400;
-      font-size: 1.45em;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      transition: opacity 2s ease;
     }
 
-    .glow-pink {
-      color: #ff1493;
-      text-shadow: 0 0 3px #ff66cc, 0 0 5px #ff3399;
+    .highlight {
+      background-color: #ffe0f7;
+      color: #880044;
       font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 6px;
+      display: inline;
+      text-shadow: 0 0 4px #ff99cc;
+      transition: text-shadow 0.3s ease;
     }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+    .highlight:hover {
+      text-shadow: 0 0 8px #ff66bb;
     }
 
     .navigation {
       text-align: center;
       margin-top: 40px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 0.8s;
+      animation-fill-mode: forwards;
     }
 
     .navigation a {
@@ -66,34 +84,40 @@
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
-      opacity: 0;
-      animation: fadeIn 0.7s forwards;
+      font-size: 1em;
       font-family: 'Caveat', cursive;
+      transition: background-color 0.3s;
     }
 
-    .navigation a:nth-of-type(1) { animation-delay: 0.5s; }
-    .navigation a:nth-of-type(2) { animation-delay: 0.7s; }
-    .navigation a:nth-of-type(3) { animation-delay: 0.9s; }
-    .navigation a:nth-of-type(4) { animation-delay: 1.1s; }
-    
-    @media (max-width: 480px) {
-      body {
-        padding: 20px;
-      }
+    .navigation a:hover {
+      background-color: #e06699;
+    }
 
-      h1 {
-        font-size: 2.2em;
+    @media (max-width: 600px) {
+      body {
+        padding: 15px;
+      }
+      .diary-wrapper {
+        padding: 20px 15px;
+        border-width: 1.5px;
       }
 
       .content {
-        font-size: 1.2em;
-        max-width: 100%;
+        font-size: 1.3em;
+      }
+
+      h1 {
+        font-size: 2em;
       }
 
       .navigation a {
+        font-size: 0.95em;
         padding: 8px 16px;
-        font-size: 1em;
       }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
   </style>
 
@@ -123,8 +147,10 @@
 </head>
 <body>
   <h1>FORM 2 - BAHAGIAN 9</h1>
-  <div class="content">
-     Ni, yang baru punya selepas aku tersent long text tu kat kau. Sebenarnya, aku berniat nak check je ‘cukup ke tak ek bende panjang ni’. Then aku copy paste lah kan, tapi ada tiga perenggan yang tak dapat masuk. Dia tulis ‘5..../6000’ terus aku macam ‘belum sampai limit lagi kot, kenapa takleh masuk’. Then aku copy tiga perenggan terakhir tu, then aku press ‘Shift’ and ‘Enter’ at the same time. Sebab time tu aku kat laptop, and kalau tekan dua button tu boleh masuk baris baru. Tapi entah kenapa, mungkin aku tak tertekan button ‘Shift’ or what, <span class="glow-pink">bende tu tersent ANJIRRR</span>. After I realized bende tu tersent, aku rush to my parents’ room and mintak phone. Sebab kalau kat laptop, aku takleh delete message, boleh je tapi cuma ‘delete for me’. And time tu phone bapak aku ‘power off’, so kena tunggu lah kan untuk dia on. Time tu aku berharap gila kau tengah off, busy, ataupun kau on tapi tak baca message aku. But after I open the app, aku nampak kau dah <span class="glow-pink">‘typing...’</span>. Time tu aku betul² dah ✋😐🤚. Tapi takpelah, I’m glad that my message changed how you felt.
+  <div class="diary-wrapper">
+    <div class="content">
+       Ni, yang baru punya selepas aku tersent long text tu kat kau. Sebenarnya, aku berniat nak check je ‘cukup ke tak ek bende panjang ni’. Then aku copy paste lah kan, tapi ada tiga perenggan yang tak dapat masuk. Dia tulis ‘5..../6000’ terus aku macam ‘belum sampai limit lagi kot, kenapa takleh masuk’. Then aku copy tiga perenggan terakhir tu, then aku press ‘Shift’ and ‘Enter’ at the same time. Sebab time tu aku kat laptop, and kalau tekan dua button tu boleh masuk baris baru. Tapi entah kenapa, mungkin aku tak tertekan button ‘Shift’ or what, <span class="highlight">bende tu tersent ANJIRRR</span>. After I realized bende tu tersent, aku rush to my parents’ room and mintak phone. Sebab kalau kat laptop, aku takleh delete message, boleh je tapi cuma ‘delete for me’. And time tu phone bapak aku ‘power off’, so kena tunggu lah kan untuk dia on. Time tu aku berharap gila kau tengah off, busy, ataupun kau on tapi tak baca message aku. But after I open the app, aku nampak kau dah <span class="highlight">‘typing...’</span>. Time tu aku betul² dah ✋😐🤚. Tapi takpelah, I’m glad that my message changed how you felt.
+    </div>
   </div>
 
   <div class="navigation">
