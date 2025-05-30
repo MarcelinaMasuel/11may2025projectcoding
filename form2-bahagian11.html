@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FORM 2 - Bahagian 11</title>
-  
+
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 
   <style>
@@ -12,43 +12,87 @@
       background-color: #fff0f5;
       font-family: 'Caveat', cursive;
       color: #660033;
-      padding: 40px;
+      padding: 30px;
+      margin: 0;
       display: none;
+    }
+
+    .diary-wrapper {
+      max-width: 800px;
+      margin: auto;
+      background-color: #ffe6f0;
+      border: 2px dashed #ffb6c1;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
+      opacity: 0;
+      animation: fadeIn 2s forwards;
     }
 
     h1 {
       text-align: center;
+      font-size: 2.8em;
       color: #cc3366;
+      margin-bottom: 20px;
       opacity: 0;
       animation: fadeIn 2s forwards;
-      font-family: 'Caveat', cursive;
-      font-size: 3em;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
     }
 
     .content {
-      max-width: 800px;
-      margin: auto;
-      line-height: 1.8;
+      font-size: 1.6em;
+      line-height: 1.9;
       white-space: pre-wrap;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
       opacity: 0;
       animation: fadeIn 3s forwards;
-      font-family: 'Caveat', cursive;
-      font-weight: 400;
-      font-size: 1.45em;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      transition: opacity 2s ease;
     }
 
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-      }
+    .highlight {
+  color: #ff4da6;
+  text-shadow:
+    0 0 3px #ff4da6,
+    0 0 5px #ff4da6,
+    0 0 7px #ff99cc,
+    0 0 0px #ff99cc;
+  font-weight: normal;
+}
+
+.soft-highlight {
+  background: rgba(255, 255, 255, 0.55);
+  border-left: 6px solid #d63384;
+  padding: 14px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(204, 51, 102, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  margin: 20px 0;
+  font-size: 1.1em;
+  color: #661032;
+  line-height: 1.7;
+}
+
+.soft-glow-highlight {
+  background-color: #ffe6f0;
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: #660033;
+  box-shadow: 0 0 6px 2px rgba(255, 153, 204, 0.5);
+  font-weight: 500;
+}
+
     }
 
     .navigation {
       text-align: center;
       margin-top: 40px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 0.8s;
+      animation-fill-mode: forwards;
     }
 
     .navigation a {
@@ -60,34 +104,36 @@
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
-      opacity: 0;
-      animation: fadeIn 0.7s forwards;
+      font-size: 1em;
       font-family: 'Caveat', cursive;
+      transition: background-color 0.3s;
     }
 
-    .navigation a:nth-of-type(1) { animation-delay: 0.5s; }
-    .navigation a:nth-of-type(2) { animation-delay: 0.7s; }
-    .navigation a:nth-of-type(3) { animation-delay: 0.9s; }
-    .navigation a:nth-of-type(4) { animation-delay: 1.1s; }
-    
-    @media (max-width: 480px) {
-      body {
+    .navigation a:hover {
+      background-color: #e06699;
+    }
+
+    @media (max-width: 600px) {
+      .diary-wrapper {
         padding: 20px;
       }
 
-      h1 {
-        font-size: 2.2em;
+      .content {
+        font-size: 1.3em;
       }
 
-      .content {
-        font-size: 1.2em;
-        max-width: 100%;
+      h1 {
+        font-size: 2em;
       }
 
       .navigation a {
+        font-size: 0.95em;
         padding: 8px 16px;
-        font-size: 1em;
       }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
   </style>
 
@@ -116,16 +162,29 @@
   </script>
 </head>
 <body>
-  <h1>FORM 2 - BAHAGIAN 11</h1>
-  <div class="content">
-    Also, kau orang kedua yang aku selalu check repost sampai sekarang. Orang pertama tu aku dah tak check dah repost dia. Kadang² kalau aku bosan ke, sedih ke aku akan tengok repost kau. Kenapa? Sebab repost kau random, boleh buat aku tersenyum or ketawa sorang², and ada video² yang buat aku fikir 'oh, dia ni ni rupanya' 'dia suka ni rupanya' 'dia orangnya camni ye'. And, aku ada satu favourite collection khas pasal kau tapi bkn semua video dalam tu pasal kau sangat, aku letak nama 'pinelvy?' sbb nickname kau kan 'Pipi' then nama real kau 'Janelvy' so aku combine. Kalau kau nak tengok boleh jer, takde pape yang rahsiah sangat pun. Kebaynyakan benda yang aku tau pasal kau aku dapat dari repost kau, macam fav colour kau pink, anak bongsu, kau tak suka keseorangan and others.
+  <div class="diary-wrapper">
+    <h1>FORM 2 - BAHAGIAN 11</h1>
+    <div class="content">
+  Also, kau orang kedua yang aku selalu check repost sampai sekarang. Orang pertama tu aku dah tak check dah repost dia.
+
+  Kadang² kalau aku bosan ke, sedih ke aku akan tengok repost kau. Kenapa? Sebab repost kau random, boleh buat aku tersenyum or ketawa sorang², and ada video² yang buat aku fikir  <div class="soft-highlight">
+    <span class="soft-glow-highlight">"Oh... dia ni camni rupanya."</span>
+    <span class="soft-glow-highlight">"Dia suka benda ni rupanya."</span>
+    <span class="soft-glow-highlight">"Oh... dia orangnya macam tu eh." </span>
   </div>
+  And, aku ada satu favourite collection khas pasal kau tapi bkn semua video dalam tu pasal kau sangat, aku letak nama <span class="highlight">'pinelvy?'</span> sbb nickname kau kan <span class="highlight">'Pipi'</span> then nama real kau <span class="highlight">'Janelvy'</span> so aku combine.
 
-  <div class="navigation">
-    <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
-    <a href="form2-bahagian10.html">← BAHAGIAN SEBELUMNYA</a>
-    <a href="form2-bahagian12.html">BAHAGIAN SETERUSNYA →</a>
+  Kalau kau nak tengok boleh jer, takde pape yang rahsiah sangat pun.
 
+  Kebanyakan benda yang aku tau pasal kau aku dapat dari repost kau, macam fav colour kau and others.
+</div>
+
+
+    <div class="navigation">
+      <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
+      <a href="form2-bahagian10.html">← BAHAGIAN SEBELUMNYA</a>
+      <a href="form2-bahagian12.html">BAHAGIAN SETERUSNYA →</a>
+    </div>
   </div>
 </body>
 </html>
