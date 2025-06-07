@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>𝜗𝜚 FORM 2 - Penutup 𝜗𝜚</title>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #fff0f5, #ffe6f0);
+      font-family: 'Caveat', cursive;
+      color: #660033;
+      padding: 50px 30px;
+      display: none;
+    }
+
+    h1 {
+      text-align: center;
+      color: #cc3366;
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      animation: glow 2s infinite alternate;
+      text-shadow: 2px 2px 12px #ff99cc;
+    }
+
+    .diary-wrapper {
+      max-width: 900px;
+      margin: auto;
+      background-color: rgba(255, 240, 250, 0.95);
+      border: 3px dashed #ffaad4;
+      border-radius: 30px;
+      padding: 40px 50px;
+      box-shadow: 0 0 40px rgba(255, 153, 204, 0.4);
+      backdrop-filter: blur(6px);
+      animation: fadeIn 2s ease forwards;
+      opacity: 0;
+
+      /* 🎀 Corak berulang 𝜗𝜚 ୨୧ 🎀 */
+      background-image: 
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 22px,
+          rgba(255, 182, 193, 0.12) 23px,
+          transparent 24px
+        ),
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150'><text x='0' y='20' font-size='22' fill='pink'>𝜗𝜚 ୨୧</text></svg>");
+      background-repeat: repeat;
+      background-size: 120px;
+      background-position: center;
+    }
+
+    .content {
+      position: relative;
+      font-size: 1.6em;
+      line-height: 1.9;
+      white-space: pre-wrap;
+      z-index: 1;
+      color: #660033;
+    }
+
+    .glow-highlight {
+      background: #ffe0f0;
+      padding: 3px 7px;
+      border-radius: 8px;
+      box-shadow: 0 0 12px #ffc0cb;
+      font-style: italic;
+    }
+
+    .magic-quote {
+      display: block;
+      margin: 25px 0;
+      font-size: 1.4em;
+      color: #c71585;
+      font-style: italic;
+      padding-left: 20px;
+      border-left: 4px solid #ff69b4;
+    }
+
+    .heart-line {
+      text-align: center;
+      font-size: 1.8em;
+      margin: 30px 0;
+      color: #ff5ea6;
+      animation: pulse 2s infinite;
+    }
+
+    .signature {
+      text-align: right;
+      font-size: 1.4em;
+      margin-top: 40px;
+      color: #cc0066;
+    }
+
+    .navigation {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .navigation a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 25px;
+      background-color: #ff99cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 1.1em;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .navigation a:hover {
+      transform: scale(1.05);
+      background-color: #ff6fae;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ffc0cb; }
+      to { text-shadow: 0 0 20px #ff69b4, 0 0 30px #ff85c1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 2.2em; }
+      .content { font-size: 1.3em; }
+      .navigation a { font-size: 1em; padding: 8px 16px; }
+      .diary-wrapper {
+        padding: 30px 25px;
+      }
+    }
+  </style>
+
+  <script>
+    const allowedReferrers = [
+      "https://marcelinamasuel.github.io/11may2025projectcoding/",
+      "https://marcelinamasuel.github.io/11may2025projectcoding/PIPI.html"
+    ];
+
+    const fromAllowedPage = allowedReferrers.some(url => document.referrer.startsWith(url));
+
+    if (fromAllowedPage) {
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.display = "block";
+      });
+    } else {
+      const password = prompt("Masukkan kata laluan:");
+      if (password === "akusorangjeadapassword") {
+        document.addEventListener("DOMContentLoaded", () => {
+          document.body.style.display = "block";
+        });
+      } else {
+        document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
+      }
+    }
+  </script>
+</head>
+<body>
+   <div class="diary-wrapper">
+  <h1>𝜗𝜚 FORM 2 - PENUTUP 𝜗𝜚</h1>
+    <div class="content">
+      I think that's all. I'm sorry I have to move to another school. But I'll make sure I update everything to you once I move to Sabah.
+      I don’t know if our friendship will stay the same... but <span class="glow-highlight">I hope we’ll still be friends</span> even if we're in different classes. 
+      I always love you as my friend. <span class="magic-quote">Don’t ever think I hate you or that I don’t care, because that will never happen.</span> 
+      Don’t ever think no one is proud of you — because I always am. 💗
+      <span class="glow-highlight">You’re special to me, Pi.</span> You always have a space in my heart.
+      <div class="heart-line">💖💗💖</div>
+      If you're reading until here, thank you — for taking the time to understand my heart. 
+      Sorry if this is long and full of "merepek" — but it all came from a real, honest place. 
+      <span class="magic-quote">I love you, always.</span> If one day we're far apart, all these memories... 
+      <span class="glow-highlight">I’ll keep in my heart forever.</span>
+      <span class="magic-quote">I’m glad I met someone like you. It felt like God answered my prayer to give me a friend who's truly love me</span>
+      If one day we’re not as close anymore, please remember — <span class="glow-highlight">I once loved you as my best friend with all my heart.</span>
+      <div class="heart-line">𝜗𝜚 I always love you, Pipi 𝜗𝜚</div>
+     <div class="signature">
+      <div style="text-align:center;margin-top:40px;font-size:1.1em;color:#cc0066;">
+        P/S: Aku spent berminggu-minggu coding & buat laman ni kat GitHub... just for you. Hope you like it 💕
+      </div>
+    </div>
+  </div>
+
+  <div class="navigation">
+    <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN</a>
+    <a href="form2-bahagian16.html">← BAHAGIAN SEBELUMNYA</a>
+  </div>
+   </div>
+</body>
+</html>
