@@ -9,8 +9,17 @@
       text-align: center;
       padding-top: 100px;
       animation: backgroundCycle 14s linear infinite;
-      transition: background-color 3.5s ease-in-out;
+      transition: background-color 3.5s ease-in-out, color 0.5s ease;
       overflow-x: hidden;
+      color: #000;
+      background-color: #FFA6C9;
+    }
+
+    /* DARK MODE */
+    body.dark-mode {
+      animation: backgroundCycleDark 14s linear infinite;
+      background-color: #121212;
+      color: #eee;
     }
 
     /* Intro screen */
@@ -26,6 +35,11 @@
       align-items: center;
       z-index: 9999;
       animation: fadeOutIntro 2s ease 3s forwards;
+      transition: background-color 0.5s ease;
+    }
+
+    body.dark-mode #intro {
+      background-color: #222;
     }
     
     #intro img {
@@ -78,6 +92,14 @@
       100% { background-color: #FFA6C9; }
     }
 
+    @keyframes backgroundCycleDark {
+      0%   { background-color: #1e1e1e; }
+      25%  { background-color: #2a2a2a; }
+      50%  { background-color: #3b3b3b; }
+      75%  { background-color: #222222; }
+      100% { background-color: #1e1e1e; }
+    }
+
     h1 {
       font-size: 28px;
     }
@@ -92,8 +114,14 @@
       background-color: #FFA6C9;
       color: white;
       animation: waveMotion 1.5s ease-in-out infinite;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, color 0.5s ease;
       box-shadow: 0 0 10px #FFA6C9;
+    }
+
+    body.dark-mode button {
+      background-color: #bb86fc;
+      box-shadow: 0 0 10px #bb86fc;
+      color: #222;
     }
 
     button:hover {
@@ -135,11 +163,24 @@
       border-radius: 8px;
       border: 1px solid #ccc;
       margin-top: 10px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-mode input[type="password"] {
+      background-color: #333;
+      color: #eee;
+      border: 1px solid #555;
     }
 
     #submitPassword {
       background-color: #87CEEB;
       margin-left: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark-mode #submitPassword {
+      background-color: #bb86fc;
+      color: #222;
     }
 
     p {
@@ -152,9 +193,36 @@
       margin-top: 10px;
       display: none;
     }
+
+    /* THEME TOGGLE BUTTON */
+    #themeToggleBtn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #FFA6C9;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #FFA6C9;
+      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+      z-index: 10000;
+    }
+
+    body.dark-mode #themeToggleBtn {
+      background-color: #bb86fc;
+      color: #222;
+      box-shadow: 0 0 10px #bb86fc;
+    }
+
   </style>
 </head>
 <body>
+
+  <!-- THEME TOGGLE BUTTON -->
+  <button id="themeToggleBtn">🌙 Dark Mode</button>
 
   <!-- INTRO ANIMATION -->
   <div id="intro">
@@ -198,7 +266,6 @@
   <audio id="clickSound" src="click.mp3"></audio>
 
   <script>
-    
     setTimeout(() => {
       document.getElementById("intro").style.display = "none";
     }, 5000);
@@ -238,6 +305,20 @@
         errorMsg.style.display = "block";
       }
     }
+
+    // THEME TOGGLE LOGIC
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+
+      if (document.body.classList.contains('dark-mode')) {
+        themeToggleBtn.textContent = '☀️ Light Mode';
+      } else {
+        themeToggleBtn.textContent = '🌙 Dark Mode';
+      }
+    });
+
   </script>
 
 </body>
