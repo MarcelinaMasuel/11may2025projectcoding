@@ -52,7 +52,6 @@
       animation: fadeIn 2s forwards;
     }
     
-    /* Pen highlighter translucent style */
     .highlight {
       background-color: rgba(255, 182, 193, 0.5); /* translucent pink */
       border-radius: 4px;
@@ -114,6 +113,46 @@
         font-size: 1em;
       }
     }
+
+         body.dark-mode {
+  background-color: #121212;  /* latar gelap */
+  color: #f0c4d7;             /* warna tulisan terang untuk gelap */
+}
+
+body.dark-mode .diary-wrapper {
+  background-color: #2a1a2f;  /* latar kotak diary gelap */
+  border-color: #914d6e;      /* border lebih gelap */
+  box-shadow: 0 4px 20px rgba(145, 77, 110, 0.5);
+  color: #f0c4d7;
+}
+
+body.dark-mode .highlight {
+  background-color:: rgba(255, 78, 145, 0.5);
+  border-radius: 4px;
+  padding: 2px 6px;
+  color: #e85e86;
+  box-shadow:
+    0 0 5px rgba(254, 40, 228, 0.7)
+    inset 0 1px 5px rgba(255, 255, 255, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode .navigation a {
+  background-color: #914d6e;
+  color: #d46390;
+}
+
+body.dark-mode .navigation a:hover {
+  background-color: #b36694;
+}
+
+  #toggleTheme {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
   </style>
 
   <script>
@@ -138,10 +177,32 @@
         document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
       }
     }
+
+         document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById('toggleTheme');
+  if (toggleBtn) {
+    // Restore mode dari localStorage (jika ada)
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+      toggleBtn.textContent = "Change To Light Mode";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      toggleBtn.textContent = isDark ? "Change To Light Mode" : "Change To Dark Mode";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  }
+});
+
   </script>
 </head>
 <body>
   <div class="diary-wrapper">
+   <div class="navigation">
+     <a href="#" id="toggleTheme" class="theme-toggle">Dark Mode</a>
+   </div>
   <h1>FORM 2 - BAHAGIAN 5</h1>
   <div class="content">
 
