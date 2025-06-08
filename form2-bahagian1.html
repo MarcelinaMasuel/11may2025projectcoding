@@ -1,325 +1,252 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>FIRST PAGE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FORM 2 - BAHAGIAN 1</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding-top: 100px;
-      animation: backgroundCycle 14s linear infinite;
-      transition: background-color 3.5s ease-in-out, color 0.5s ease;
-      overflow-x: hidden;
-      color: #000;
-      background-color: #FFA6C9;
+      background-color: #fff5fa;
+      font-family: 'Caveat', cursive;
+      color: #660033;
+      padding: 30px;
+      margin: 0;
+      display: none;
     }
-
-    /* DARK MODE */
-    body.dark-mode {
-      animation: backgroundCycleDark 14s linear infinite;
-      background-color: #121212;
-      color: #eee;
-    }
-
-    /* Intro screen */
-    #intro {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: #fff;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      animation: fadeOutIntro 2s ease 3s forwards;
-      transition: background-color 0.5s ease;
-    }
-
-    body.dark-mode #intro {
-      background-color: #222;
-    }
-    
-    #intro img {
-      width: 150px;
-      height: auto;
-      animation: waveBear 3.5s infinite;
-    }
-
-    #intro p {
-      font-size: 20px;
-      margin-top: 10px;
-    }
-
-    @keyframes waveBear {
-      0%, 100% { transform: rotate(0deg); }
-      50% { transform: rotate(10deg); }
-    }
-
-    @keyframes fadeOutIntro {
-      to {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-
-    .wave-text span {
-      display: inline-block;
-      animation: waveMotion 1.5s ease-in-out infinite;
-    }
-
-    .wave-text span:nth-child(1) { animation-delay: 0s; }
-    .wave-text span:nth-child(2) { animation-delay: 0.1s; }
-    .wave-text span:nth-child(3) { animation-delay: 0.2s; }
-    .wave-text span:nth-child(4) { animation-delay: 0.3s; }
-    .wave-text span:nth-child(5) { animation-delay: 0.4s; }
-    .wave-text span:nth-child(6) { animation-delay: 0.5s; }
-    .wave-text span:nth-child(7) { animation-delay: 0.6s; }
-
-    @keyframes waveMotion {
-      0%   { transform: translateY(0); }
-      50%  { transform: translateY(-2px); }
-      100% { transform: translateY(0); }
-    }
-
-    @keyframes backgroundCycle {
-      0%   { background-color: #FFA6C9; }
-      25%  { background-color: #87CEEB; }
-      50%  { background-color: #C8A2C8; }
-      75%  { background-color: #98FF98; }
-      100% { background-color: #FFA6C9; }
-    }
-
-    @keyframes backgroundCycleDark {
-      0%   { background-color: #1e1e1e; }
-      25%  { background-color: #2a2a2a; }
-      50%  { background-color: #3b3b3b; }
-      75%  { background-color: #222222; }
-      100% { background-color: #1e1e1e; }
+   
+    .diary-wrapper {
+      max-width: 800px;
+      margin: auto;
+      background-color: #ffe6f0;
+      border: 2px dashed #ffb6c1;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
+      opacity: 0;
+      animation: fadeIn 2s forwards;
     }
 
     h1 {
-      font-size: 28px;
+      text-align: center;
+      font-size: 2.8em;
+      color: #cc3366;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 0.3s;
+      animation-fill-mode: forwards;
     }
 
-    button {
-      font-size: 20px;
-      padding: 15px 30px;
+    .content {
+      font-size: 1.6em;
+      line-height: 1.9;
+      white-space: pre-wrap;
+      opacity: 0;
+      animation: fadeIn 3s forwards;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      transition: opacity 2s ease;
+    }
+
+    .speech {
+      background: #ffe0f0;
+      border: 2px solid #ffaad4;
+      padding: 12px 20px;
+      border-radius: 25px;
+      display: inline-block;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      position: relative;
+      color: #880044;
+      box-shadow: 0 0 12px rgba(255, 136, 196, 0.6);
+      font-weight: bold;
+    }
+
+    .speech::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 30px;
+      width: 0;
+      height: 0;
+      border: 10px solid transparent;
+      border-top-color: #ffe0f0;
+    }
+
+    .navigation {
+      text-align: center;
+      margin-top: 40px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 0.8s;
+      animation-fill-mode: forwards;
+    }
+
+    .navigation a {
+      display: inline-block;
       margin: 10px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      background-color: #FFA6C9;
+      padding: 10px 20px;
+      background-color: #ff99cc;
       color: white;
-      animation: waveMotion 1.5s ease-in-out infinite;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, color 0.5s ease;
-      box-shadow: 0 0 10px #FFA6C9;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1em;
+      font-family: 'Caveat', cursive;
+      transition: background-color 0.3s;
     }
 
-    body.dark-mode button {
-      background-color: #bb86fc;
-      box-shadow: 0 0 10px #bb86fc;
-      color: #222;
+    .navigation a:hover {
+      background-color: #e06699;
     }
 
-    button:hover {
-      box-shadow: 0 0 20px #ff69b4, 0 0 30px #ff1493;
-    }
+    @media (max-width: 600px) {
+      .diary-wrapper {
+        padding: 20px;
+      }
 
-    button:active {
-      transform: scale(0.95);
-    }
+      .content {
+        font-size: 1.3em;
+      }
 
-    .clicked {
-      animation: clickEffect 0.3s;
-    }
+      h1 {
+        font-size: 2em;
+      }
 
-    @keyframes clickEffect {
-      0%   { transform: scale(1); }
-      50%  { transform: scale(1.1) rotate(1deg); }
-      100% { transform: scale(1); }
-    }
-
-    .password-form {
-      display: none;
-      margin-top: 30px;
-    }
-
-    .password-form.active {
-      display: block;
-      animation: fadeIn 0.5s ease;
+      .navigation a {
+        font-size: 0.95em;
+        padding: 8px 16px;
+      }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
+      to { opacity: 1; }
     }
 
-    input[type="password"] {
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      margin-top: 10px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+     body.dark-mode {
+  background-color: #121212;  /* latar gelap */
+  color: #f0c4d7;             /* warna tulisan terang untuk gelap */
+}
 
-    body.dark-mode input[type="password"] {
-      background-color: #333;
-      color: #eee;
-      border: 1px solid #555;
-    }
+body.dark-mode .diary-wrapper {
+  background-color: #2a1a2f;  /* latar kotak diary gelap */
+  border-color: #914d6e;      /* border lebih gelap */
+  box-shadow: 0 4px 20px rgba(145, 77, 110, 0.5);
+  color: #f0c4d7;
+}
 
-    #submitPassword {
-      background-color: #87CEEB;
-      margin-left: 10px;
-      transition: background-color 0.3s ease;
-    }
+body.dark-mode .speech {
+  background: #401a32;
+  border-color: #914d6e;
+  color: #ffb6c1;
+  box-shadow: 0 0 12px rgba(255, 182, 193, 0.9);
+}
 
-    body.dark-mode #submitPassword {
-      background-color: #bb86fc;
-      color: #222;
-    }
+body.dark-mode .navigation a {
+  background-color: #914d6e;
+  color: #ffe6f0;
+}
 
-    p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
+body.dark-mode .navigation a:hover {
+  background-color: #b36694;
+}
 
-    #errorMessage {
-      color: red;
-      margin-top: 10px;
-      display: none;
-    }
-
-    /* THEME TOGGLE BUTTON */
-    #themeToggleBtn {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background-color: #FFA6C9;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 20px;
-      font-size: 14px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #FFA6C9;
-      transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-      z-index: 10000;
-    }
-
-    body.dark-mode #themeToggleBtn {
-      background-color: #bb86fc;
-      color: #222;
-      box-shadow: 0 0 10px #bb86fc;
-    }
+  #toggleTheme {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
 
   </style>
+
+  <script>
+    const allowedReferrers = [
+      "https://marcelinamasuel.github.io/11may2025projectcoding/",
+      "https://marcelinamasuel.github.io/11may2025projectcoding/PIPI.html"
+    ];
+
+    const fromAllowedPage = allowedReferrers.some(url => document.referrer.startsWith(url));
+
+    function fadeOutContent() {
+      const content = document.querySelector('.content');
+      if(content){
+        content.style.opacity = '0';
+      }
+    }
+
+    if (fromAllowedPage) {
+      document.addEventListener("DOMContentLoaded", () => {
+        document.body.style.display = "block";
+        setTimeout(fadeOutContent, 11000);
+      });
+    } else {
+      const password = prompt("Masukkan kata laluan:");
+      if (password === "akusorangjeadapassword") {
+        document.addEventListener("DOMContentLoaded", () => {
+          document.body.style.display = "block";
+          setTimeout(fadeOutContent, 11000);
+        });
+      } else {
+        document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
+      }
+    }
+
+     document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById('toggleTheme');
+  if (toggleBtn) {
+    // Restore mode dari localStorage (jika ada)
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+      toggleBtn.textContent = "Change To Light Mode";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      toggleBtn.textContent = isDark ? "Change To Light Mode" : "Change To Dark Mode";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  }
+});
+
+  </script>
 </head>
 <body>
 
-  <!-- THEME TOGGLE BUTTON -->
-  <button id="themeToggleBtn">🌙 Dark Mode</button>
+  <div class="diary-wrapper">
+   <div class="navigation">
+     <a href="#" id="toggleTheme" class="theme-toggle">Dark Mode</a>
+   </div>
+    <h1>FORM 2 - BAHAGIAN 1</h1>
 
-  <!-- INTRO ANIMATION -->
-  <div id="intro">
-    <img src="taptap.gif" alt="">
-    <p>HAII! TUNGGU KEJAP YA WAK!</p>
+    <div class="content">
+TBH, I consider you as my bestfriend. You're one of my favourite person, one of my favourite friend in the whole universe. I don't want to lose you, I don't want to lose another bongsu bestfriend.
+
+<span class="speech">"And don't ever think I'll leave you. I'm also scared to lose you."</span>
+
+Kalau kau nak tau, kau bongsu bestfriend aku yang ketiga yang aku pernah ada.
+
+Yang pertama, kitorang kawan time kindergarden, dia independent, berani, pengawas (darjah 2) dan dia yang menginspirasikan aku untuk jadi pengawas. But now, kitorang dah lost contact sbb aku pindah.
+
+Second, kitorang kenal time darjah 3 and rapat masa darjah 5/6, dia feminim and selalu tolong aku bila aku minta tolong. But, same thing happened, we lost contact sbb dia pergi sekolah lain. BTW mereka berdua tu chinese.
+
+And you're the third one! I hope I don't lose another bongsu bestfriend.
+
+<span class="speech">"Im sorry kalau ada perkataan yang keluar dari mulut aku sakitkan hati kau. Aku tak sengaja and aku tak bermaksud."</span>
+
+    </div>
+
+   <div class="navigation">
+     <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN</a>
+     <a href="form2-bahagian2.html">BAHAGIAN SETERUSNYA →</a>
+   </div>
+
   </div>
-
-  <!-- MAIN CONTENT -->
-  <div class="wave-text">
-    <h1>
-      <span>HELLO</span>
-      <span>SAHABAT</span>
-      <span>YANG</span>
-      <span>SAYA</span>
-      <span>SAYANGI</span>
-      <span>❤️</span>
-      <span>!!</span>
-    </h1>
-  </div>
-
-  <div class="wave-text" style="margin-top: 20px;">
-    <p>
-      <span>JAP,</span>
-      <span>KAU</span>
-      <span>SIAPA</span>
-      <span>EK?</span>
-    </p>
-  </div>
-
-  <button onclick="buttonClicked(this, 'PIPI')">JANELVY</button>
-  <button onclick="buttonClicked(this, 'VERONICA')">VERONICA</button>
-  <button onclick="buttonClicked(this, 'c')">C</button>
-
-  <div class="password-form" id="passwordForm">
-    <p>MASUKKAN PASSSWORD AWAK DULU, <span id="optionLabel"></span>:</p>
-    <input type="password" id="passwordInput" placeholder="Masukkan password..." />
-    <button id="submitPassword" onclick="submitPassword()">ENTER</button>
-    <div id="errorMessage">sorry ni ye, password awak salah! </div>
-  </div>
-
-  <audio id="clickSound" src="click.mp3"></audio>
-
-  <script>
-    setTimeout(() => {
-      document.getElementById("intro").style.display = "none";
-    }, 5000);
-
-    let currentOption = "";
-
-    function buttonClicked(button, option) {
-      const clickSound = document.getElementById("clickSound");
-      clickSound.currentTime = 0;
-      clickSound.play();
-
-      button.classList.add("clicked");
-      setTimeout(() => {
-        button.classList.remove("clicked");
-        currentOption = option;
-        document.getElementById("optionLabel").innerText = option.toUpperCase();
-        document.getElementById("passwordForm").classList.add("active");
-        document.getElementById("passwordInput").value = "";
-        document.getElementById("errorMessage").style.display = "none";
-        document.getElementById("passwordInput").focus();
-      }, 300);
-    }
-
-    function submitPassword() {
-      const passwords = {
-        PIPI: '0401lepastutakde',
-        VERONICA: '2106channie',
-        c: 'cherry'
-      };
-
-      const input = document.getElementById("passwordInput").value;
-      const errorMsg = document.getElementById("errorMessage");
-
-      if (input === passwords[currentOption]) {
-        window.location.href = currentOption + ".html";
-      } else {
-        errorMsg.style.display = "block";
-      }
-    }
-
-    // THEME TOGGLE LOGIC
-    const themeToggleBtn = document.getElementById('themeToggleBtn');
-
-    themeToggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-
-      if (document.body.classList.contains('dark-mode')) {
-        themeToggleBtn.textContent = '☀️ Light Mode';
-      } else {
-        themeToggleBtn.textContent = '🌙 Dark Mode';
-      }
-    });
-
-  </script>
-
 </body>
 </html>
+-last updated 8 June 2025
