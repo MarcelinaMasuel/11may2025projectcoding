@@ -119,6 +119,47 @@
     @keyframes fadeIn {
       to { opacity: 1; }
     }
+
+    
+     body.dark-mode {
+  background-color: #121212;  /* latar gelap */
+  color: #f0c4d7;             /* warna tulisan terang untuk gelap */
+}
+
+body.dark-mode .diary-wrapper {
+  background-color: #2a1a2f;  /* latar kotak diary gelap */
+  border-color: #914d6e;      /* border lebih gelap */
+  box-shadow: 0 4px 20px rgba(145, 77, 110, 0.5);
+  color: #f0c4d7;
+}
+
+body.dark-mode .highlight {
+  background-color: #401a32;
+  color: #d95f9a;
+  font-weight: bold;
+  padding 2px 6px;
+  border-radius: 6px;
+  display: inline;
+  text-shadow: 0 0 12px rgba(255, 182, 193, 0.9);
+  transition: text-shadow 0.3 ease;
+}
+
+body.dark-mode .navigation a {
+  background-color: #914d6e;
+  color: #ffe6f0;
+}
+
+body.dark-mode .navigation a:hover {
+  background-color: #b36694;
+}
+
+  #toggleTheme {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
   </style>
 
   <script>
@@ -143,10 +184,33 @@
         document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
       }
     }
+
+     
+     document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById('toggleTheme');
+  if (toggleBtn) {
+    // Restore mode dari localStorage (jika ada)
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+      toggleBtn.textContent = "Change To Light Mode";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      toggleBtn.textContent = isDark ? "Change To Light Mode" : "Change To Dark Mode";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  }
+});
+
   </script>
 </head>
 <body>
-<div class="diary-wrapper">
+  <div class="diary-wrapper">
+   <div class="navigation">
+     <a href="#" id="toggleTheme" class="theme-toggle">Dark Mode</a>
+   </div>
   <h1>FORM 2 - BAHAGIAN 9</h1>
     <div class="content">
       Ni, yang baru punya selepas aku tersent long text tu kat kau. Sebenarnya, aku berniat nak check je ‘cukup ke tak ek bende panjang ni’. Then aku copy paste lah kan, tapi ada tiga perenggan yang tak dapat masuk. Dia tulis ‘5..../6000’ terus aku macam ‘belum sampai limit lagi kot, kenapa takleh masuk’. Then aku copy tiga perenggan terakhir tu, then aku press ‘Shift’ and ‘Enter’ at the same time. Sebab time tu aku kat laptop, and kalau tekan dua button tu boleh masuk baris baru. Tapi entah kenapa, mungkin aku tak tertekan button ‘Shift’ or what, <span class="highlight">bende tu tersent ANJIRRR</span>. After I realized bende tu tersent, aku rush to my parents’ room and mintak phone. Sebab kalau kat laptop, aku takleh delete message, boleh je tapi cuma ‘delete for me’. And time tu phone bapak aku ‘power off’, so kena tunggu lah kan untuk dia on. Time tu aku berharap gila kau tengah off, busy, ataupun kau on tapi tak baca message aku. But after I open the app, aku nampak kau dah <span class="highlight">‘typing...’</span>. Time tu aku betul² dah ✋😐🤚. Tapi takpelah, I’m glad that my message changed how you felt.
