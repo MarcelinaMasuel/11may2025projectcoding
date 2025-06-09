@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FORM 2 - Bahagian 3</title>
-    
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 
   <style>
@@ -14,7 +13,12 @@
       color: #660033;
       padding: 30px;
       margin: 0;
-      display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    body.visible {
+      opacity: 1;
     }
 
     .diary-wrapper {
@@ -48,7 +52,6 @@
       animation: fadeIn 3s forwards;
       animation-delay: 0.5s;
       animation-fill-mode: forwards;
-      transition: opacity 2s ease;
     }
 
     .glow-speech {
@@ -60,14 +63,7 @@
       margin: 0 4px;
       color: #880044;
       font-weight: bold;
-      box-shadow:
-        0 0 8px #ff99cc,
-        0 0 15px #ff66bb,
-        0 0 25px #ff33aa;
-      position: relative;
-      font-size: 1em;
-      line-height: 1.3;
-      vertical-align: middle;
+      box-shadow: 0 0 8px #ff99cc, 0 0 15px #ff66bb, 0 0 25px #ff33aa;
     }
 
     .navigation {
@@ -120,50 +116,98 @@
       to { opacity: 1; }
     }
 
-        body.dark-mode {
-  background-color: #121212;  /* latar gelap */
-  color: #f0c4d7;             /* warna tulisan terang untuk gelap */
-}
+    body.dark-mode {
+      background-color: #121212;
+      color: #f0c4d7;
+    }
 
-body.dark-mode .diary-wrapper {
-  background-color: #2a1a2f;  /* latar kotak diary gelap */
-  border-color: #914d6e;      /* border lebih gelap */
-  box-shadow: 0 4px 20px rgba(145, 77, 110, 0.5);
-  color: #f0c4d7;
-}
+    body.dark-mode .diary-wrapper {
+      background-color: #2a1a2f;
+      border-color: #914d6e;
+      box-shadow: 0 4px 20px rgba(145, 77, 110, 0.5);
+    }
 
-body.dark-mode .glow-speech {
-  background: #401a32;
-  border: #914d6e;
-  border-radius: 20px;
-  padding: 6px 12px;
-  margin: 0 4 px;
-  color: #ffb6c1;
-  font-weight: bold;
-  box-shadow: 0 0 12px rgba(255, 182, 193, 0.9);
-  position: relative;
-  font-size: 1em;
-  line height: 1.3;
-  vertical-align: middle;
-}
+    body.dark-mode .glow-speech {
+      background: #401a32;
+      border: 2px solid #914d6e;
+      color: #ffb6c1;
+      box-shadow: 0 0 12px rgba(255, 182, 193, 0.9);
+    }
 
-body.dark-mode .navigation a {
-  background-color: #914d6e;
-  color: #ffe6f0;
-}
+    body.dark-mode .navigation a {
+      background-color: #914d6e;
+      color: #ffe6f0;
+    }
 
-body.dark-mode .navigation a:hover {
-  background-color: #b36694;
-}
+    body.dark-mode .navigation a:hover {
+      background-color: #b36694;
+    }
 
-  #toggleTheme {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 999;
-}
+    #toggleTheme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      background-color: #ff99cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      font-family: 'Caveat', cursive;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
 
+    #toggleTheme:hover {
+      background-color: #e06699;
+    }
+
+    body.dark-mode #toggleTheme {
+      background-color: #914d6e;
+      color: #ffe6f0;
+    }
+
+    body.dark-mode #toggleTheme:hover {
+      background-color: #b36694;
+    }
+
+    .last-updated {
+      margin-top: 40px;
+      text-align: center;
+      font-family: 'Caveat', cursive;
+      font-size: 1.2em;
+      color: #aa3366;
+      border-top: 1px dashed #dd88aa;
+      padding-top: 10px;
+      opacity: 0.8;
+    }
+
+    body.dark-mode .last-updated {
+      color: #f0c4d7;
+      border-color: #914d6e;
+    }
   </style>
+</head>
+
+<body>
+  <button id="toggleTheme" class="theme-toggle">Dark Mode</button>
+
+  <div class="diary-wrapper">
+    <h1>FORM 2 - BAHAGIAN 3</h1>
+    <div class="content">
+      Aku rasa bende ni kau dah tau, but I'll still write it anyways. Kalau kau nampak aku tinggalkan kau, bukan bermaksud aku tknak dengan kau, taknak berkawan dengan kau or benci kau, tapi sebab aku selalu nampak ada orang lain temankan kau so, aku rase kau tak perlukan aku untuk teman kau. Lagipun, aku taknak kacau korang. I always try my best to make sure you weren't walking or standing alone, always make sure you weren't being left out. Setiap kali kalau aku nampak kau jalan sorang², my mind automatic goes <span class="glow-speech">'Kenapa takde orang teman dia, takkan dari tadi dia sorang²?'</span>. Aku bukan nak pura² baik ke ape, tapi ini kenyataan. Aku tk nak tengok kau keseorangan, aku benci tengok kau keseorangan. Tapi, kadang² aku rasa aku tak perlu selalu temankan kau, bc one day you gonna be all by yourself anyway. Tapi aku tau, nak biasakan diri keseorangan tu susah. Masa first time aku jalan sorang², my heart feels heavy. Aku boleh je tunggu kawan aku supaya aku tak sorang, but aku tak nak jadi orang bodoh yang tunggu orang tapi orang yang tak tunggu aku, so I decided to walk alone. Awal² memang susah sbb tk nak orang fikir aku ni takde kawan ke ape, but lama² aku dah OK sikit. I hope kau dah biasakan diri sorang². BTW aku tulis ni time kita form 2, IDK kalau kau dah ok keseorangan ke tak. And IDK how our friendship would be like when you're reading this.
+    </div>
+
+    <div class="navigation">
+      <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN</a>
+      <a href="form2-bahagian2.html">← BAHAGIAN SEBELUMNYA</a>
+      <a href="form2-bahagian4.html">BAHAGIAN SETERUSNYA →</a>
+    </div>
+  </div>
+
+  <div id="lastUpdateContainer"></div>
 
   <script>
     const allowedReferrers = [
@@ -174,56 +218,84 @@ body.dark-mode .navigation a:hover {
     const fromAllowedPage = allowedReferrers.some(url => document.referrer.startsWith(url));
 
     if (fromAllowedPage) {
-      document.addEventListener("DOMContentLoaded", () => {
-        document.body.style.display = "block";
-      });
+      document.addEventListener("DOMContentLoaded", initPage);
     } else {
       const password = prompt("Masukkan kata laluan:");
       if (password === "akusorangjeadapassword") {
-        document.addEventListener("DOMContentLoaded", () => {
-          document.body.style.display = "block";
-        });
+        document.addEventListener("DOMContentLoaded", initPage);
       } else {
         document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
       }
     }
 
-        document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById('toggleTheme');
-  if (toggleBtn) {
-    // Restore mode dari localStorage (jika ada)
-    if (localStorage.getItem("theme") === "dark") {
-      document.body.classList.add("dark-mode");
-      toggleBtn.textContent = "Change To Light Mode";
+    function initPage() {
+      document.body.classList.add("visible");
+
+      const toggleBtn = document.getElementById('toggleTheme');
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        toggleBtn.textContent = "Change To Light Mode";
+      }
+
+      toggleBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        toggleBtn.textContent = isDark ? "Change To Light Mode" : "Change To Dark Mode";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+
+const updateMessages = [
+  "Last Updated on 9 June 2025 – Debugged my soul, sacrificed my sleep… but it’s for You, so of course I did it.",
+  "Last Updated on 9 June 2025 – Was I crying over CSS at 2AM? Maybe. But did I finish it for you? Absolutely.",
+  "Last Updated on 9 June 2025 – This dark mode nearly broke me. But you're the reason I didn’t quit.",
+  "Last Updated on 9 June 2025 – Debugged my code and my sanity, lost sleep and maybe a few brain cells… but, it’s for You, so totally worth it (maybe)",
+  "Last Updated on 9 June 2025 – Nearly threw my laptop out the window while coding, but then I remembered it’s for You — so I gently closed it and kept going.",
+  "Last Updated on 9 June 2025 – Battled bugs and my own frustration… but, You deserved the best dark mode I could code (with tears included).",
+  "Last Updated on 9 June 2025 – Stayed up late debugging… also questioning life choices but all worth it because it’s for You.(Don't take it seriously :>)",
+  "Last Updated on 9 June 2025 – Made dark mode happen despite bugs, tears, and one near laptop disaster — all because of you.",
+  "Last Updated on 9 June 2025 – Had a full conversation with my code (it’s ignoring me), but for You, I’m still best friends with the bugs.",
+  "Last Updated on 9 June 2025 – Screamed at the screen in silence, but for You, I’m smiling through the pain.",
+  "Last Updated on 9 June 2025 – Thought about giving up, then remembered who this was for — so here I am, still fighting the dark mode battle!",
+  "Last Updated on 9 June 2025 – Nearly called tech support to fix my broken soul, but then I remembered: Janelvy deserves this dark mode, no matter what.",
+  "Last Updated on 9 June 2025 – Spoke to my laptop like it owed me money. It didn’t pay, but I built dark mode for You anyway.",
+  "Last Updated on 9 June 2025 – Almost lost my mind debugging, but then I thought: if Pipi can handle my craziness, I can handle this code.",
+  "Last Updated on 9 June 2025 – Cried a little, laughed a lot, and still managed to code dark mode—for the one and only you who’s worth every bug and meltdown.",
+  "Last Updated on 9 June 2025 – Almost threw my laptop out the window, but then I remembered you might want to see it work… so I just yelled at it instead.",
+  "Last Updated on 9 June 2025 – Had a full-on argument with my code. I lost. But I kept going… because, well, that’s what you get when you care this much.",
+  "Last Updated on 9 June 2025 – My brain almost melted, my patience ran out… but I’m stubborn and you’re worth every meltdown.",
+  "Last Updated on 9 June 2025 – Thought about quitting, but then I remembered you’d probably tease me for giving up. So here’s the dark mode, take it!",
+  "Last Updated on 9 June 2025 – Talked to my code like it was a rebellious teenager. It still won’t listen. But hey, dark mode is here, so mission kinda accomplished.",
+  "Last Updated on 9 June 2025 – Tried to teach my computer manners. It laughed. Then it crashed. Still, I built dark mode, because you deserve nothing less than a miracle.",
+  "Last Updated on 9 June 2025 – Swore at my screen so much, I think the neighbors filed a noise complaint. Worth it, because you get dark mode now.",
+  "Last Updated on 9 June 2025 – I almost gave up, then I remembered: if I quit, who’s going to explain dark mode with silly jokes? So I kept going—for you and for the laughs.",
+  "Last Updated on 9 June 2025 – If coding was a sport, I’d be in the emergency room right now. But dark mode’s ready and so am I (sort of).",
+  "Last Updated on 9 June 2025 – I stared at my screen so long I’m pretty sure it blinked first. Dark mode’s done. You’re welcome (I’m still alive).",
+  "Last Updated on 9 June 2025 – Had a full-on argument with my keyboard. It’s still not talking to me, but dark mode is finally done.",
+  "Last Updated on 9 June 2025 – Cried a little, laughed a lot, and somehow made dark mode happen. All for you, you beautiful nightmare.",
+  "Last Updated on 9 June 2025 – Considered hiring a wizard to do this dark mode, but apparently, they don’t accept payment in memes. So I did it myself.",
+  "Last Updated on 9 June 2025 – Accidentally created a new language while coding. It’s called ‘Frustration’. Dark mode still works though!",
+  "Last Updated on 9 June 2025 – I almost sold my soul to the bugs for dark mode, but then I remembered you’re worth way more than that.",
+  "Last Updated on 9 June 2025 – Tried to teach my code to behave, but it rebelled like a teenager. Still tamed it — just for you.",
+  "Last Updated on 9 June 2025 – My keyboard almost quit on me, but I told it: “We’re in this together… for Janelvy.”",
+  "Last Updated on 9 June 2025 – If my code was a person, it’d be in therapy by now — but I survived for you!",
+  "Last Updated on 9 June 2025 – My code threw tantrums, I threw jokes back. Still here, making dark mode sparkle just for you.",
+  "Last Updated on 9 June 2025 – You didn’t ask for this. But I still gave it my all. Because when it comes to you… I never settle for anything less than everything.",
+  "Last Updated on 9 June 2025 – If you ever wonder how much you matter to me, look at this page. Every detail whispers, ‘You were worth it.’ Always.",
+  "Last Updated on 9 June 2025 – The night was long, and my heart was tired, but the thought of you turned every error into poetry.",
+  "Last Updated on 9 June 2025 – I coded in silence, but every key I pressed was a quiet way of saying: I miss you. I see you. I love you.",
+  "Last Updated on 9 June 2025 – No one will see the way I broke and rebuilt this just to hold a little light for you. But I hope you feel it anyway.",
+  "Last Updated on 9 June 2025 – I didn’t sleep, I didn’t breathe right, I just kept coding… because somewhere in my heart I knew: if anyone deserves this effort, it’s you.",
+  "Last Updated on 9 June 2025 – I know you’ll never see how much it broke me to make this perfect — but I hope you feel how much you mean to me in every soft glow of this screen.",
+  "Last Updated on 9 June 2025 – No matter how messy the code, how hard the night, or how many times I failed… I never stopped — because giving up would mean not loving you the way you deserve.",
+  "Last Updated on 9 June 2025 – This dark mode isn’t just a feature — it’s the only way I knew how to hold you, softly, when you weren’t looking.",
+];
+      const randomMsg = updateMessages[Math.floor(Math.random() * updateMessages.length)];
+      const updateNote = document.createElement("div");
+      updateNote.className = "last-updated";
+      updateNote.textContent = randomMsg;
+      document.getElementById("lastUpdateContainer").appendChild(updateNote);
     }
-
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      const isDark = document.body.classList.contains("dark-mode");
-      toggleBtn.textContent = isDark ? "Change To Light Mode" : "Change To Dark Mode";
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-  }
-});
-
   </script>
-</head>
-<body>
-  <div class="diary-wrapper">
-   <div class="navigation">
-     <a href="#" id="toggleTheme" class="theme-toggle">Dark Mode</a>
-   </div>
-    <h1>FORM 2 - BAHAGIAN 3</h1>
-    <div class="content">
-      Aku rasa bende ni kau dah tau, but I'll still write it anyways. Kalau kau nampak aku tinggalkan kau, bukan bermaksud aku tknak dengan kau, taknak berkawan dengan kau or benci kau, tapi sebab aku selalu nampak ada orang lain temankan kau so, aku rase kau tak perlukan aku untuk teman kau. Lagipun, aku taknak kacau korang. I always try my best to make sure you weren't walking or standing alone, always make sure you weren't being left out. Setiap kali kalau aku nampak kau jalan sorang², my mind automatic goes <span class="glow-speech">'Kenapa takde orang teman dia, takkan dari tadi dia sorang²?'</span>. Aku bukan nak pura² baik ke ape, tapi ini kenyataan. Aku tk nak tengok kau keseorangan, aku benci tengok kau keseorangan. Tapi, kadang² aku rasa aku tak perlu selalu temankan kau, bc one day you gonna be all by yourself anyway. Tapi aku tau, nak biasakan diri keseorangan tu susah. Masa first time aku jalan sorang², my heart feels heavy. Aku boleh je tunggu kawan aku supaya aku tak sorang, but aku tak nak jadi orang bodoh yang tunggu orang tapi orang yang tak tunggu aku, so I decided to walk alone. Awal² memang susah sbb tk nak orang fikir aku ni takde kawan ke ape, but lama² aku dah OK sikit. I hope kau dah biasakan diri sorang².
-    BTW aku tulis ni time kita form 2, IDK kalau kau dah ok keseorangan ke tak. And IDK how our friendship would be like when you're reading this.
-    </div>
-
-    <div class="navigation">
-      <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
-      <a href="form2-bahagian2.html">← BAHAGIAN SEBELUMNYA</a>
-      <a href="form2-bahagian4.html">BAHAGIAN SETERUSNYA →</a>
-    </div>
-  </div>
 </body>
 </html>
