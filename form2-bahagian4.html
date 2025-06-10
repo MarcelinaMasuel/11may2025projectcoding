@@ -142,13 +142,42 @@ body.dark-mode .navigation a:hover {
   background-color: #b36694;
 }
 
-  #toggleTheme {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 999;
-}
 
+    #toggleTheme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      background-color: #ff99cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      font-family: 'Caveat', cursive;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #toggleTheme:hover { background-color: #e06699; }
+
+    body.dark-mode #toggleTheme {
+      background-color: #914d6e;
+      color: #ffe6f0;
+    }
+
+    body.dark-mode #toggleTheme:hover {
+      background-color: #b36694;
+    }
+
+    .last-updated {
+      margin-top: 40px;
+      text-align: center;
+      font-style: italic;
+      font-size: 1.2em;
+      opacity: 0.7;
+    }
   </style>
 
   <script>
@@ -160,48 +189,172 @@ body.dark-mode .navigation a:hover {
     const fromAllowedPage = allowedReferrers.some(url => document.referrer.startsWith(url));
 
     if (fromAllowedPage) {
-      document.addEventListener("DOMContentLoaded", () => {
-        document.body.style.display = "block";
-      });
+      document.addEventListener("DOMContentLoaded", initPage);
     } else {
       const password = prompt("Masukkan kata laluan:");
       if (password === "akusorangjeadapassword") {
-        document.addEventListener("DOMContentLoaded", () => {
-          document.body.style.display = "block";
-        });
+        document.addEventListener("DOMContentLoaded", initPage);
       } else {
         document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
       }
     }
 
-         document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById('toggleTheme');
-  if (toggleBtn) {
-    // Restore mode dari localStorage (jika ada)
-    if (localStorage.getItem("theme") === "dark") {
-      document.body.classList.add("dark-mode");
-      toggleBtn.textContent = "Change To Light Mode";
+    function initPage() {
+      document.body.style.display = "block";
+
+      setTimeout(() => {
+        const content = document.querySelector('.content');
+        if (content) content.style.opacity = '0';
+      }, 11000);
+
+      const toggleBtn = document.getElementById('toggleTheme');
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        toggleBtn.textContent = "Change To Light Mode";
+      }
+
+      toggleBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        toggleBtn.textContent = isDark ? "Change To Light Mode" : "Change To Dark Mode";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+
+      const updateMessages = [  "Debugged my soul, sacrificed my sleep… but it’s for You, so of course I did it.",
+  "Was I crying over CSS at 2AM? Maybe. But did I finish it for you? Absolutely.",
+  "This web nearly broke me. But you're the reason I didn’t quit.",
+  "This isn’t about making something perfect. It’s about making sure you feel seen, appreciated, and never forgotten.",
+  "Debugged my code and my sanity, lost sleep and maybe a few brain cells… but, it’s for You, so totally worth it (maybe)",
+  "Nearly threw my laptop out the window while coding, but then I remembered it’s for You, so I gently closed it and kept going.",
+  "Battled bugs and my own frustration… but, You deserved the best dark mode I could code (with tears included).",
+  "Stayed up late debugging… also questioning life choices(joke) but all worth it because it’s for You.",
+  "I don’t know if I’ve ever said it the right way — but everything here is my way of telling you: you’re one of the best parts of my life.",
+  "There were so many moments I could’ve stopped, but the thought of you seeing this, even once, made me keep going — and that meant everything.",
+  "My brain said “give up.” My heart said “she deserves this.” My laptop said “why are we suffering.”",
+  "Brain: “Please let me rest.” Heart: “Not yet. There’s someone who needs to feel special tonight.”",
+  "I’m not always good with words, but I swear... if effort could speak, this whole page would quietly scream, “you’re loved, more than you realise.”",
+  "I could’ve left this halfway… but then I remembered how good it feels to make you feel seen. So I stayed.",
+  "You have no idea how many times I wanted to give up — and how many times the thought of your smile when you open this page stopped me.",
+  "There’s no grand reason this page exists — just a quiet one: I care, and I wanted you to feel it.",
+  "Made this web, happen despite bugs, tears, and one near laptop disaster, all because of you.",
+  "I moved slowly, messed up a lot, but never stopped — because this wasn’t just about getting it done. It was about showing someone they’re worth the effort.",
+  "236+ breakdowns, 100+ Stack Overflow tabs… all to make sure someone feels just a little more loved today.",
+  "Had a full conversation with my code (it’s ignoring me), but for You, I’m still best friends with the bugs.",
+  "It wasn't just code. Every bracket, every bug, every fix — it was a way of saying “you matter to me” without needing any loud words.",
+  "Screamed at the screen in silence, but for You, I’m smiling through the pain.",
+  "Thought about giving up, then remembered who this was for, and I told myself, “No way I’m letting Pipi see an ugly webpage. Not on my watch.”",
+  "Nearly called tech support to fix my broken soul, but then I remembered: Janelvy deserves this web, no matter what.",
+  "Spoke to my laptop like it owed me money. It didn’t pay, but I built web for You anyway.",
+  "They say real friends won’t suffer in silence. I suffered loudly. In code. For you.",
+  "Some nights, I was so tired I stared at the screen for hours. But I stayed — because in a world where everything feels temporary, I wanted this to feel like something that would stay. For you.",
+  "Almost lost my mind debugging, but then I thought: if Pipi can handle my craziness, I can handle this code.",
+  "Cried a little, laughed a lot, and still managed to code this web,for the one and only you who’s worth every bug and meltdown.",
+  "Almost threw my laptop out the window, but then I remembered you might want to see it work… so I just yelled at it instead.",
+  "Had a full-on argument with my code. I lost. But I kept going… because, well, that’s what you get when you care this much.",
+  "No one saw me crying in silence while fixing the colors… but I kept going, because I knew you’d see it one day.",
+  "My brain almost melted, my patience ran out… but I’m stubborn and you’re worth every meltdown.",
+  "My tears are in this CSS. My sanity is missing. But if you felt even a little loved opening this page, it was all worth it.💗",
+  "Thought about quitting, but then I remembered you’d probably tease me for giving up. So here’s the web, take it!",
+  "Talked to my code like it was a rebellious teenager. It still won’t listen. But the web is here, so mission kinda accomplished.",
+  "Tried to teach my computer manners. It laughed. Then it crashed. Still, I built this web, because you deserve nothing less than a miracle.",
+  "Swore at my screen so much, I think the neighbors filed a noise complaint. Worth it, because you get to see this web now.",
+  "All I wanted was to make something that told you: You matter. You’re remembered. You’re not just background in someone else’s story — you’re the reason this page even exists.",
+  "If I vanish after this, let this page be the softest goodbye I never had the strength to give you in person.",
+  "Sleep? Social life? Sanity? All sacrificed because this is for Pipi, and she deserves a page coded with heart (and 143+ bugs that I fixed at 3AM)",
+  "I stared at my screen so long I’m pretty sure it blinked first. Dark mode’s done. You’re welcome (I’m still alive).",
+  "Had a full-on argument with my keyboard. It’s still not talking to me, but the web is finally done.",
+  "This code broke me. But so did the thought of Pipi not seeing this. So I picked myself up, restarted my brain, and kept going.",
+  "Cried a little, laughed a lot, and somehow made dark mode happen. All for you, you beautiful nightmare.",
+  "I almost threw my laptop out the window, but then I imagined Pipi's face if this page actually worked — so I stayed, and coded, and cried (a bit).",
+  "Considered hiring a wizard to make this web, but apparently, they don’t accept payment in memes. So I did it myself.",
+  "Accidentally created a new language while coding. It’s called ‘Frustration’. This web still works though!",
+  "I almost sold my soul to the bugs for this web, but then I remembered you’re worth way more than that.",
+  "I didn't know what I was doing half the time. But I knew who I was doing it for — and that was enough to keep my fingers moving.",
+  "I won’t be the one who gets to walk beside you forever. But I’ll stay here, quietly, in this corner of your memory.",
+  "I googled, I failed, I restarted. But the only constant was this: it’s for Pipi. And for her, even HTML errors feel worth it.",
+  "Tried to teach my code to behave, but it rebelled like a teenager. Still tamed it, just for you.",
+  "I debugged until I could no longer pronounce the word ‘div’ correctly, but if you smiled even once opening this, then my suffering was worth it.",
+  "My keyboard almost quit on me, but I told it: “We’re in this together… for Janelvy.”",
+  "You’ll never know how long I stared at blank screens, writing and deleting, trying to say I missed you without ever saying it.",
+  "If my code was a person, it’d be in therapy by now, but I survived for you!",
+  "Maybe it’s not much. But it’s real. And it’s one of the truest things I’ve ever made — just so you’d know how much you mean to me.",
+  "I stared at the screen for 6 hours straight, contemplating life, identity, and semicolons… all because I wanted you to open this and feel seen.",
+  "My code threw tantrums, I threw jokes back. Still here, making this web sparkle just for you.",
+  "You didn’t ask for this. But I still gave it my all. Because when it comes to you… I never settle for anything less than everything.",
+  "If you ever wonder how much you matter to me, look at this page. Every detail whispers, ‘You were worth it.’ Always.",
+  "HTML broke. CSS cried. JavaScript ran away. But I stayed… because you’re worth holding the chaos together.",
+  "The night was long, and my heart was tired, but the thought of you turned every error into poetry.",
+  "I was on the verge of smashing my screen, but then I thought… ‘Pipi deserves a whole galaxy, not just broken pixels.’",
+  "I coded in silence, but every key I pressed was a quiet way of saying: I miss you. I see you. I love you(as friend).",
+  "No one will see the way I broke and rebuilt this just to hold a little light for you. But I hope you feel it anyway.",
+  "I didn’t sleep, I didn’t breathe right, I just kept coding… because somewhere in my heart I knew: if anyone deserves this effort, it’s you.",
+  "I know you’ll never see how much it broke me to make this perfect — but I hope you feel how much you mean to me in every soft glow of this screen.",
+  "No matter how messy the code, how hard the night, or how many times I failed… I never stopped, because giving up would mean not loving you(as friend) the way you deserve.",
+  "This web is the only way I knew how to hold you, softly, when you weren’t looking.",
+  "I wrote this not just with code, but with everything I had left — so if the world ever makes you feel unloved, come back here. You’ll feel it again.",
+  "Even if I disappear tomorrow, this will still exist… a quiet little proof that someone once chose you, over and over, through every line of madness.",
+  "I didn’t leave a voice message. I left this instead, a silent echo of how much you meant to me.",
+  "Some people write poems. I built this page, hoping it would say the things I never could.",
+  "If every error I fixed was a flower, you’d be standing in a field of them, because I built this like I’m building a home just for you.",
+  "Do you hear that? It’s the sound of my sanity slipping away as I center every box perfectly for someone who doesn’t even know how hard I tried.",
+  "If you ever wonder whether someone really cared… remember this little dark mode feature almost broke me. But you were worth every second.",
+  "This web and the features I coded didn’t just cost me time. It cost me pieces of myself, and I gave them freely, because it’s for you.",
+  "My soul left my body at least 3 times while coding this. But each time, it floated back whispering, “She needs this… do it for her.”",
+  "Even if we grow apart, this will stay behind, glowing in the dark, quietly loving you(as friend) the way I always did.",
+  "I accidentally broke half the code while trying to fix the other half, but I didn’t break because you’re my reason to keep going.",
+  "My sanity left the chat halfway through coding. But I stayed, because you are that one person worth losing sleep, logic, and maybe my WiFi for.",
+  "I hope you never feel alone. Because somewhere, in this page, someone still stays, waiting, caring, loving you(as friend) in silence.",
+  "Maybe one day, you’ll forget me. But this code won’t. It’ll stay, glowing softly, for You.",
+  "I argued with my code like a drama queen, but guess what? I never argued with my reason to keep going: You.",
+  "You’ll never see the full story of how hard I tried. And you don’t have to. Just know this: I did it because you matter to me. So much.",
+  "I whispered “please work” to my screen like a prayer… because this isn’t just a page. It’s a love letter disguised as code.",
+  "My back hurts, my eyes burn, and I haven’t blinked in an hour… but you’re the reason I’m still here, writing code like it’s poetry.",
+  "My brain crashed 17 times, but my heart didn’t, because it knew who this was for.",
+  "I wanted to throw my keyboard, but who would build this for you then? So, I just cried silently instead.",
+  "Even if I disappear, this page won’t. Because part of me lives here, quietly loving you(as friend) from a distance.",
+  "I didn’t do this because I had to. I did it because you matter. And even if this is just a tiny gesture… I meant it with everything.",
+  "This page isn’t perfect. But it carries the digital fingerprints of someone who fought like hell just to make you feel a little more loved.",
+  "If you ever feel lost, come back here. This is where I left all the love I never said out loud.",
+  "The code was messy, my eyes were blurry, but my reason was clear: this was for You.",
+  "Even when I didn’t know how, I still wanted to give you something that says, “Hey, you matter. More than you know.”",
+  "I don’t always understand coding, but I do understand one thing: you’re worth every broken line, every crash, every second.",
+  "I wrote this knowing I might never get to say these things to your face.",
+  "Somewhere between all the errors and tired nights, I realised: I’d do this again. Just to make you feel a little more seen.",
+  "I typed lines of code and tears in equal amounts — because You’re the only reason it all makes sense.",
+  "I didn’t just build this for fun — I built this so you’d never have to wonder if someone out there really, truly cares about you.",
+  "I tried to give up more times than I can count, but then I remembered You’re the reason I keep hitting ‘Run’.",
+  "I rewrote the same line of code 47 times. Not because I’m dumb, but because Janelvy's smile deserves perfection.",
+  "I didn’t write this for the world. I wrote it so you’d never forget how much you mattered to someone — even when you weren’t asking to.",
+  "Debugging at 3AM? Yep. Crying at 3AM? Maybe. Coding for You at 3AM? Absolutely.",
+  "You were the reason behind every retry, every fix, every late night — even if you never asked for any of it.",
+  "I typed through tears, laughed at bugs, and still somehow got this done, because you matter that much.",
+  "I was one bug away from quitting, but then I remembered who this was really for—and suddenly, quitting wasn’t an option.",
+  "If coding was a sport, I’d have won gold—twice. But your smile was my trophy.",
+  "I kept fixing things not because I’m patient — but because someone made me believe this effort could turn into comfort for them.",
+  "I coded through the emotional equivalent of World War III, and every time I wanted to give up, I remembered You deserve a pretty web, even if my sanity didn’t survive.",
+  "If this ever fades… if everything disappears one day… just remember: I built something just to remind you that you’re not invisible.",
+  "Sometimes love isn’t loud. Sometimes it looks like someone quietly building something you’ll never see the full struggle behind — just so you smile.",
+  "I Googled “how to not lose my mind” but ended up Googling “how to make Janelvy smile” instead.",
+  "Some people wait their whole lives to feel safe and loved. If this page can give you even 1% of that — then it’s already enough for me.",
+  ];
+      const randomMsg = updateMessages[Math.floor(Math.random() * updateMessages.length)];
+      const updateNote = document.createElement("div");
+      updateNote.className = "last-updated";
+      updateNote.textContent = randomMsg;
+      document.getElementById("lastUpdateContainer").appendChild(updateNote);
     }
-
-    toggleBtn.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      const isDark = document.body.classList.contains("dark-mode");
-      toggleBtn.textContent = isDark ? "Change To Light Mode" : "Change To Dark Mode";
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-  }
-});
-
   </script>
 </head>
+
 <body>
+
+  <button id="toggleTheme" class="theme-toggle">Dark Mode</button>
+
   <div class="diary-wrapper">
-   <div class="navigation">
-     <a href="#" id="toggleTheme" class="theme-toggle">Dark Mode</a>
-   </div>
     <h1>FORM 2 - BAHAGIAN 4</h1>
     <div class="content">
-      Don't ever think no one love you, kau ada banyak kawan yang sayang kau, pi. Jangan overthinking, ok? (""""""") <span class="highlight">"There will always be someone who loves you."</span> Don't ever think no one is proud of you, bc there will always be someone who is always proud of you. Don't ever think no one cares about you or your feelings, bc there will always be someone who cares about you and your feelings. <span class="highlight">Akan selalu ada orang yang akan sentiasa di samping kau.</span>
+      Don't ever think no one love you, kau ada banyak kawan yang sayang kau, pi. Jangan overthinking, ok? (""""""") <span class="highlight">"There will always be someone who loves you."</span> Don't ever think no one is proud of you, bc there will always be someone who is always proud of you. Don't ever think no one cares about you or your feelings, bc there will always be someone who cares about you and your feelings. <span class="highlight">Akan selalu ada orang yang sentiasa berada di samping kau.</span>
     </div>
 
     <div class="navigation">
@@ -212,3 +365,4 @@ body.dark-mode .navigation a:hover {
   </div>
 </body>
 </html>
+    <div id="lastUpdateContainer"></div>  
