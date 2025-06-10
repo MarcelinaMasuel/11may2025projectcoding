@@ -15,14 +15,12 @@
       background-color: #FFA6C9;
     }
 
-    /* DARK MODE */
     body.dark-mode {
       animation: backgroundCycleDark 14s linear infinite;
       background-color: #121212;
       color: #eee;
     }
 
-    /* Intro screen */
     #intro {
       position: fixed;
       top: 0; left: 0;
@@ -41,7 +39,7 @@
     body.dark-mode #intro {
       background-color: #222;
     }
-    
+
     #intro img {
       width: 150px;
       height: auto;
@@ -194,7 +192,6 @@
       display: none;
     }
 
-    /* THEME TOGGLE BUTTON */
     #themeToggleBtn {
       position: fixed;
       top: 20px;
@@ -216,21 +213,17 @@
       color: #222;
       box-shadow: 0 0 10px #bb86fc;
     }
-
   </style>
 </head>
 <body>
 
-  <!-- THEME TOGGLE BUTTON -->
   <button id="themeToggleBtn">🌙 Dark Mode</button>
 
-  <!-- INTRO ANIMATION -->
   <div id="intro">
     <img src="taptap.gif" alt="">
     <p>HAII! TUNGGU KEJAP YA WAK!</p>
   </div>
 
-  <!-- MAIN CONTENT -->
   <div class="wave-text">
     <h1>
       <span>HELLO</span>
@@ -306,19 +299,39 @@
       }
     }
 
-    // THEME TOGGLE LOGIC
     const themeToggleBtn = document.getElementById('themeToggleBtn');
-
     themeToggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
+      themeToggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
 
-      if (document.body.classList.contains('dark-mode')) {
-        themeToggleBtn.textContent = '☀️ Light Mode';
-      } else {
-        themeToggleBtn.textContent = '🌙 Dark Mode';
+    // === INSPECT PROTECTION ===
+    let inspectUnlocked = false;
+    document.addEventListener("contextmenu", function (e) {
+      if (!inspectUnlocked) {
+        e.preventDefault();
+        const pass = prompt("Nak inspect? Masukkan password dulu:");
+        if (pass === "SayaSayangAwak") {
+          alert("Okay boleh! Tapi jangan kongsi password ni ya 😘");
+          inspectUnlocked = true;
+        } else {
+          alert("Salah password. Tak boleh inspect!");
+        }
       }
     });
 
+    document.addEventListener("keydown", function (e) {
+      if (!inspectUnlocked && (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I"))) {
+        e.preventDefault();
+        const pass = prompt("Nak inspect? Masukkan password dulu:");
+        if (pass === "SayaSayangAwak") {
+          alert("Okay boleh! Tapi jangan kongsi password ni ya 😘");
+          inspectUnlocked = true;
+        } else {
+          alert("Salah password. Tak boleh inspect!");
+        }
+      }
+    });
   </script>
 
 </body>
