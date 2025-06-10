@@ -1,89 +1,356 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Private Page</title>
-  <style>
-    body {
-      font-family: 'Courier New', monospace;
-      background-color: #0d1117;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      padding: 20px;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>𝓙𝓐𝓝𝓔𝓛𝓥𝓨 / 𝓟𝓘𝓟𝓘</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg-light: #ffe6f0;
+    --bg-dark: #1e1b23;
+    --text-light: #000000;
+    --text-dark: #ffe6f0;
+    --accent-light: #d63384;
+    --accent-dark: #ff99cc;
+  }
+
+  body {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px;
+    display: block;
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  body.dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
+
+  h1, h2, h3, a, p {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  h1 {
+    color: var(--accent-light);
+    font-size: 3em;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.2s;
+    animation-play-state: paused;
+  }
+
+  body.dark-mode h1 {
+    color: var(--accent-dark);
+  }
+
+  h2 {
+    color: #cc6699;
+    font-size: 1.5em;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-play-state: paused;
+  }
+
+  .form-section {
+    margin-top: 40px;
+  }
+
+  .form-section h3 {
+    margin-bottom: 20px;
+    color: #bf4080;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.8s;
+    animation-play-state: paused;
+  }
+
+  .form-section a {
+    display: block;
+    margin: 5px auto;
+    color: #99004d;
+    text-decoration: none;
+    font-weight: bold;
+    opacity: 0;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: fit-content;
+    box-shadow: 0 0 0 rgba(255, 102, 178, 0);
+    animation-play-state: paused;
+    border: 2px solid #ff66b2;
+  }
+
+  .form-section a:hover {
+    color: #ff66b2;
+    box-shadow: 0 0 10px rgba(255, 102, 178, 0.7), 0 0 20px rgba(255, 102, 178, 0.5);
+    transform: scale(1.05);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideFromLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes slideFromRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .form-section a:nth-of-type(odd) { animation-name: slideFromLeft; }
+  .form-section a:nth-of-type(even) { animation-name: slideFromRight; }
+
+  .form-section a:nth-of-type(1)  { animation-delay: 1s; }
+  .form-section a:nth-of-type(2)  { animation-delay: 1.2s; }
+  .form-section a:nth-of-type(3)  { animation-delay: 1.4s; }
+  .form-section a:nth-of-type(4)  { animation-delay: 1.6s; }
+  .form-section a:nth-of-type(5)  { animation-delay: 1.8s; }
+  .form-section a:nth-of-type(6)  { animation-delay: 2.0s; }
+  .form-section a:nth-of-type(7)  { animation-delay: 2.2s; }
+  .form-section a:nth-of-type(8)  { animation-delay: 2.4s; }
+  .form-section a:nth-of-type(9)  { animation-delay: 2.6s; }
+  .form-section a:nth-of-type(10) { animation-delay: 2.8s; }
+  .form-section a:nth-of-type(11) { animation-delay: 3.0s; }
+  .form-section a:nth-of-type(12) { animation-delay: 3.2s; }
+  .form-section a:nth-of-type(13) { animation-delay: 3.4s; }
+  .form-section a:nth-of-type(14) { animation-delay: 3.6s; }
+  .form-section a:nth-of-type(15) { animation-delay: 3.8s; }
+  .form-section a:nth-of-type(16) { animation-delay: 4.0s; }
+  .form-section a:nth-of-type(17) { animation-delay: 4.2s; }
+
+  #intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-light);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 9999;
+    animation: fadeInIntro 1.5s ease forwards;
+  }
+
+  body.dark-mode #intro-screen {
+    background: var(--bg-dark);
+  }
+
+  #intro-screen h1, #intro-screen p, #intro-screen button {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+
+  #intro-screen h1 {
+    color: var(--accent-light);
+    font-size: 2.5em;
+    animation-delay: 0.3s;
+  }
+
+  body.dark-mode #intro-screen h1 {
+    color: var(--accent-dark);
+  }
+
+  #intro-screen p:nth-of-type(1) {
+    font-size: 1.2em;
+    color: #99004d;
+    animation-delay: 0.6s;
+  }
+
+  #intro-screen p:nth-of-type(2) {
+    font-size: 1.1em;
+    color: #cc6699;
+    animation-delay: 0.9s;
+  }
+
+  #intro-screen button {
+    margin-top: 40px;
+    padding: 10px 20px;
+    font-size: 1em;
+    background: #d63384;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    animation-delay: 1.2s;
+    box-shadow: 0 0 15px rgba(255, 102, 178, 0.6);
+    transition: all 0.3s ease-in-out;
+  }
+
+  #intro-screen button:hover {
+    box-shadow: 0 0 20px rgba(255, 102, 178, 1), 0 0 30px rgba(255, 102, 178, 0.8);
+    transform: scale(1.05);
+  }
+
+  @keyframes fadeInIntro {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #ff66b2;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(255, 102, 178, 0.6);
+    z-index: 10000;
+  }
+
+  .back-button:hover {
+    background-color: #e0559a;
+    box-shadow: 0 0 15px rgba(255, 102, 178, 1);
+  }
+
+  #toggle-darkmode {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ff66b2;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 102, 178, 0.6);
+    z-index: 10000;
+  }
+
+  #toggle-darkmode:hover {
+    background-color: #e0559a;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const homepage = "https://marcelinamasuel.github.io/11may2025projectcoding/";
+    const homepageWithIndex = homepage + "index.html";
+    const referrer = document.referrer;
+
+    if (referrer === homepage || referrer === homepageWithIndex) {
+      sessionStorage.setItem("fromHomepage", "true");
     }
-    input, button {
-      margin-top: 10px;
-      padding: 10px;
-      font-size: 16px;
-      background-color: #161b22;
-      color: #fff;
-      border: 1px solid #58a6ff;
-    }
-    #output {
-      margin-top: 20px;
-      width: 90%;
-      max-width: 800px;
-      border: 2px dashed #58a6ff;
-      padding: 20px;
-      display: none;
-      white-space: pre-wrap;
-    }
-  </style>
-</head>
-<body>
-  <h2>🔒 This page is protected</h2>
-  <p>Enter password to unlock the surprise 🌸</p>
-  <input type="password" id="passwordInput" placeholder="Enter password" />
-  <button onclick="decryptHTML()">Unlock</button>
 
-  <div id="output"></div>
+    if (!sessionStorage.getItem("fromHomepage")) {
+      const password = "sayaSayangAwak";
+      const userInput = prompt("Sila masukkan kata laluan untuk akses:");
 
-  <script>
-    const encryptedData = "7xL1KuEL+YwXEhFH2MLd5Y5lxmRt8hG/e4PIlHfAGsvdSjo3uBOHjw45oPJv2+2QnSCG1ZPy66D4wsb86dH9RK8l3ybo493xSrtAcO6jPQNkLd7/cNztiQc7A+C/cd/sG4MosIeGTucFwnsfG7k8zLRcdJZ26IOtFi1m8e8NkI6Z/eY2V0LxJbk1vqYJP3N3/UQV49U79W6Gw6EnE5e1d8bSGgsxuKRnQ3BBs9cz85B+3Hno0z9fz/gpHZEuR+6FMQoAYi/8vjZFMh0WVMuAetkWTM+pLtjlxBt2emyWlxQ6+aCsxffKqCo0aNjt+o8qfCSUqGBnhA7Pdk5xE9sggfUYOx+vdR04+cLSPYOwyxhd+v5gR9J1kzCq6VWhnv4jrTYvZITudPQZp1hNH/5MXFejKAMQGJanFNUA833jnimqhZGlx+L4QI4bknLwfPw8RWX0g6ZElWpUJmwVUPmVrRTVzvZ2Nj/";
-
-    async function decryptHTML() {
-      const password = document.getElementById("passwordInput").value;
-      const encBinary = atob(encryptedData);
-      const iv = new Uint8Array([...encBinary].slice(0, 16).map(c => c.charCodeAt(0)));
-      const data = new Uint8Array([...encBinary].slice(16).map(c => c.charCodeAt(0)));
-
-      const encoder = new TextEncoder();
-      const keyMaterial = await window.crypto.subtle.importKey(
-        "raw", encoder.encode(password), "PBKDF2", false, ["deriveKey"]
-      );
-      const key = await window.crypto.subtle.deriveKey(
-        {
-          name: "PBKDF2",
-          salt: iv,
-          iterations: 100000,
-          hash: "SHA-256"
-        },
-        keyMaterial,
-        { name: "AES-CBC", length: 256 },
-        false,
-        ["decrypt"]
-      );
-
-      try {
-        const decrypted = await window.crypto.subtle.decrypt(
-          { name: "AES-CBC", iv: iv },
-          key,
-          data
-        );
-
-        const decoded = new TextDecoder().decode(decrypted);
-        document.open();
-        document.write(decoded);
-        document.close();
-      } catch (e) {
-        alert("Password salah atau kandungan rosak.");
+      if (userInput !== password) {
+        alert("Kata laluan salah! Anda akan dibawa kembali ke halaman utama.");
+        window.location.href = homepage;
+        return;
+      } else {
+        sessionStorage.setItem("fromHomepage", "true");
       }
     }
-  </script>
+
+    function showMainContent(showIntro = false) {
+      if (showIntro) {
+        document.getElementById("intro-screen").style.display = "flex";
+        document.body.style.overflow = "hidden";
+      } else {
+        document.getElementById("intro-screen").style.display = "none";
+        document.body.style.overflow = "auto";
+        document.querySelectorAll("h1").forEach(el => el.style.animationPlayState = "running");
+        document.querySelectorAll("h2").forEach(el => el.style.animationPlayState = "running");
+        document.querySelectorAll(".form-section h3, .form-section a").forEach(el => el.style.animationPlayState = "running");
+      }
+    }
+
+    if (referrer === homepage || referrer === homepageWithIndex) {
+      showMainContent(true);
+    } else {
+      showMainContent(false);
+    }
+
+    const masukBtn = document.querySelector("#intro-screen button");
+    if (masukBtn) {
+      masukBtn.addEventListener("click", () => {
+        showMainContent(false);
+      });
+    }
+
+    document.querySelectorAll(".form-section a").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        link.style.transform = "scale(1.3)";
+        setTimeout(() => {
+          window.location.href = link.href;
+        }, 300);
+      });
+    });
+
+    // Dark Mode toggle
+    const toggleBtn = document.getElementById("toggle-darkmode");
+    const body = document.body;
+
+    if (localStorage.getItem("dark-mode") === "enabled") {
+      body.classList.add("dark-mode");
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      body.classList.toggle("dark-mode");
+      localStorage.setItem("dark-mode", body.classList.contains("dark-mode") ? "enabled" : "disabled");
+    });
+  });
+</script>
+</head>
+
+<body>
+  <div id="intro-screen">
+    <img src="bubuwaving.gif" alt="GIF" style="width: 120px; height: auto; margin-bottom: 20px; animation: fadeIn 1s forwards; animation-delay: 0.1s;">
+    <h1>𝓗𝓮𝓲 𝓟𝓲𝓟𝓘 💌</h1>
+    <p>Sebelum awak baca semua ni, saya nak awak tahu...</p>
+    <p>Ini semua dari hati saya, satu demi satu bahagian untuk awak baca perlahan-lahan 💞</p>
+    <button>Masuk</button>
+  </div>
+
+  <a class="back-button" href="index.html">← KEMBALI KE HALAMAN UTAMA</a>
+  <button id="toggle-darkmode">Change Theme</button>
+
+  <h1> JANELVY / PIPI </h1>
+  <h2> -PILIH BAHAGIAN YANG AWAK NAK BACA- </h2>
+  <h2>-Bahagian 1-7 kau dah baca sebab time tu aku tersent so kau boleh skip. Ada yang aku ubah suai sikit btw.-</h2>
+
+  <div class="form-section">
+    <h3>FORM 2</h3>
+    <a href="form2-bahagian1.html">Bahagian 1</a>
+    <a href="form2-bahagian2.html">Bahagian 2</a>
+    <a href="form2-bahagian3.html">Bahagian 3</a>
+    <a href="form2-bahagian4.html">Bahagian 4</a>
+    <a href="form2-bahagian5.html">Bahagian 5</a>
+    <a href="form2-bahagian6.html">Bahagian 6</a>
+    <a href="form2-bahagian7.html">Bahagian 7</a>
+    <a href="form2-bahagian8.html">Bahagian 8</a>
+    <a href="form2-bahagian9.html">Bahagian 9</a>
+    <a href="form2-bahagian10.html">Bahagian 10</a>
+    <a href="form2-bahagian11.html">Bahagian 11</a>
+    <a href="form2-bahagian12.html">Bahagian 12</a>
+    <a href="form2-bahagian13.html">Bahagian 13</a>
+    <a href="form2-bahagian14.html">Bahagian 14</a>
+    <a href="form2-bahagian15.html">Bahagian 15</a>
+    <a href="form2-bahagian16part1.html">Bahagian 16</a>
+    <a href="form2-penutup.html">Penutup</a>
+  </div>
 </body>
 </html>
