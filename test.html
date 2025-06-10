@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <title>Private Page</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background-color: #0d1117;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    input, button {
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #161b22;
+      color: #fff;
+      border: 1px solid #58a6ff;
+    }
+    #output {
+      margin-top: 20px;
+      width: 90%;
+      max-width: 800px;
+      border: 2px dashed #58a6ff;
+      padding: 20px;
+      display: none;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h2>🔒 This page is protected</h2>
+  <p>Enter password to unlock the surprise 🌸</p>
+  <input type="password" id="passwordInput" placeholder="Enter password" />
+  <button onclick="decryptHTML()">Unlock</button>
+
+  <div id="output"></div>
+
+  <script>
+    const encryptedData = "7xL1KuEL+YwXEhFH2MLd5Y5lxmRt8hG/e4PIlHfAGsvdSjo3uBOHjw45oPJv2+2QnSCG1ZPy66D4wsb86dH9RK8l3ybo493xSrtAcO6jPQNkLd7/cNztiQc7A+C/cd/sG4MosIeGTucFwnsfG7k8zLRcdJZ26IOtFi1m8e8NkI6Z/eY2V0LxJbk1vqYJP3N3/UQV49U79W6Gw6EnE5e1d8bSGgsxuKRnQ3BBs9cz85B+3Hno0z9fz/gpHZEuR+6FMQoAYi/8vjZFMh0WVMuAetkWTM+pLtjlxBt2emyWlxQ6+aCsxffKqCo0aNjt+o8qfCSUqGBnhA7Pdk5xE9sggfUYOx+vdR04+cLSPYOwyxhd+v5gR9J1kzCq6VWhnv4jrTYvZITudPQZp1hNH/5MXFejKAMQGJanFNUA833jnimqhZGlx+L4QI4bknLwfPw8RWX0g6ZElWpUJmwVUPmVrRTVzvZ2Nj/";
+
+    async function decryptHTML() {
+      const password = document.getElementById("passwordInput").value;
+      const encBinary = atob(encryptedData);
+      const iv = new Uint8Array([...encBinary].slice(0, 16).map(c => c.charCodeAt(0)));
+      const data = new Uint8Array([...encBinary].slice(16).map(c => c.charCodeAt(0)));
+
+      const encoder = new TextEncoder();
+      const keyMaterial = await window.crypto.subtle.importKey(
+        "raw", encoder.encode(password), "PBKDF2", false, ["deriveKey"]
+      );
+      const key = await window.crypto.subtle.deriveKey(
+        {
+          name: "PBKDF2",
+          salt: iv,
+          iterations: 100000,
+          hash: "SHA-256"
+        },
+        keyMaterial,
+        { name: "AES-CBC", length: 256 },
+        false,
+        ["decrypt"]
+      );
+
+      try {
+        const decrypted = await window.crypto.subtle.decrypt(
+          { name: "AES-CBC", iv: iv },
+          key,
+          data
+        );
+
+        const decoded = new TextDecoder().decode(decrypted);
+        document.open();
+        document.write(decoded);
+        document.close();
+      } catch (e) {
+        alert("Password salah atau kandungan rosak.");
+      }
+    }
+  </script>
+</body>
+</html>
