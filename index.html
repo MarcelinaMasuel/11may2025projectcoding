@@ -251,7 +251,7 @@
 
   <div class="password-form" id="passwordForm">
     <p>Enter The Password That Have Been Sent:</p>
-    <input type="password" id="passwordInput" placeholder="..." />
+    <input type="password" id="passwordInput" placeholder="Masukkan password di sini..." />
     <button id="submitPassword" onclick="submitPassword()">Enter</button>
     <div id="errorMessage">Password salah lah</div>
   </div>
@@ -274,7 +274,6 @@
       setTimeout(() => {
         button.classList.remove("clicked");
         currentOption = option;
-        document.getElementById("optionLabel").innerText = option.toUpperCase();
         document.getElementById("passwordForm").classList.add("active");
         document.getElementById("passwordInput").value = "";
         document.getElementById("errorMessage").style.display = "none";
@@ -284,9 +283,9 @@
 
     function submitPassword() {
       const passwords = {
-        jaas: '0401lepastutakde',
-        vsast: '2106channie',
-        c: 'cherry'
+        jaas: '0401lepastutakde',      // password untuk JANELVY
+        vsast: '2106channie',         // password untuk VERONICA
+        c: 'cherry'                   // password untuk C
       };
 
       const input = document.getElementById("passwordInput").value;
@@ -333,6 +332,5 @@
       }
     });
   </script>
-
 </body>
 </html>
