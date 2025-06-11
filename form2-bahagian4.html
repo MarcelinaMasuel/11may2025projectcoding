@@ -364,6 +364,35 @@ body.dark-mode .navigation a:hover {
       updateNote.textContent = randomMsg;
       document.getElementById("lastUpdateContainer").appendChild(updateNote);
     }
+
+    // === INSPECT PROTECTION ===
+    let inspectUnlocked = false;
+    document.addEventListener("contextmenu", function (e) {
+      if (!inspectUnlocked) {
+        e.preventDefault();
+        const pass = prompt("Nak inspect? Masukkan password dulu:");
+        if (pass === "kelempiauchao") {
+          alert("Okay boleh! Tapi jangan kongsi password ni ya 😘");
+          inspectUnlocked = true;
+        } else {
+          alert("Salah password. Tak boleh inspect!");
+        }
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (!inspectUnlocked && (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I"))) {
+        e.preventDefault();
+        const pass = prompt("Nak inspect? Masukkan password dulu:");
+        if (pass === "kelempiauchao") {
+          alert("Okay boleh! Tapi jangan kongsi password ni ya 😘");
+          inspectUnlocked = true;
+        } else {
+          alert("Salah password. Tak boleh inspect!");
+        }
+      }
+    });
+
   </script>
 </head>
 
