@@ -213,17 +213,17 @@
         localStorage.setItem("theme", isDark ? "dark" : "light");
       });
 
-      fetch("update-messages.txt")
-        .then(res => res.text())
-        .then(text => {
-          const lines = text.split('\n').map(line => line.trim()).filter(Boolean);
-          const randomMsg = lines[Math.floor(Math.random() * lines.length)];
-          const msgDiv = document.getElementById("lastUpdateMessage");
-          msgDiv.innerHTML = `<em>${randomMsg}</em>`;
-        })
-        .catch(err => {
-          console.error("Tak dapat ambil mesej:", err);
-        });
+fetch("update-messages.txt")
+  .then(res => res.text())
+  .then(text => {
+    const messages = text.trim().split("\n").filter(line => line.trim() !== "");
+    const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+    const msgDiv = document.getElementById("lastUpdateMessage");
+    msgDiv.innerHTML = `<em>${randomMsg}</em>`;
+  })
+  .catch(err => {
+    console.error("Tak dapat ambil mesej:", err);
+  });
     }
   </script>
 </head>
