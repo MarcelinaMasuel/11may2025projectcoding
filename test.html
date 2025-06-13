@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FORM 2 - Bahagian 7</title>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Permanent+Marker&display=swap" rel="stylesheet" />
+
   <style>
     body {
       background-color: #fff5fa;
@@ -174,7 +177,8 @@
       text-align: center;
       font-style: italic;
       font-size: 1.2em;
-      opacity: 0.7;
+      opacity: 0.85;
+      font-family: 'Permanent Marker', cursive;
     }
   </style>
 
@@ -213,25 +217,54 @@
         localStorage.setItem("theme", isDark ? "dark" : "light");
       });
 
-fetch("update-messages.txt")
-  .then(res => res.text())
-  .then(text => {
-    const messages = text.trim().split("\n").filter(line => line.trim() !== "");
-    const randomMsg = messages[Math.floor(Math.random() * messages.length)];
-    const msgDiv = document.getElementById("lastUpdateMessage");
-    msgDiv.innerHTML = `<em>${randomMsg}</em>`;
-  })
-  .catch(err => {
-    console.error("Tak dapat ambil mesej:", err);
-  });
+      fetch("update-messages.txt")
+        .then(res => res.text())
+        .then(text => {
+          const messages = text.trim().split("\n").filter(line => line.trim() !== "");
+          const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+          const msgDiv = document.getElementById("lastUpdateMessage");
+          msgDiv.innerHTML = `<em>${randomMsg}</em>`;
+        })
+        .catch(err => {
+          console.error("Tak dapat ambil mesej:", err);
+        });
     }
+
+    let inspectUnlocked = false;
+    document.addEventListener("contextmenu", function (e) {
+      if (!inspectUnlocked) {
+        e.preventDefault();
+        const pass = prompt("Nak inspect? Masukkan password dulu:");
+        if (pass === "kelempiauchao") {
+          alert("Okay boleh! Tapi jangan kongsi password ni ya 😘");
+          inspectUnlocked = true;
+        } else {
+          alert("Salah password. Tak boleh inspect!");
+        }
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (!inspectUnlocked && (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I"))) {
+        e.preventDefault();
+        const pass = prompt("Nak inspect? Masukkan password dulu:");
+        if (pass === "kelempiauchao") {
+          alert("Okay boleh! Tapi jangan kongsi password ni ya 😘");
+          inspectUnlocked = true;
+        } else {
+          alert("Salah password. Tak boleh inspect!");
+        }
+      }
+    });
   </script>
 </head>
+
 <body>
   <div class="diary-wrapper">
     <div class="navigation">
       <a href="#" id="toggleTheme" class="theme-toggle">Dark Mode</a>
     </div>
+
     <h1>FORM 2 - BAHAGIAN 7</h1>
 
     <div class="content">
@@ -253,7 +286,6 @@ fetch("update-messages.txt")
     </div>
   </div>
 
-  <!-- OUTSIDE wrapper -->
   <div class="last-updated" id="lastUpdateMessage"></div>
 </body>
 </html>
