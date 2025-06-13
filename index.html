@@ -68,13 +68,9 @@
       animation: waveMotion 1.5s ease-in-out infinite;
     }
 
-    .wave-text span:nth-child(1) { animation-delay: 0s; }
-    .wave-text span:nth-child(2) { animation-delay: 0.1s; }
-    .wave-text span:nth-child(3) { animation-delay: 0.2s; }
-    .wave-text span:nth-child(4) { animation-delay: 0.3s; }
-    .wave-text span:nth-child(5) { animation-delay: 0.4s; }
-    .wave-text span:nth-child(6) { animation-delay: 0.5s; }
-    .wave-text span:nth-child(7) { animation-delay: 0.6s; }
+    .wave-text span:nth-child(n) {
+      animation-delay: calc(0.1s * var(--i));
+    }
 
     @keyframes waveMotion {
       0%   { transform: translateY(0); }
@@ -112,7 +108,7 @@
       background-color: #FFA6C9;
       color: white;
       animation: waveMotion 1.5s ease-in-out infinite;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease, color 0.5s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       box-shadow: 0 0 10px #FFA6C9;
     }
 
@@ -155,19 +151,38 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    input[type="password"] {
-      padding: 10px;
+    .password-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .password-wrapper input {
+      padding: 10px 40px 10px 10px;
       font-size: 16px;
       border-radius: 8px;
       border: 1px solid #ccc;
-      margin-top: 10px;
+      width: 250px;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    body.dark-mode input[type="password"] {
+    .password-wrapper span {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      user-select: none;
+    }
+
+    body.dark-mode .password-wrapper input {
       background-color: #333;
       color: #eee;
       border: 1px solid #555;
+    }
+
+    body.dark-mode .password-wrapper span {
+      color: #eee;
     }
 
     #submitPassword {
@@ -179,11 +194,6 @@
     body.dark-mode #submitPassword {
       background-color: #bb86fc;
       color: #222;
-    }
-
-    p {
-      font-size: 18px;
-      margin-bottom: 20px;
     }
 
     #errorMessage {
@@ -226,22 +236,22 @@
 
   <div class="wave-text">
     <h1>
-      <span>HELLO</span>
-      <span>SAHABAT</span>
-      <span>YANG</span>
-      <span>SAYA</span>
-      <span>SAYANGI</span>
-      <span>❤️</span>
-      <span>!!</span>
+      <span style="--i:1">HELLO</span>
+      <span style="--i:2">SAHABAT</span>
+      <span style="--i:3">YANG</span>
+      <span style="--i:4">SAYA</span>
+      <span style="--i:5">SAYANGI</span>
+      <span style="--i:6">❤️</span>
+      <span style="--i:7">!!</span>
     </h1>
   </div>
 
   <div class="wave-text" style="margin-top: 20px;">
     <p>
-      <span>JAP,</span>
-      <span>KAU</span>
-      <span>SIAPA</span>
-      <span>EK?</span>
+      <span style="--i:1">JAP,</span>
+      <span style="--i:2">KAU</span>
+      <span style="--i:3">SIAPA</span>
+      <span style="--i:4">EK?</span>
     </p>
   </div>
 
@@ -251,7 +261,10 @@
 
   <div class="password-form" id="passwordForm">
     <p>Enter The Password That Have Been Sent:</p>
-    <input type="password" id="passwordInput" placeholder="Masukkan password di sini..." />
+    <div class="password-wrapper">
+      <input type="password" id="passwordInput" placeholder="Masukkan password di sini..." />
+      <span id="togglePassword">👁️</span>
+    </div>
     <button id="submitPassword" onclick="submitPassword()">Enter</button>
     <div id="errorMessage">Password salah lah</div>
   </div>
@@ -283,9 +296,9 @@
 
     function submitPassword() {
       const passwords = {
-        PIPI: '0401lepastutakde',      // password untuk JANELVY
-        VERONICA: '2106channie',         // password untuk VERONICA
-        c: 'cherry'                   // password untuk C
+        PIPI: '0401lepastutakde',
+        VERONICA: '2106channie',
+        c: 'cherry'
       };
 
       const input = document.getElementById("passwordInput").value;
@@ -302,6 +315,21 @@
     themeToggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
       themeToggleBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
+
+    // Toggle password visibility
+    document.getElementById('togglePassword').addEventListener('click', () => {
+      const input = document.getElementById('passwordInput');
+      const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+      input.setAttribute('type', type);
+      document.getElementById('togglePassword').textContent = type === 'password' ? '👁️' : '🙈';
+    });
+
+    // Allow enter key to trigger submit
+    document.getElementById("passwordInput").addEventListener("keyup", function (event) {
+      if (event.key === "Enter") {
+        submitPassword();
+      }
     });
 
     // === INSPECT PROTECTION ===
@@ -331,21 +359,6 @@
         }
       }
     });
-
-          const toggleBtn = document.getElementById('toggleTheme');
-      if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark-mode");
-        toggleBtn.textContent = "Change To Light Mode";
-      }
-
-      toggleBtn.addEventListener("click", (event) => {
-        event.preventDefault();
-        document.body.classList.toggle("dark-mode");
-        const isDark = document.body.classList.contains("dark-mode");
-        toggleBtn.textContent = isDark ? "Change To Light Mode" : "Change To Dark Mode";
-        localStorage.setItem("theme", isDark ? "dark" : "light");
-      });
-
   </script>
 </body>
 </html>
