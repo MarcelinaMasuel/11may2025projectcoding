@@ -127,13 +127,14 @@ body.dark-mode .diary-wrapper {
 }
 
 body.dark-mode .highlight {
-  background-color:: rgba(255, 78, 145, 0.5);
+  background-color: rgba(150, 81, 115, 0.4);
   border-radius: 4px;
   padding: 2px 6px;
-  color: #e85e86;
+  font-weight: bold;
+  color: #ffd6ea;
   box-shadow:
-    0 0 5px rgba(254, 40, 228, 0.7)
-    inset 0 1px 5px rgba(255, 255, 255, 0.3);
+    0 0 5px rgba(255, 192, 203, 0.5),
+    inset 0 1px 5px rgba(255, 255, 255, 0.1);
   transition: background-color 0.3s ease;
 }
 
@@ -279,4 +280,3 @@ fetch("update-messages.txt")
   <div class="last-updated" id="lastUpdateMessage"></div>
 </body>
 </html>
-
