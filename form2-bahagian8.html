@@ -161,6 +161,34 @@
       background-color: #b36694;
     }
 
+    #toggleTheme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      background-color: #ff99cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      font-family: 'Caveat', cursive;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #toggleTheme:hover { background-color: #e06699; }
+
+    body.dark-mode #toggleTheme {
+      background-color: #914d6e;
+      color: #ffe6f0;
+    }
+
+    body.dark-mode #toggleTheme:hover {
+      background-color: #b36694;
+    }
+
     .last-updated {
       margin-top: 40px;
       text-align: center;
@@ -246,12 +274,12 @@ fetch("update-messages.txt")
 
   </script>
 </head>
-
 <body>
-
-  <button id="toggleTheme" class="theme-toggle">Dark Mode</button>
-
   <div class="diary-wrapper">
+   <div class="navigation">
+   <button id="toggleTheme" class="theme-toggle">Dark Mode</button>
+   </div>
+  <h1>FORM
     <h1>FORM 2 - BAHAGIAN 8</h1>
     <div class="content">
      Actually, sebelum aku kenal kau, aku memang benci and jijik dengan colour pink kecuali time aku kat semenanjungl ler, pink used to be my fav but now, no. Like, kalau soft pink tu, okay lah sikit, tak terlalu mencolok mata. <span class="neon">But after I know you, every single pink thing yang aku nampak keep reminding me of you.</span> Warna yang dulu aku benci tu tiba-tiba jadi macam something special yang selalu buat aku teringat kau. Tapi jangan salah faham, aku still tak boleh kata aku suka pink, aku lebih kepada neutral je lah. Aku tak benci, tapi aku pun tak suka sangat. Aku cuma okay dengan soft pink jer, tapi kalau pink yang terang, bright and pekat tu, mehhhh.
