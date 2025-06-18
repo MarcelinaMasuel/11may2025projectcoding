@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FORM 2 - Bahagian 7</title>
+  <title>FORM 2 - Bahagian 6</title>
   <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -166,7 +166,28 @@
       position: fixed;
       top: 20px;
       right: 20px;
-      z-index: 999;
+      z-index: 9999;
+      background-color: #ff99cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      font-family: 'Caveat', cursive;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #toggleTheme:hover { background-color: #e06699; }
+
+    body.dark-mode #toggleTheme {
+      background-color: #914d6e;
+      color: #ffe6f0;
+    }
+
+    body.dark-mode #toggleTheme:hover {
+      background-color: #b36694;
     }
 
     .last-updated {
@@ -257,7 +278,7 @@ fetch("update-messages.txt")
 <body>
   <div class="diary-wrapper">
     <div class="navigation">
-      <a href="#" id="toggleTheme" class="theme-toggle">Dark Mode</a>
+   <button id="toggleTheme" class="theme-toggle">Dark Mode</button>
     </div>
     <h1>FORM 2 - BAHAGIAN 7</h1>
 
@@ -275,8 +296,8 @@ fetch("update-messages.txt")
 
     <div class="navigation">
       <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
-      <a href="form2-bahagian6.html">← BAHAGIAN SEBELUMNYA</a>
-      <a href="form2-bahagian8.html">BAHAGIAN SETERUSNYA →</a>
+      <a href="form2-bahagian5.html">← BAHAGIAN SEBELUMNYA</a>
+      <a href="form2-bahagian7.html">BAHAGIAN SETERUSNYA →</a>
     </div>
   </div>
 
