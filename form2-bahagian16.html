@@ -119,6 +119,81 @@
         font-size: 1em;
       }
     }
+         body.dark-mode {
+  background-color: #121212;  /* latar gelap */
+  color: #f0c4d7;             /* warna tulisan terang untuk gelap */
+}
+
+body.dark-mode .diary-wrapper {
+  background-color: #2a1a2f;  /* latar kotak diary gelap */
+  border-color: #914d6e;      /* border lebih gelap */
+  box-shadow: 0 4px 20px rgba(145, 77, 110, 0.5);
+  color: #f0c4d7;
+}
+.dark-mode .soft-highlight-pink {
+  background-color: #3f1d2b;
+  color: #ffb6c9;
+}
+
+.dark-mode .soft-highlight-pink:hover {
+  background-color: #5c2b3f;
+}
+
+.dark-mode .speech-italic-pink {
+  color: #ff99bb;
+  text-decoration-color: #ffb3d9;
+}
+
+.dark-mode .glow-pink {
+  color: #ff8cb3;
+  text-shadow: 0 0 6px #ffb6d988, 0 0 10px #ff99bbaa;
+}
+
+
+body.dark-mode .navigation a {
+  background-color: #914d6e;
+  color: #d46390;
+}
+
+body.dark-mode .navigation a:hover {
+  background-color: #b36694;
+}
+
+    #toggleTheme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      background-color: #ff99cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      font-family: 'Caveat', cursive;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #toggleTheme:hover { background-color: #e06699; }
+
+    body.dark-mode #toggleTheme {
+      background-color: #914d6e;
+      color: #ffe6f0;
+    }
+
+    body.dark-mode #toggleTheme:hover {
+      background-color: #b36694;
+    }
+
+    .last-updated {
+      margin-top: 40px;
+      text-align: center;
+      font-style: italic;
+      font-size: 1.2em;
+      opacity: 0.7;
+    }
   </style>
 
   <script>
@@ -130,28 +205,84 @@
     const fromAllowedPage = allowedReferrers.some(url => document.referrer.startsWith(url));
 
     if (fromAllowedPage) {
-      document.addEventListener("DOMContentLoaded", () => {
-        document.body.style.display = "block";
-      });
+      document.addEventListener("DOMContentLoaded", showPage);
     } else {
       const password = prompt("Masukkan kata laluan:");
       if (password === "akusorangjeadapassword") {
-        document.addEventListener("DOMContentLoaded", () => {
-          document.body.style.display = "block";
-        });
+        document.addEventListener("DOMContentLoaded", showPage);
       } else {
         document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
       }
     }
+
+    function showPage() {
+      document.body.style.display = "block";
+
+      const toggleBtn = document.getElementById('toggleTheme');
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        toggleBtn.textContent = "Change To Light Mode";
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        toggleBtn.textContent = isDark ? "Change To Light Mode" : "Change To Dark Mode";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+
+fetch("update-messages.txt")
+  .then(res => res.text())
+  .then(text => {
+    const messages = text.trim().split("\n").filter(line => line.trim() !== "");
+    const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+    const msgDiv = document.getElementById("lastUpdateMessage");
+    msgDiv.innerHTML = `<em>${randomMsg}</em>`;
+  })
+  .catch(err => {
+    console.error("Tak dapat ambil mesej:", err);
+  });
+    }
+    let inspectUnlocked = false;
+    document.addEventListener("contextmenu", function (e) {
+      if (!inspectUnlocked) {
+        e.preventDefault();
+        const pass = prompt("Nak inspect? Masukkan password dulu:");
+        if (pass === "kelempiauchao") {
+          alert("Okay boleh! Tapi jangan kongsi password ni ya 😘");
+          inspectUnlocked = true;
+        } else {
+          alert("Salah password. Tak boleh inspect!");
+        }
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (!inspectUnlocked && (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I"))) {
+        e.preventDefault();
+        const pass = prompt("Nak inspect? Masukkan password dulu:");
+        if (pass === "kelempiauchao") {
+          alert("Okay boleh! Tapi jangan kongsi password ni ya 😘");
+          inspectUnlocked = true;
+        } else {
+          alert("Salah password. Tak boleh inspect!");
+        }
+      }
+    });
+
   </script>
 </head>
 <body>
   <div class="diary-wrapper">
+   <div class="navigation">
+   <button id="toggleTheme" class="theme-toggle">Dark Mode</button>
+   </div>
   <h1>FORM 2 - BAHAGIAN 16</h1>
     <div class="content">
-      Do you still remember when I wasn’t chosen for basketball? I was so freaking sad. Teacher said, "Sebenarnya saya mahu pilih si kecik (aku) tu." "Kamu boleh, bagus kamu bawa bola, cantik. Tapi, passing kamu tak bagus." "Kalau passing tak bagus, nanti dalam game, habis." I burst into tears. Friends comforted me and tried to persuade the teacher to let me join basketball, but the teacher gave no response. I walked out with tears running down my face. "Aku taknak balik dulu, taknak parents aku nampak aku nangis. Aku rehat lah kejap," I said. "Did I not try hard enough? I pushed myself sampai vision blurred, hearing blocked. I <span class="soft-highlight-pink">ALMOST F*CKING FAINTED IN TRAINING.</span> But all I got was disappointment."
+      Do you still remember when I wasn’t chosen for basketball?  Yeah, I’m only writing about it because dah alang-alang nak hit Bahagian 15.. Is it that deep? Nope. Does it fill space? Absolutely. Dah, dah, start cerita. BTW kalau taknak baca skip je. Aku tulis ni pun bukan sebab penting sangat pun, setakat nak hit Bahagian 15, apelah sangat.
+      I was so freaking sad. Teacher said, "Sebenarnya saya mahu pilih si kecik (aku) tu." "Kamu boleh, bagus kamu bawa bola, cantik. Tapi, passing kamu tak bagus." "Kalau passing tak bagus, nanti dalam game, habis." I burst into tears. Friends comforted me and tried to persuade the teacher to let me join basketball, but the teacher gave no response. I walked out with tears running down my face. "Aku taknak balik dulu, taknak parents aku nampak aku nangis. Aku rehat lah kejap," I said. "Did I not try hard enough? I pushed myself sampai vision blurred, hearing blocked. I <span class="soft-highlight-pink">ALMOST F*CKING FAINTED IN TRAINING.</span> But all I got was disappointment."
 
-      Then korang PBSM keluar. You called my name, I turned but looked away. Assuming you didn't see my eyes. Then in the corner of my eyes I saw you walking toward me. You sat beside me and try to comfort me. You were the third person who ever try to comfort me after my mom and Grecia. When you said, "<span class="speech-italic-pink">Aw, it’s okay,</span>" <span class="glow-pink">ARGGHH, MY TEARS FLOWED HARDER!</span> You were the first to let me cry on your shoulder. I wanted you to stay longer but I forced myself to stand, taknak kau balik lambat sebab aku. Aku balik with tears still flowing, mind repeating cikgu’s words, but I remembered you wiping my tears. BTW you're the first person who ever wiped my tears. You also the second person who called Grecia when I cried. I’m so grateful for a friend like you. Dari semua kawan aku di Sarawak, you’re the best, my favourite. <span class="soft-highlight-pink">Maybe moving to Sarawak isn’t that bad <span class="speech-italic-pink">because I met you there.</span></span>
+      Then korang PBSM keluar. You called my name, I turned but looked away. Assuming you didn't see my eyes. Then in the corner of my eyes I saw you walking toward me. You sat beside me and try to comfort me. You were the third person who ever try to comfort me after my mom and Grecia. When you said, "<span class="speech-italic-pink">Aw, it’s okay,</span>" <span class="glow-pink">ARGGHH, MY TEARS FLOWED HARDER!</span> You were the first to let me cry on your shoulder. I wanted you to stay longer but I forced myself to stand, taknak kau balik lambat sebab aku. Aku balik with tears still flowing, mind repeating cikgu’s words, but I remembered you wiping my tears. BTW you're the first person who ever wiped my tears. You also the second person who called Grecia when I cried. I’m so grateful for a friend like you. Dari semua kawan aku di Sarawak, you’re the best, my favourite. <span class="soft-highlight-pink">Maybe moving to Sarawak isn’t that bad <span class="speech-italic-pink">because I met you there ❤ </span></span>
 
     </div>
 
@@ -159,7 +290,8 @@
     <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN </a>
     <a href="form2-bahagian15.html">← BAHAGIAN SEBELUMNYA</a>
     <a href="form2-penutup.html">BAHAGIAN SETERUSNYA →</a>
-  </div>
-  </div>
+   </div>
+   </div> 
+  <div class="last-updated" id="lastUpdateMessage"></div>
 </body>
 </html>
