@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FORM 2 - Bahagian 11</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #fff0f5;
+      font-family: 'Caveat', cursive;
+      color: #660033;
+      padding: 40px;
+      display: none;
+    }
+
+    h1 {
+      text-align: center;
+      color: #cc3366;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      font-family: 'Caveat', cursive;
+      font-size: 3em;
+    }
+
+    .diary-wrapper {
+      max-width: 800px;
+      margin: auto;
+      background-color: #ffe6f0;
+      border: 2px dashed #ffb6c1;
+      border-radius: 20px;
+      padding: 30px 25px;
+      box-shadow: 0 4px 20px rgba(255, 182, 193, 0.3);
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .content {
+      line-height: 1.8;
+      white-space: pre-wrap;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-family: 'Caveat', cursive;
+      font-weight: 400;
+      font-size: 1.45em;
+    }
+
+    /* Glow highlight */
+    .glow-highlight {
+      background-color: #fff8f9;
+      color: #cc3366;
+      box-shadow: 0 0 8px 2px rgba(204, 51, 102, 0.3);
+      border-radius: 6px;
+      padding: 0 6px;
+      font-weight: 600;
+      transition: box-shadow 0.3s ease;
+    }
+    .glow-highlight:hover {
+      box-shadow: 0 0 14px 4px rgba(204, 51, 102, 0.5);
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .navigation {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .navigation a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #ff99cc;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      opacity: 0;
+      animation: fadeIn 0.7s forwards;
+      font-family: 'Caveat', cursive;
+    }
+
+    .navigation a:nth-of-type(1) { animation-delay: 0.5s; }
+    .navigation a:nth-of-type(2) { animation-delay: 0.7s; }
+    .navigation a:nth-of-type(3) { animation-delay: 0.9s; }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2.2em;
+      }
+
+      .content {
+        font-size: 1.2em;
+      }
+
+      .navigation a {
+        padding: 8px 16px;
+        font-size: 1em;
+      }
+    }
+
+         body.dark-mode {
+  background-color: #121212;  /* latar gelap */
+  color: #f0c4d7;             /* warna tulisan terang untuk gelap */
+}
+
+body.dark-mode .diary-wrapper {
+  background-color: #2a1a2f;  /* latar kotak diary gelap */
+  border-color: #914d6e;      /* border lebih gelap */
+  box-shadow: 0 4px 20px rgba(145, 77, 110, 0.5);
+  color: #f0c4d7;
+}
+
+.dark-mode .glow-highlight {
+  background-color: #2a1a1f; /* deep plum pink background */
+  color: #ff99cc; /* soft glowing pink text */
+  box-shadow: 0 0 10px 2px rgba(255, 153, 204, 0.25);
+  border-radius: 6px;
+  padding: 0 6px;
+  font-weight: 600;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .glow-highlight:hover {
+  box-shadow: 0 0 18px 5px rgba(255, 153, 204, 0.5);
+}
+
+body.dark-mode .navigation a {
+  background-color: #914d6e;
+  color: #d46390;
+}
+
+body.dark-mode .navigation a:hover {
+  background-color: #b36694;
+}
+
+    #toggleTheme {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+      background-color: #ff99cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      font-weight: bold;
+      font-family: 'Caveat', cursive;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #toggleTheme:hover { background-color: #e06699; }
+
+    body.dark-mode #toggleTheme {
+      background-color: #914d6e;
+      color: #ffe6f0;
+    }
+
+    body.dark-mode #toggleTheme:hover {
+      background-color: #b36694;
+    }
+
+    .last-updated {
+      margin-top: 40px;
+      text-align: center;
+      font-style: italic;
+      font-size: 1.2em;
+      opacity: 0.7;
+    }
+  </style>
+
+  <script>
+    const allowedReferrers = [
+      "https://marcelinamasuel.github.io/11may2025projectcoding/",
+      "https://marcelinamasuel.github.io/11may2025projectcoding/PIPI.html"
+    ];
+
+    const fromAllowedPage = allowedReferrers.some(url => document.referrer.startsWith(url));
+
+    if (fromAllowedPage) {
+      document.addEventListener("DOMContentLoaded", showPage);
+    } else {
+      const password = prompt("Masukkan kata laluan:");
+      if (password === "akusorangjeadapassword") {
+        document.addEventListener("DOMContentLoaded", showPage);
+      } else {
+        document.write("<h2 style='color:#d63384;text-align:center;margin-top:20%;'>Akses ditolak. Kata laluan salah.</h2>");
+      }
+    }
+
+    function showPage() {
+      document.body.style.display = "block";
+
+      const toggleBtn = document.getElementById('toggleTheme');
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        toggleBtn.textContent = "Change To Light Mode";
+      }
+
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        toggleBtn.textContent = isDark ? "Change To Light Mode" : "Change To Dark Mode";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+
+fetch("update-messages.txt")
+  .then(res => res.text())
+  .then(text => {
+    const messages = text.trim().split("\n").filter(line => line.trim() !== "");
+    const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+    const msgDiv = document.getElementById("lastUpdateMessage");
+    msgDiv.innerHTML = `<em>${randomMsg}</em>`;
+  })
+  .catch(err => {
+    console.error("Tak dapat ambil mesej:", err);
+  });
+    }
+    let inspectUnlocked = false;
+    document.addEventListener("contextmenu", function (e) {
+      if (!inspectUnlocked) {
+        e.preventDefault();
+        const pass = prompt("Nak inspect? Masukkan password dulu:");
+        if (pass === "kelempiauchao") {
+          alert("Okay boleh! Tapi jangan kongsi password ni ya 😘");
+          inspectUnlocked = true;
+        } else {
+          alert("Salah password. Tak boleh inspect!");
+        }
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (!inspectUnlocked && (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I"))) {
+        e.preventDefault();
+        const pass = prompt("Nak inspect? Masukkan password dulu:");
+        if (pass === "kelempiauchao") {
+          alert("Okay boleh! Tapi jangan kongsi password ni ya 😘");
+          inspectUnlocked = true;
+        } else {
+          alert("Salah password. Tak boleh inspect!");
+        }
+      }
+    });
+
+  </script>
+</head>
+<body>
+  <div class="diary-wrapper">
+   <div class="navigation">
+   <button id="toggleTheme" class="theme-toggle">Dark Mode</button>
+   </div>
+  <h1>FORM 2 - BAHAGIAN 11</h1>
+    <div class="content">
+      Aku ada lah sikit trust issue dengan kau, walaupun kau masih simpan rahsiah terbesar aku. Aku overthinking, y'know? I always 
+      <span class="glow-highlight">'Betul ke pipi nak kawan dengan aku? Macam nak tak nak je dia ni.'</span> 
+      <span class="glow-highlight">'Takut dia terasa lah'</span> 
+      <span class="glow-highlight">'Dia sengaja ke apa ni'.</span> 
+      I hate the way I overthinking. I hate that I have trust issue on you. I always try to tell myself to trust you. Always try to tell myself you love me as your friend. Always try to tell myself you want to be my friend. But it always fails. Fails because the trauma my ex bsf gave me. I still can't move on from that friendship. She fixed my trust issue but she made them come back to me. The moments when she congrats me, made sure I weren't being left out... Oh, how much I missed it...
+    </div>
+
+  <div class="navigation">
+    <a href="PIPI.html">← KEMBALI KE SENARAI PILIHAN</a>
+    <a href="form2-bahagian10.html">← BAHAGIAN SEBELUMNYA</a>
+    <a href="form2-bahagian12.html">BAHAGIAN SETERUSNYA →</a>
+   </div>
+   </div> 
+  <div class="last-updated" id="lastUpdateMessage"></div>
+</body>
+</html>
